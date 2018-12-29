@@ -1,0 +1,45 @@
+{
+  "name": "jwebswing-angularjs",
+  "authors": [
+    "Marc Magon <marc.magon@gmail.com>"
+  ],
+  "description": "JWebMP Angular JS Web Library Packages Configuration",
+  "main": "",
+  "keywords": [
+    "JWebSwing",
+    "Java",
+    "WebFramework",
+    "RAD",
+    "Development",
+    "IDE",
+    "Develop",
+    "AngularJS"
+  ],
+  "license": "MIT",
+  "homepage": "http://www.armineasy.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-messages": "^1.6.8"
+  },
+  "resolutions": {
+    "jquery": ">=1.3.2"
+  },
+  "ignoredDependencies": [
+    "jquery-ui",
+    "jquery",
+    "font-awesome",
+    "holderjs",
+    "metisMenu",
+    "cldrjs",
+    "bootstrap-social",
+    "flot.tooltip"
+  ]
+}
