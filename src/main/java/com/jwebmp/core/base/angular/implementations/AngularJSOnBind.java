@@ -10,7 +10,7 @@ import com.jwebmp.core.databind.IOnDataBind;
 import javax.validation.constraints.NotNull;
 
 public class AngularJSOnBind
-		implements IOnDataBind
+		implements IOnDataBind<AngularJSOnBind>
 {
 	@Override
 	public void onBind(@NotNull ComponentDataBindingBase component, String bindingValue)
