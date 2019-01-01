@@ -22,7 +22,6 @@ import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.core.events.deactivate.DeactivateAdapter;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.core.utilities.StaticStrings;
-import com.jwebmp.logger.LogFactory;
 
 import javax.validation.constraints.NotNull;
 
@@ -39,13 +38,6 @@ public abstract class DeactivateEvent<J extends DeactivateEvent<J>>
 		extends DeactivateAdapter<J>
 		implements GlobalEvents
 {
-
-	/**
-	 * Logger for the Component
-	 */
-	private static final java.util.logging.Logger LOG = LogFactory.getInstance()
-	                                                              .getLogger("DeactivateEvent");
-
 	private DeactivateDirective directive;
 
 	/**

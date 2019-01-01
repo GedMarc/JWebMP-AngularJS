@@ -21,7 +21,6 @@ import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.core.events.select.SelectAdapter;
 import com.jwebmp.core.utilities.StaticStrings;
-import com.jwebmp.logger.LogFactory;
 
 import javax.validation.constraints.NotNull;
 
@@ -34,13 +33,6 @@ public abstract class SelectEvent<J extends SelectEvent<J>>
 		extends SelectAdapter<J>
 		implements GlobalEvents
 {
-
-	/**
-	 * Logger for the Component
-	 */
-	private static final java.util.logging.Logger LOG = LogFactory.getInstance()
-	                                                              .getLogger("SelectEvent");
-
 	private SelectDirective directive;
 
 	/**

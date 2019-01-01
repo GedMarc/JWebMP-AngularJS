@@ -22,7 +22,6 @@ import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.core.events.activate.ActivateAdapter;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.core.utilities.StaticStrings;
-import com.jwebmp.logger.LogFactory;
 
 import javax.validation.constraints.NotNull;
 
@@ -39,13 +38,6 @@ public abstract class ActivateEvent<J extends ActivateEvent<J>>
 		extends ActivateAdapter<J>
 		implements GlobalEvents
 {
-
-	/**
-	 * Logger for the Component
-	 */
-	private static final java.util.logging.Logger LOG = LogFactory.getInstance()
-	                                                              .getLogger("ActivateEvent");
-
 	/**
 	 * The directive for this adapter
 	 */

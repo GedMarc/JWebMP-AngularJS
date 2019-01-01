@@ -21,7 +21,6 @@ import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.core.events.sort.SortAdapter;
 import com.jwebmp.core.utilities.StaticStrings;
-import com.jwebmp.logger.LogFactory;
 
 import javax.validation.constraints.NotNull;
 
@@ -34,16 +33,6 @@ public abstract class SortEvent<J extends SortEvent<J>>
 		extends SortAdapter<J>
 		implements GlobalEvents
 {
-
-	/**
-	 * Logger for the Component
-	 */
-	private static final java.util.logging.Logger log = LogFactory.getInstance()
-	                                                              .getLogger("SortEvent");
-	/**
-	 * Field serialVersionUID
-	 */
-
 	/**
 	 * Field directive
 	 */

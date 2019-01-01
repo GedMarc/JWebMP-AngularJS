@@ -21,7 +21,6 @@ import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.core.events.unselected.UnselectedAdapter;
 import com.jwebmp.core.utilities.StaticStrings;
-import com.jwebmp.logger.LogFactory;
 
 import javax.validation.constraints.NotNull;
 
@@ -34,13 +33,6 @@ public abstract class UnselectedEvent<J extends UnselectedEvent<J>>
 		extends UnselectedAdapter<J>
 		implements GlobalEvents
 {
-
-	/**
-	 * Logger for the Component
-	 */
-	private static final java.util.logging.Logger LOG = LogFactory.getInstance()
-	                                                              .getLogger("UnselectedEvent");
-
 	private UnselectedDirective directive;
 
 	/**

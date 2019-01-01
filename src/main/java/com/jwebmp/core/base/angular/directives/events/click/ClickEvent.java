@@ -74,7 +74,7 @@ public abstract class ClickEvent<J extends ClickEvent<J>>
 			else if (!"jwCntrl.jw.isLoading".equals(getComponent().getAttribute(AngularAttributes.ngDisabled)))
 			{
 				String disabledOn = "jwCntrl.jw.isLoading ";
-				if (!"".equals(getComponent().getAttribute(AngularAttributes.ngDisabled)) && !(getComponent().getAttribute(AngularAttributes.ngDisabled) == null))
+				if (!"".equals(getComponent().getAttribute(AngularAttributes.ngDisabled)) && getComponent().getAttribute(AngularAttributes.ngDisabled) != null)
 				{
 					disabledOn += " || " + getComponent().getAttribute(AngularAttributes.ngDisabled);
 				}
