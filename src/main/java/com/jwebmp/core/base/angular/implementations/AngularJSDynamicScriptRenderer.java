@@ -11,20 +11,20 @@ public class AngularJSDynamicScriptRenderer
 		implements IDynamicRenderingServlet<AngularJSDynamicScriptRenderer>
 {
 	@Override
-	public String getScriptLocation()
+	public String getScriptLocation(Page<?> page)
 	{
 		return StaticStrings.ANGULAR_SCRIPT_LOCATION
 				       .replaceAll(StaticStrings.STRING_FORWARD_SLASH, StaticStrings.STRING_EMPTY);
 	}
 
 	@Override
-	public Script renderScript()
+	public Script renderScript(Page<?> page)
 	{
 		if (!AngularPageConfigurator.isRequired())
 		{
 			return null;
 		}
-		return getAngularScript();
+		return getAngularScript(page);
 	}
 
 	/**
@@ -32,9 +32,8 @@ public class AngularJSDynamicScriptRenderer
 	 *
 	 * @return Script
 	 */
-	private Script getAngularScript()
+	private Script getAngularScript(Page<?> page)
 	{
-		Page page = GuiceContext.get(Page.class);
 		StringBuilder jsAngular = GuiceContext.get(AngularPageConfigurator.class)
 		                                      .renderAngularJavascript(page);
 		if (!jsAngular.toString()
