@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.mouseout;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.mouseout.MouseOutEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.mouseout.MouseOutAdapter;
@@ -35,7 +34,7 @@ public class MouseOutAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		MouseOutAdapter aa = new MouseOutEvent(test)
+		MouseOutAdapter aa = new MouseOutAdapter(test)
 		{
 			@Override
 			public void onMouseOut(AjaxCall call, AjaxResponse response)
@@ -56,7 +55,7 @@ public class MouseOutAdapterTest
 		Div test = new DivSimple<>();
 		test.setID("test");
 
-		MouseOutAdapter aa = new MouseOutEvent(test)
+		MouseOutAdapter aa = new MouseOutAdapter(test)
 		{
 			@Override
 			public void onMouseOut(AjaxCall call, AjaxResponse response)

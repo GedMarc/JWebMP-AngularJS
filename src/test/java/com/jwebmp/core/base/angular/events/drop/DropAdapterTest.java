@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.drop;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.drop.DropEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.drop.DropAdapter;
@@ -35,7 +34,7 @@ public class DropAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		DropAdapter aa = new DropEvent(test)
+		DropAdapter aa = new DropAdapter(test)
 		{
 			@Override
 			public void onDrop(AjaxCall call, AjaxResponse response)

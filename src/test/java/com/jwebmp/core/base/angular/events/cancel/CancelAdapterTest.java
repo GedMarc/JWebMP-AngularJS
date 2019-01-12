@@ -2,7 +2,6 @@ package com.jwebmp.core.base.angular.events.cancel;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.cancel.CancelEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.cancel.CancelAdapter;
@@ -18,7 +17,7 @@ public class CancelAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		CancelAdapter aa = new CancelEvent(test)
+		CancelAdapter aa = new CancelAdapter(test)
 		{
 			@Override
 			public void onCancel(AjaxCall call, AjaxResponse response)

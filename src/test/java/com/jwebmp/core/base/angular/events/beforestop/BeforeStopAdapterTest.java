@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.beforestop;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.beforestop.BeforeStopEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.beforestop.BeforeStopAdapter;
@@ -35,7 +34,7 @@ public class BeforeStopAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		BeforeStopAdapter aa = new BeforeStopEvent(test)
+		BeforeStopAdapter aa = new BeforeStopAdapter(test)
 		{
 			@Override
 			public void onBeforeStop(AjaxCall call, AjaxResponse response)

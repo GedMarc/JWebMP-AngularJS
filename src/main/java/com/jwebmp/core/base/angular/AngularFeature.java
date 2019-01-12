@@ -193,17 +193,30 @@ public class AngularFeature
 	public void configureTemplateVariables()
 	{
 		if (FileTemplates.getTemplateVariables()
-		                 .get("PACE_TRACK_START") == null)
+		                 .get("BEFORE_AJAX_CALL;") == null)
 		{
 			FileTemplates.getTemplateVariables()
-			             .put("PACE_TRACK_START;", new StringBuilder(StaticStrings.STRING_EMPTY));
+			             .put("BEFORE_AJAX_CALL;", new StringBuilder(StaticStrings.STRING_EMPTY));
 		}
 		if (FileTemplates.getTemplateVariables()
-		                 .get("PACE_TRACK_END") == null)
+		                 .get("AFTER_AJAX_CALL;") == null)
 		{
 			FileTemplates.getTemplateVariables()
-			             .put("PACE_TRACK_END;", new StringBuilder(StaticStrings.STRING_EMPTY));
+			             .put("AFTER_AJAX_CALL;", new StringBuilder(StaticStrings.STRING_EMPTY));
 		}
+		if (FileTemplates.getTemplateVariables()
+		                 .get("BEFORE_INIT_CALL;") == null)
+		{
+			FileTemplates.getTemplateVariables()
+			             .put("BEFORE_INIT_CALL;", new StringBuilder(StaticStrings.STRING_EMPTY));
+		}
+		if (FileTemplates.getTemplateVariables()
+		                 .get("AFTER_INIT_CALL;") == null)
+		{
+			FileTemplates.getTemplateVariables()
+			             .put("AFTER_INIT_CALL;", new StringBuilder(StaticStrings.STRING_EMPTY));
+		}
+
 		FileTemplates.getTemplateVariables()
 		             .put("JW_APP_NAME", new StringBuilder(AngularFeature.getAppName()));
 		FileTemplates.getTemplateVariables()

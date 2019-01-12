@@ -2,7 +2,6 @@ package com.jwebmp.core.base.angular.events.buttonclick;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.buttonclick.ButtonClickEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.buttonclick.ButtonClickAdapter;
@@ -18,7 +17,7 @@ public class ButtonClickAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		ButtonClickAdapter aa = new ButtonClickEvent(test)
+		ButtonClickAdapter aa = new ButtonClickAdapter(test)
 		{
 			@Override
 			public void onButtonClick(AjaxCall call, AjaxResponse response)

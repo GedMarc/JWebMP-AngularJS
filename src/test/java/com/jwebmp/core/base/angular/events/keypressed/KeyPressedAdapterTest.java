@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.keypressed;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.keypressed.KeyPressedEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.keypressed.KeyPressedAdapter;
@@ -35,7 +34,7 @@ public class KeyPressedAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		KeyPressedAdapter aa = new KeyPressedEvent(test)
+		KeyPressedAdapter aa = new KeyPressedAdapter(test)
 		{
 			@Override
 			public void onKeyPressed(AjaxCall call, AjaxResponse response)
@@ -56,7 +55,7 @@ public class KeyPressedAdapterTest
 		Div test = new DivSimple<>();
 		test.setID("test");
 
-		KeyPressedAdapter aa = new KeyPressedEvent(test)
+		KeyPressedAdapter aa = new KeyPressedAdapter(test)
 		{
 			@Override
 			public void onKeyPressed(AjaxCall call, AjaxResponse response)

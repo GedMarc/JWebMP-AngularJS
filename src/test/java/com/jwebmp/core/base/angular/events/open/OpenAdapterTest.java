@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.open;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.open.OpenEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.open.OpenAdapter;
@@ -35,7 +34,7 @@ public class OpenAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		OpenAdapter aa = new OpenEvent(test)
+		OpenAdapter aa = new OpenAdapter(test)
 		{
 			@Override
 			public void onOpen(AjaxCall call, AjaxResponse response)
@@ -56,7 +55,7 @@ public class OpenAdapterTest
 		Div test = new DivSimple<>();
 		test.setID("test");
 
-		OpenAdapter aa = new OpenEvent(test)
+		OpenAdapter aa = new OpenAdapter(test)
 		{
 			@Override
 			public void onOpen(AjaxCall call, AjaxResponse response)

@@ -2,7 +2,6 @@ package com.jwebmp.core.base.angular.events.checked;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.checked.CheckedEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.checked.CheckedAdapter;
@@ -18,7 +17,7 @@ public class CheckedAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		CheckedAdapter aa = new CheckedEvent(test)
+		CheckedAdapter aa = new CheckedAdapter(test)
 		{
 			@Override
 			public void onChecked(AjaxCall call, AjaxResponse response)
@@ -39,7 +38,7 @@ public class CheckedAdapterTest
 		Div test = new DivSimple<>();
 		test.setID("test");
 
-		CheckedAdapter aa = new CheckedEvent(test)
+		CheckedAdapter aa = new CheckedAdapter(test)
 		{
 			@Override
 			public void onChecked(AjaxCall call, AjaxResponse response)

@@ -2,7 +2,6 @@ package com.jwebmp.core.base.angular.events.keydown;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.keydown.KeyDownEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.keydown.KeyDownAdapter;
@@ -18,7 +17,7 @@ public class KeyDownAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		KeyDownAdapter aa = new KeyDownEvent(test)
+		KeyDownAdapter aa = new KeyDownAdapter(test)
 		{
 			@Override
 			public void onKeyDown(AjaxCall call, AjaxResponse response)
@@ -39,7 +38,7 @@ public class KeyDownAdapterTest
 		Div test = new DivSimple<>();
 		test.setID("test");
 
-		KeyDownAdapter aa = new KeyDownEvent(test)
+		KeyDownAdapter aa = new KeyDownAdapter(test)
 		{
 			@Override
 			public void onKeyDown(AjaxCall call, AjaxResponse response)

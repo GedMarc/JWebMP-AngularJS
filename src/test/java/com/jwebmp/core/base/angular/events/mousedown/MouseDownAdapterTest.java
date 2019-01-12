@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.mousedown;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.mousedown.MouseDownEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.mousedown.MouseDownAdapter;
@@ -35,7 +34,7 @@ public class MouseDownAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		MouseDownAdapter aa = new MouseDownEvent(test)
+		MouseDownAdapter aa = new MouseDownAdapter(test)
 		{
 			@Override
 			public void onMouseDown(AjaxCall call, AjaxResponse response)
@@ -56,7 +55,7 @@ public class MouseDownAdapterTest
 		Div test = new DivSimple<>();
 		test.setID("test");
 
-		MouseDownAdapter aa = new MouseDownEvent(test)
+		MouseDownAdapter aa = new MouseDownAdapter(test)
 		{
 			@Override
 			public void onMouseDown(AjaxCall call, AjaxResponse response)

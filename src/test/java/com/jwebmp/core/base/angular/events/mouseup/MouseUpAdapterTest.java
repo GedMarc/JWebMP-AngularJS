@@ -2,7 +2,6 @@ package com.jwebmp.core.base.angular.events.mouseup;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.mouseup.MouseUpEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.mouseup.MouseUpAdapter;
@@ -18,7 +17,7 @@ public class MouseUpAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		MouseUpAdapter aa = new MouseUpEvent(test)
+		MouseUpAdapter aa = new MouseUpAdapter(test)
 		{
 			@Override
 			public void onMouseUp(AjaxCall call, AjaxResponse response)
@@ -39,7 +38,7 @@ public class MouseUpAdapterTest
 		Div test = new DivSimple<>();
 		test.setID("test");
 
-		MouseUpAdapter aa = new MouseUpEvent(test)
+		MouseUpAdapter aa = new MouseUpAdapter(test)
 		{
 			@Override
 			public void onMouseUp(AjaxCall call, AjaxResponse response)

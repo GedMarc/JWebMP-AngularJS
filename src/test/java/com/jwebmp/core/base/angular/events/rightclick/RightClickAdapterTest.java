@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.rightclick;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.rightclick.RightClickEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.rightclick.RightClickAdapter;
@@ -35,7 +34,7 @@ public class RightClickAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		RightClickAdapter aa = new RightClickEvent(test)
+		RightClickAdapter aa = new RightClickAdapter(test)
 		{
 			@Override
 			public void onRightClick(AjaxCall call, AjaxResponse response)

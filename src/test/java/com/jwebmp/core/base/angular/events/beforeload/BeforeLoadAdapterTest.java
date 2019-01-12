@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.beforeload;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.beforeload.BeforeLoadEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.beforeload.BeforeLoadAdapter;
@@ -35,7 +34,7 @@ public class BeforeLoadAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		BeforeLoadAdapter aa = new BeforeLoadEvent(test)
+		BeforeLoadAdapter aa = new BeforeLoadAdapter(test)
 		{
 			@Override
 			public void onBeforeLoad(AjaxCall call, AjaxResponse response)

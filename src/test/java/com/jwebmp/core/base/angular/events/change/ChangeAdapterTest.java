@@ -2,7 +2,6 @@ package com.jwebmp.core.base.angular.events.change;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.change.ChangeEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.change.ChangeAdapter;
@@ -18,7 +17,7 @@ public class ChangeAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		ChangeAdapter aa = new ChangeEvent(test)
+		ChangeAdapter aa = new ChangeAdapter(test)
 		{
 			@Override
 			public void onChange(AjaxCall call, AjaxResponse response)
@@ -40,7 +39,7 @@ public class ChangeAdapterTest
 		Div test = new DivSimple<>();
 		test.setID("test");
 
-		ChangeAdapter aa = new ChangeEvent(test)
+		ChangeAdapter aa = new ChangeAdapter(test)
 		{
 			@Override
 			public void onChange(AjaxCall call, AjaxResponse response)

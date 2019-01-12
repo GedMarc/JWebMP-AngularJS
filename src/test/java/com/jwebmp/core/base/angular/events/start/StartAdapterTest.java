@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.start;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.start.StartEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.start.StartAdapter;
@@ -35,7 +34,7 @@ public class StartAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		StartAdapter aa = new StartEvent(test)
+		StartAdapter aa = new StartAdapter(test)
 		{
 			@Override
 			public void onStart(AjaxCall call, AjaxResponse response)

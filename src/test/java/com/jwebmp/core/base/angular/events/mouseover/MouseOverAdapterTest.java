@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.mouseover;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.mouseover.MouseOverEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.mouseover.MouseOverAdapter;
@@ -35,7 +34,7 @@ public class MouseOverAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		MouseOverAdapter aa = new MouseOverEvent(test)
+		MouseOverAdapter aa = new MouseOverAdapter(test)
 		{
 			@Override
 			public void onMouseOver(AjaxCall call, AjaxResponse response)
@@ -56,7 +55,7 @@ public class MouseOverAdapterTest
 		Div test = new DivSimple<>();
 		test.setID("test");
 
-		MouseOverAdapter aa = new MouseOverEvent(test)
+		MouseOverAdapter aa = new MouseOverAdapter(test)
 		{
 			@Override
 			public void onMouseOver(AjaxCall call, AjaxResponse response)

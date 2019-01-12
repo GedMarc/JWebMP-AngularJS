@@ -2,7 +2,6 @@ package com.jwebmp.core.base.angular.events.beforeactivate;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.beforeactivate.BeforeActivateEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.beforeactivate.BeforeActivateAdapter;
@@ -18,7 +17,7 @@ public class BeforeActivateAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		BeforeActivateAdapter aa = new BeforeActivateEvent(test)
+		BeforeActivateAdapter aa = new BeforeActivateAdapter(test)
 		{
 			@Override
 			public void onBeforeActivate(AjaxCall call, AjaxResponse response)

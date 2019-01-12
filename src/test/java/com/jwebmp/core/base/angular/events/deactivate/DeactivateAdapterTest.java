@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.deactivate;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.deactivate.DeactivateEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.deactivate.DeactivateAdapter;
@@ -35,7 +34,7 @@ public class DeactivateAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		DeactivateAdapter aa = new DeactivateEvent(test)
+		DeactivateAdapter aa = new DeactivateAdapter(test)
 		{
 			@Override
 			public void onDeactivate(AjaxCall call, AjaxResponse response)

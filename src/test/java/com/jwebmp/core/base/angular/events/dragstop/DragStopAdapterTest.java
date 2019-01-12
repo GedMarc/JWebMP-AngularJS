@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.dragstop;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.dragstop.DragStopEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.dragstop.DragStopAdapter;
@@ -35,7 +34,7 @@ public class DragStopAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		DragStopAdapter aa = new DragStopEvent(test)
+		DragStopAdapter aa = new DragStopAdapter(test)
 		{
 			@Override
 			public void onDragStop(AjaxCall call, AjaxResponse response)

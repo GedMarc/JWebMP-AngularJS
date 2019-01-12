@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.resizestop;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.resizestop.ResizeStopEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.resizestop.ResizeStopAdapter;
@@ -35,7 +34,7 @@ public class ResizeStopAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		ResizeStopAdapter aa = new ResizeStopEvent(test)
+		ResizeStopAdapter aa = new ResizeStopAdapter(test)
 		{
 			@Override
 			public void onResizeStop(AjaxCall call, AjaxResponse response)

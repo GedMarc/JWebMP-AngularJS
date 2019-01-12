@@ -2,7 +2,6 @@ package com.jwebmp.core.base.angular.events.selected;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.selected.SelectedEvent;
 import com.jwebmp.core.base.html.Option;
 import com.jwebmp.core.events.selected.SelectedAdapter;
 import com.jwebmp.testing.BaseTest;
@@ -17,7 +16,7 @@ public class SelectedAdapterTest
 	{
 		Option test = new Option<>("optionValue");
 		test.setID("test");
-		SelectedAdapter aa = new SelectedEvent(test)
+		SelectedAdapter aa = new SelectedAdapter(test)
 		{
 			@Override
 			public void onSelected(AjaxCall call, AjaxResponse response)
@@ -38,7 +37,7 @@ public class SelectedAdapterTest
 		Option test = new Option<>("optionValue");
 		test.setID("test");
 
-		SelectedAdapter aa = new SelectedEvent(test)
+		SelectedAdapter aa = new SelectedAdapter(test)
 		{
 			@Override
 			public void onSelected(AjaxCall call, AjaxResponse response)

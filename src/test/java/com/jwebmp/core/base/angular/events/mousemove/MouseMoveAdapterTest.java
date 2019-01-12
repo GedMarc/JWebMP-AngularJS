@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.mousemove;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.mousemove.MouseMoveEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.mousemove.MouseMoveAdapter;
@@ -35,7 +34,7 @@ public class MouseMoveAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		MouseMoveAdapter aa = new MouseMoveEvent(test)
+		MouseMoveAdapter aa = new MouseMoveAdapter(test)
 		{
 			@Override
 			public void onMouseMove(AjaxCall call, AjaxResponse response)
@@ -56,7 +55,7 @@ public class MouseMoveAdapterTest
 		Div test = new DivSimple<>();
 		test.setID("test");
 
-		MouseMoveAdapter aa = new MouseMoveEvent(test)
+		MouseMoveAdapter aa = new MouseMoveAdapter(test)
 		{
 			@Override
 			public void onMouseMove(AjaxCall call, AjaxResponse response)

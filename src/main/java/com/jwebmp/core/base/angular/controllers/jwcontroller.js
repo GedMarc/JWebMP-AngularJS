@@ -5,8 +5,7 @@ function getParametersObject() {
     try {
         var search = location.search.substring(1);
         return dataObject = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') + '"}');
-    }
-    catch (err) {
+    } catch (err) {
         return {};
     }
 }
@@ -45,7 +44,8 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
             console.warn("modernizr not enabled");
         }
 
-        PACE_TRACK_START;
+        BEFORE_INIT_CALL;
+        BEFORE_AJAX_CALL;
         $.ajax({
             type: "POST",
             url: 'jwad',
@@ -58,6 +58,8 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
             beforeSend: function (xhr) {
                 try {
                     if (window.Pace) {
+                        window.Pace.options.maxProgressPerFrame = 0.2;
+                        window.Pace.stop();
                         window.Pace.start();
                     }
                     jw.isLoading = true;
@@ -96,17 +98,20 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
                 try {
                     if (window.Pace) {
                         window.Pace.stop();
+                        $('body').removeClass('pace-running');
+                        $('body').removeClass('pace-done');
                     }
                 } catch (e) {
                 } finally {
                     jw.isLoading = false;
                     jw.angularLoading = false;
-                    $("#preloader").hide();
+                    $("#preloader").remove();
                     $(".splashscreen").hide();
                 }
             }
         });
-        PACE_TRACK_END;
+        AFTER_AJAX_CALL;
+        AFTER_INIT_CALL;
     };
 
     $scope._init();
@@ -118,11 +123,14 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
      *
      * @returns $.ajax
      */
+
     self.perform = function ($event, dataVariables, eventId, className) {
         jw.isLoading = true;
-        if (window.Pace)
+        if (window.Pace) {
+            window.Pace.options.maxProgressPerFrame = 0.2;
+            window.Pace.stop();
             window.Pace.start();
-
+        }
         var eventStuff = $scope.getEventObject($event);
         var element = $event == null ? 'body' : $event.currentTarget.id;
         var getdate = new Date();
@@ -155,8 +163,7 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
             }
         }
 
-
-        PACE_TRACK_START;
+        BEFORE_AJAX_CALL;
         $.ajax({
             type: "POST",
             url: "jwajax",
@@ -169,6 +176,8 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
             beforeSend: function (xhr) {
                 try {
                     if (window.Pace) {
+                        window.Pace.options.maxProgressPerFrame = 0.2;
+                        window.Pace.stop();
                         window.Pace.start();
                         jw.isLoading = true;
                     }
@@ -189,6 +198,8 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
                     jw.isLoading = false;
                     if (window.Pace) {
                         window.Pace.stop();
+                        $('body').removeClass('pace-running');
+                        $('body').removeClass('pace-done');
                     }
                 } catch (e) {
                 }
@@ -212,6 +223,8 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
                     jw.isLoading = false;
                     if (window.Pace) {
                         window.Pace.stop();
+                        $('body').removeClass('pace-running');
+                        $('body').removeClass('pace-done');
                     }
                 } catch (e) {
                 }
@@ -220,19 +233,22 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
                 try {
                     if (window.Pace) {
                         window.Pace.stop();
+                        $('body').removeClass('pace-running');
+                        $('body').removeClass('pace-done');
                     }
                 } catch (e) {
                 } finally {
                     jw.isLoading = false;
                     jw.angularLoading = false;
-
                     $("#preloader").remove();
                     $(".splashscreen").hide();
                 }
             }
-        });
-        PACE_TRACK_END;
+        })
+        AFTER_AJAX_CALL;
     };
+
+    jw.perform = self.perform;
 
     /**
      * The event object that gets sent through
@@ -263,8 +279,7 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
             newEvent.data = $event.data;
             newEvent.target = $event.target.id;
             newEvent.which = $event.which;
-        }
-        else {
+        } else {
             newEvent.type = 'async';
             newEvent.componentID = 'body';
             newEvent.target = 'body';

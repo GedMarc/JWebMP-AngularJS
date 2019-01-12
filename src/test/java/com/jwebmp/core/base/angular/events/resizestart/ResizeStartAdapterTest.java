@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.resizestart;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.resizestart.ResizeStartEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.resizestart.ResizeStartAdapter;
@@ -35,7 +34,7 @@ public class ResizeStartAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		ResizeStartAdapter aa = new ResizeStartEvent(test)
+		ResizeStartAdapter aa = new ResizeStartAdapter(test)
 		{
 			@Override
 			public void onResizeStart(AjaxCall call, AjaxResponse response)

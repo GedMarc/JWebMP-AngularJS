@@ -2,7 +2,6 @@ package com.jwebmp.core.base.angular.events.select;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.select.SelectEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.select.SelectAdapter;
@@ -18,7 +17,7 @@ public class SelectAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		SelectAdapter aa = new SelectEvent(test)
+		SelectAdapter aa = new SelectAdapter(test)
 		{
 			@Override
 			public void onSelect(AjaxCall call, AjaxResponse response)

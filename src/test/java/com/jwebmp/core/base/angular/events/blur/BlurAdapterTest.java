@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.blur;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.blur.BlurEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.blur.BlurAdapter;
@@ -35,7 +34,7 @@ public class BlurAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		BlurAdapter aa = new BlurEvent(test)
+		BlurAdapter aa = new BlurAdapter(test)
 		{
 			@Override
 			public void onBlur(AjaxCall call, AjaxResponse response)

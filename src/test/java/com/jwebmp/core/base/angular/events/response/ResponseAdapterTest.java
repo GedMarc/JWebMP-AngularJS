@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.response;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.response.ResponseEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.response.ResponseAdapter;
@@ -35,7 +34,7 @@ public class ResponseAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		ResponseAdapter aa = new ResponseEvent(test)
+		ResponseAdapter aa = new ResponseAdapter(test)
 		{
 			@Override
 			public void onResponse(AjaxCall call, AjaxResponse response)

@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.complete;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.complete.CompleteEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.complete.CompleteAdapter;
@@ -35,7 +34,7 @@ public class CompleteAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		CompleteAdapter aa = new CompleteEvent(test)
+		CompleteAdapter aa = new CompleteAdapter(test)
 		{
 			@Override
 			public void onComplete(AjaxCall call, AjaxResponse response)

@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.sort;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.sort.SortEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.sort.SortAdapter;
@@ -35,7 +34,7 @@ public class SortAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		SortAdapter aa = new SortEvent(test)
+		SortAdapter aa = new SortAdapter(test)
 		{
 			@Override
 			public void onSort(AjaxCall call, AjaxResponse response)

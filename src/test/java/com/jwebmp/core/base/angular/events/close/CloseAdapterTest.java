@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.close;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.close.CloseEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.close.CloseAdapter;
@@ -35,7 +34,7 @@ public class CloseAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		CloseAdapter aa = new CloseEvent(test)
+		CloseAdapter aa = new CloseAdapter(test)
 		{
 			@Override
 			public void onClose(AjaxCall call, AjaxResponse response)

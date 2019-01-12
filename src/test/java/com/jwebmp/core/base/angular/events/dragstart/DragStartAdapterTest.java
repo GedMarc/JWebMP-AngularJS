@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.dragstart;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.dragstart.DragStartEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.dragstart.DragStartAdapter;
@@ -35,7 +34,7 @@ public class DragStartAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		DragStartAdapter aa = new DragStartEvent(test)
+		DragStartAdapter aa = new DragStartAdapter(test)
 		{
 			@Override
 			public void onDragStart(AjaxCall call, AjaxResponse response)

@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.load;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.load.LoadEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.load.LoadAdapter;
@@ -36,7 +35,7 @@ public class LoadAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		LoadAdapter aa = new LoadEvent(test)
+		LoadAdapter aa = new LoadAdapter(test)
 		{
 			@Override
 			public void onLoad(AjaxCall call, AjaxResponse response)

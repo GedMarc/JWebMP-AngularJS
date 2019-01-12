@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.update;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.update.UpdateEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.update.UpdateAdapter;
@@ -35,7 +34,7 @@ public class UpdateAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		UpdateAdapter aa = new UpdateEvent(test)
+		UpdateAdapter aa = new UpdateAdapter(test)
 		{
 			@Override
 			public void onUpdate(AjaxCall call, AjaxResponse response)

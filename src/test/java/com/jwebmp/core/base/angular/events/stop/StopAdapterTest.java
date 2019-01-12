@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.stop;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.stop.StopEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.stop.StopAdapter;
@@ -35,7 +34,7 @@ public class StopAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		StopAdapter aa = new StopEvent(test)
+		StopAdapter aa = new StopAdapter(test)
 		{
 			@Override
 			public void onStop(AjaxCall call, AjaxResponse response)

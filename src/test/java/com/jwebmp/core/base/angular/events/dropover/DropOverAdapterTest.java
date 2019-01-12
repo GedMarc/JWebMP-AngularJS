@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.dropover;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.dropover.DropOverEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.dropover.DropOverAdapter;
@@ -35,7 +34,7 @@ public class DropOverAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		DropOverAdapter aa = new DropOverEvent(test)
+		DropOverAdapter aa = new DropOverAdapter(test)
 		{
 			@Override
 			public void onDropOver(AjaxCall call, AjaxResponse response)

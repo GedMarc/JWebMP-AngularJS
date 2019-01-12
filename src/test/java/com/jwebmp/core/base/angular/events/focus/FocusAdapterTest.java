@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.focus;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.focus.FocusEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.focus.FocusAdapter;
@@ -35,7 +34,7 @@ public class FocusAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		FocusAdapter aa = new FocusEvent(test)
+		FocusAdapter aa = new FocusAdapter(test)
 		{
 			@Override
 			public void onFocus(AjaxCall call, AjaxResponse response)

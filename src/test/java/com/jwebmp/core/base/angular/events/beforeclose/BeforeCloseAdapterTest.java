@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.beforeclose;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.beforeclose.BeforeCloseEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.beforeclose.BeforeCloseAdapter;
@@ -35,7 +34,7 @@ public class BeforeCloseAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		BeforeCloseAdapter aa = new BeforeCloseEvent(test)
+		BeforeCloseAdapter aa = new BeforeCloseAdapter(test)
 		{
 			@Override
 			public void onBeforeClose(AjaxCall call, AjaxResponse response)

@@ -2,7 +2,6 @@ package com.jwebmp.core.base.angular.events.receive;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.receive.ReceiveEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.receive.ReceiveAdapter;
@@ -18,7 +17,7 @@ public class ReceiveAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		ReceiveAdapter aa = new ReceiveEvent(test)
+		ReceiveAdapter aa = new ReceiveAdapter(test)
 		{
 			@Override
 			public void onReceive(AjaxCall call, AjaxResponse response)

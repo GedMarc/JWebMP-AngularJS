@@ -18,7 +18,6 @@ package com.jwebmp.core.base.angular.events.click;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.click.ClickEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.click.ClickAdapter;
@@ -42,7 +41,7 @@ public class ClickAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		ClickAdapter aa = new ClickEvent(test)
+		ClickAdapter aa = new ClickAdapter(test)
 		{
 			@Override
 			public void onClick(AjaxCall call, AjaxResponse response)

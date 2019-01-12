@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.search;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.search.SearchEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.search.SearchAdapter;
@@ -35,7 +34,7 @@ public class SearchAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		SearchAdapter aa = new SearchEvent(test)
+		SearchAdapter aa = new SearchAdapter(test)
 		{
 			@Override
 			public void onSearch(AjaxCall call, AjaxResponse response)

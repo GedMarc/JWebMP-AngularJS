@@ -20,10 +20,10 @@ package com.jwebmp.core.base.angular;
 import com.jwebmp.core.Component;
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.change.ChangeEvent;
+import com.jwebmp.core.events.change.ChangeAdapter;
 
 public abstract class AngularChangeEvent<J extends AngularChangeEvent<J>>
-		extends ChangeEvent<J>
+		extends ChangeAdapter<J>
 {
 	public AngularChangeEvent()
 	{

@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.selecting;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.selecting.SelectingEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.selecting.SelectingAdapter;
@@ -35,7 +34,7 @@ public class SelectingAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		SelectingAdapter aa = new SelectingEvent(test)
+		SelectingAdapter aa = new SelectingAdapter(test)
 		{
 			@Override
 			public void onSelecting(AjaxCall call, AjaxResponse response)

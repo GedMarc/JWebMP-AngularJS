@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.remove;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.remove.RemoveEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.remove.RemoveAdapter;
@@ -35,7 +34,7 @@ public class RemoveAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		RemoveAdapter aa = new RemoveEvent(test)
+		RemoveAdapter aa = new RemoveAdapter(test)
 		{
 			@Override
 			public void onRemove(AjaxCall call, AjaxResponse response)

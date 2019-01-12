@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.keyup;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.keyup.KeyUpEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.keyup.KeyUpAdapter;
@@ -35,7 +34,7 @@ public class KeyUpAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		KeyUpAdapter aa = new KeyUpEvent(test)
+		KeyUpAdapter aa = new KeyUpAdapter(test)
 		{
 			@Override
 			public void onKeyUp(AjaxCall call, AjaxResponse response)
@@ -57,7 +56,7 @@ public class KeyUpAdapterTest
 		Div test = new DivSimple<>();
 		test.setID("test");
 
-		KeyUpAdapter aa = new KeyUpEvent(test)
+		KeyUpAdapter aa = new KeyUpAdapter(test)
 		{
 			@Override
 			public void onKeyUp(AjaxCall call, AjaxResponse response)

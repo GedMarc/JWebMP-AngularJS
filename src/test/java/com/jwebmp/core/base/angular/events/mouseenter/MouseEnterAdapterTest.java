@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.mouseenter;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.mouseenter.MouseEnterEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.mouseenter.MouseEnterAdapter;
@@ -35,7 +34,7 @@ public class MouseEnterAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		MouseEnterAdapter aa = new MouseEnterEvent(test)
+		MouseEnterAdapter aa = new MouseEnterAdapter(test)
 		{
 			@Override
 			public void onMouseEnter(AjaxCall call, AjaxResponse response)
@@ -56,7 +55,7 @@ public class MouseEnterAdapterTest
 		Div test = new DivSimple<>();
 		test.setID("test");
 
-		MouseEnterAdapter aa = new MouseEnterEvent(test)
+		MouseEnterAdapter aa = new MouseEnterAdapter(test)
 		{
 			@Override
 			public void onMouseEnter(AjaxCall call, AjaxResponse response)

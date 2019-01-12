@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.activate;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.activate.ActivateEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.activate.ActivateAdapter;
@@ -35,7 +34,7 @@ public class ActivateAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		ActivateAdapter aa = new ActivateEvent(test)
+		ActivateAdapter aa = new ActivateAdapter(test)
 		{
 			@Override
 			public void onActivate(AjaxCall call, AjaxResponse response)

@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.create;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.create.CreateEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.create.CreateAdapter;
@@ -35,7 +34,7 @@ public class CreateAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		CreateAdapter aa = new CreateEvent(test)
+		CreateAdapter aa = new CreateAdapter(test)
 		{
 			@Override
 			public void onCreate(AjaxCall call, AjaxResponse response)

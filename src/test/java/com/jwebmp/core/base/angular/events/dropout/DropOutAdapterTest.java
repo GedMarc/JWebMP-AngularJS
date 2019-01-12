@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.dropout;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.dropout.DropOutEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.dropout.DropOutAdapter;
@@ -35,7 +34,7 @@ public class DropOutAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		DropOutAdapter aa = new DropOutEvent(test)
+		DropOutAdapter aa = new DropOutAdapter(test)
 		{
 			@Override
 			public void onDropOut(AjaxCall call, AjaxResponse response)

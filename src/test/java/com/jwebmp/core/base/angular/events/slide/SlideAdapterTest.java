@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.slide;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.slide.SlideEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.slide.SlideAdapter;
@@ -35,7 +34,7 @@ public class SlideAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		SlideAdapter aa = new SlideEvent(test)
+		SlideAdapter aa = new SlideAdapter(test)
 		{
 			@Override
 			public void onSlide(AjaxCall call, AjaxResponse response)

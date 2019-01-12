@@ -19,7 +19,6 @@ package com.jwebmp.core.base.angular.events.spin;
 
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.directives.events.spin.SpinEvent;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.events.spin.SpinAdapter;
@@ -35,7 +34,7 @@ public class SpinAdapterTest
 	{
 		Div test = new DivSimple<>();
 		test.setID("test");
-		SpinAdapter aa = new SpinEvent(test)
+		SpinAdapter aa = new SpinAdapter(test)
 		{
 			@Override
 			public void onSpin(AjaxCall call, AjaxResponse response)
