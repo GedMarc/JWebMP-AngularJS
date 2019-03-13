@@ -127,7 +127,7 @@ public class AngularChangeDto<J extends AngularChangeDto<J>>
 	{
 		try
 		{
-			return Optional.ofNullable(GuiceContext.getInstance(ObjectMapper.class)
+			return Optional.ofNullable(GuiceContext.get(ObjectMapper.class)
 			                                       .readValue(newValue.getBytes(), type));
 		}
 		catch (IOException e)

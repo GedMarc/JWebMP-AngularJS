@@ -84,14 +84,14 @@ public class AngularDataServlet
 		}
 		if (jb.length() > 0)
 		{
-			GuiceContext.getInstance(SessionStorageProperties.class)
+			GuiceContext.get(SessionStorageProperties.class)
 			            .setLocalStorage(initData.getLocalStorage());
-			getInstance(SessionStorageProperties.class).setSessionStorage(initData.getSessionStorage());
+			get(SessionStorageProperties.class).setSessionStorage(initData.getSessionStorage());
 			componentId = initData.getParameters()
 			                      .get("objectId");
 		}
 
-		AjaxCall ajaxCall = getInstance(AjaxCall.class);
+		AjaxCall ajaxCall = get(AjaxCall.class);
 		ajaxCall.setParameters(initData.getParameters());
 		ajaxCall.setComponentId(componentId);
 		ajaxCall.setDatetime(Date.from(ZonedDateTime.now()

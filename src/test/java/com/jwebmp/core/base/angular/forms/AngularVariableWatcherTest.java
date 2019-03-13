@@ -32,7 +32,7 @@ public class AngularVariableWatcherTest
 	@Test
 	public void test()
 	{
-		GuiceContext.getInstance(AngularPageConfigurator.class)
+		GuiceContext.get(AngularPageConfigurator.class)
 		            .getAngularWatchers()
 		            .add(
 				            new AngularClientVariableWatcher("watchVariable", "variable.name", AngularChangeEventClass.class)
