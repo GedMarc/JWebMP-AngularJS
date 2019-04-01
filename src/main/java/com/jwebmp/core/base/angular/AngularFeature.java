@@ -34,6 +34,7 @@ import com.jwebmp.logger.LogFactory;
 
 import javax.validation.constraints.NotNull;
 import java.util.*;
+import java.util.logging.Level;
 
 import static com.jwebmp.core.base.angular.implementations.AngularJSServicesBindings.*;
 
@@ -398,9 +399,15 @@ public class AngularFeature
 			                   if (item.enabled())
 			                   {
 				                   String function = item.renderFunction();
-				                   StringBuilder configurations = FileTemplates.compileTemplate(item.getReferenceName(), function);
-				                   configurations.append(StaticStrings.STRING_NEWLINE_TEXT + StaticStrings.STRING_TAB);
-				                   output.append(configurations);
+				                   try
+				                   {
+					                   StringBuilder configurations = FileTemplates.compileTemplate(item.getReferenceName(), function);
+					                   configurations.append(StaticStrings.STRING_NEWLINE_TEXT + StaticStrings.STRING_TAB);
+					                   output.append(configurations);
+				                   }catch(NullPointerException npe)
+				                   {
+					                   log.log(Level.FINE, "Unable to find template?", npe);
+				                   }
 			                   }
 		                   });
 	}
