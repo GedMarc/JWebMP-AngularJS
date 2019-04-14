@@ -3,12 +3,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.jwebmp</groupId>
-        <artifactId>jwebmp-builder</artifactId>
+        <groupId>com.jwebmp.plugins.angular</groupId>
+        <artifactId>jwebmp-plugins-angular-parent</artifactId>
         <version>0.0.0_0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>jwebmp-angularjs</artifactId>
+    <artifactId>jwebmp-plugins-angularjs</artifactId>
     <packaging>jar</packaging>
 
     <name>JWebMP Angular JS</name>
@@ -18,18 +18,14 @@
 
     <dependencies>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>com.jwebmp.core</groupId>
             <artifactId>jwebmp-core</artifactId>
-            <version>${project.version}</version>
-            <classifier>${jwebmp.runtime.classifier}</classifier>
         </dependency>
 
 
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>com.jwebmp.core</groupId>
             <artifactId>jwebmp-testlib</artifactId>
-            <version>${project.version}</version>
-            <classifier>${jwebmp.runtime.classifier}</classifier>
             <scope>test</scope>
         </dependency>
 
@@ -60,21 +56,18 @@
         </dependency>
 
         <dependency>
-            <groupId>com.jwebmp.jackson.core</groupId>
+            <groupId>com.jwebmp.jpms.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
-            <version>${project.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>com.jwebmp.guicedee.servlets</groupId>
             <artifactId>guiced-servlets</artifactId>
-            <version>${project.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>com.jwebmp.guicedee</groupId>
             <artifactId>guiced-injection</artifactId>
-            <version>${project.version}</version>
         </dependency>
     </dependencies>
     <scm>
