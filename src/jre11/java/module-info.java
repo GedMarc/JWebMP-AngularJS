@@ -13,6 +13,7 @@ module com.jwebmp.core.angularjs {
 	requires org.apache.commons.io;
 	requires org.apache.commons.lang3;
 	requires javax.servlet.api;
+	requires com.jwebmp.websockets;
 
 	exports com.jwebmp.core.base.angular;
 	exports com.jwebmp.core.base.angular.directives;
@@ -24,6 +25,8 @@ module com.jwebmp.core.angularjs {
 	exports com.jwebmp.core.base.angular.configurations;
 
 	exports com.jwebmp.core.base.angular.services;
+
+	provides com.jwebmp.core.base.angular.services.IAngularControllerScopeStatement with com.jwebmp.core.base.angular.implementations.WebSocketControllerStatement;
 
 	provides com.jwebmp.core.events.activate.IOnActivateService with com.jwebmp.core.base.angular.directives.events.activate.OnActivate;
 	provides com.jwebmp.core.events.beforeactivate.IOnBeforeActivateService with com.jwebmp.core.base.angular.directives.events.beforeactivate.OnBeforeActivate;
@@ -87,6 +90,8 @@ module com.jwebmp.core.angularjs {
 	uses com.jwebmp.core.base.angular.services.IAngularController;
 	uses com.jwebmp.core.base.angular.services.IAngularFactory;
 
+	uses com.jwebmp.websockets.services.IWebSocketAuthDataProvider;
+
 	provides com.jwebmp.core.base.angular.services.IAngularModule with com.jwebmp.core.base.angular.modules.AngularMessagesModule;
 	provides com.jwebmp.core.base.angular.services.IAngularController with com.jwebmp.core.base.angular.controllers.JWAngularController;
 
@@ -136,7 +141,7 @@ module com.jwebmp.core.angularjs {
 	provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.core.base.angular.AngularPageConfigurator;
 
 	opens com.jwebmp.core.base.angular.servlets to com.google.guice, com.fasterxml.jackson.databind;
-	opens com.jwebmp.core.base.angular.implementations to com.google.guice, com.fasterxml.jackson.databind;
+	opens com.jwebmp.core.base.angular.implementations to com.google.guice, com.fasterxml.jackson.databind,com.jwebmp.core;
 
 	opens com.jwebmp.core.base.angular.directives.events.response to com.google.guice, com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.core.base.angular.directives.events.activate to com.google.guice, com.fasterxml.jackson.databind, com.jwebmp.core;
