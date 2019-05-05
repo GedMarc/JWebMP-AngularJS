@@ -20,7 +20,6 @@ import com.jwebmp.core.FileTemplates;
 import com.jwebmp.core.base.angular.services.IAngularControllerScopeStatement;
 import com.jwebmp.guicedinjection.GuiceContext;
 import com.jwebmp.websockets.services.IWebSocketAuthDataProvider;
-import com.jwebmp.websockets.services.IWebSocketPreConfiguration;
 
 import java.util.ServiceLoader;
 
@@ -51,8 +50,7 @@ public class WebSocketControllerStatement
 			{
 				continue;
 			}
-			replaceable.append("jw.websocket.authdataproviders.push({name:'" + a.name() + "',");
-			replaceable.append("data:" + a.getJavascriptToPopulate() + "});");
+			replaceable.append(a.getJavascriptToPopulate());
 		}
 		template = new StringBuilder(template.toString()
 		                                     .replace("WS_AUTH_DATA_PROVIDER_LOAD;", replaceable.toString()));

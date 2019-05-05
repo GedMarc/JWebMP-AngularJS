@@ -4,8 +4,8 @@ jw.websocket.pollTime = 5000;
 jw.websocket.pollCount = 1;
 jw.websocket.queuedMessages = [];
 
-var wsAddy = jw.siteAddress.replace('http', 'ws');
-wsAddy = wsAddy.replace('https', 'ws');
+var wsAddy = jw.siteAddress.replace('https://', 'wss://');
+wsAddy = wsAddy.replace('http://', 'ws://');
 jw.websocket.address = wsAddy + 'jwebmpwssocket';
 
 jw.websocket.reconnect = function () {
@@ -34,16 +34,6 @@ jw.websocket.connection.onopen = function (e) {
         jw.websocket.timer.start();
 
     WS_AUTH_DATA_PROVIDER_LOAD;
-
-    var dataOut = {};
-
-    $.each(jw.websocket.authdataproviders, function (e) {
-        var name = this.name;
-        var data = this.data;
-        dataOut[name] = data;
-    });
-
-    jw.websocket.newMessage('Auth', dataOut);
 };
 
 jw.websocket.connection.onclose = function (e) {
@@ -69,6 +59,10 @@ jw.websocket.newMessage = function (type, data) {
     news.action = type;
     news.data = data;
     news.data.sessionid = jw.sessionid[0].replace('JSESSIONID=', '');
+    if(jw.localstorage && jw.localstorage.jwamsmk)
+    {
+        news.data.jwamsmk = jw.localstorage.jwamsmk;
+    }
     jw.websocket.queuedMessages.push(news);
 };
 
@@ -77,6 +71,10 @@ jw.websocket.newMessageNow = function (type, data) {
     news.action = type;
     news.data = data;
     news.data.sessionid = jw.sessionid[0].replace('JSESSIONID=', '');
+    if(jw.localstorage && jw.localstorage.jwamsmk)
+    {
+        news.data.jwamsmk = jw.localstorage.jwamsmk;
+    }
     jw.websocket.connection.send(JSON.stringify(news));
 };
 
