@@ -96,7 +96,11 @@ module com.jwebmp.core.angularjs {
 	provides com.jwebmp.core.base.angular.services.IAngularController with com.jwebmp.core.base.angular.controllers.JWAngularController;
 
 	provides com.jwebmp.guicedinjection.interfaces.IGuiceDefaultBinder with com.jwebmp.core.base.angular.implementations.AngularJSServicesBindings;
+
 	provides com.jwebmp.core.databind.IOnDataBindCloak with com.jwebmp.core.base.angular.implementations.AngularJSOnCloak;
+	provides com.jwebmp.core.databind.IOnDataBind with com.jwebmp.core.base.angular.implementations.AngularJSOnBind;
+
+
 	provides com.jwebmp.guicedservlets.services.IGuiceSiteBinder with com.jwebmp.core.base.angular.implementations.AngularJSSiteBinder;
 	provides com.jwebmp.core.services.IDynamicRenderingServlet with com.jwebmp.core.base.angular.implementations.AngularJSDynamicScriptRenderer;
 

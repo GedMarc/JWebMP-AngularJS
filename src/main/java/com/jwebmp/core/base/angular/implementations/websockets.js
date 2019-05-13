@@ -18,7 +18,7 @@ jw.websocket.reconnect();
 jw.websocket.connection.onmessage = function (e) {
     console.log(e.data);
     try {
-        jw.actions.processResponse(e.data, $scope, $parse, $timeout, $compile);
+        jw.actions.processResponse(JSON.parse(e.data), $scope, $parse, $timeout, $compile);
     } catch (e) {
         console.log('This doesn\'t look like a valid JSON: ' + e.data);
     }
