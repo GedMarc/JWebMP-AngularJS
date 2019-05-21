@@ -149,17 +149,20 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
 
         for (var i = 0; i < dataVariables.length; i++) {
             var arrItem = dataVariables[i];
+            var jsonVariable = {};
             try {
                 var data = $scope.$eval(arrItem);
                 if (data !== 'undefined') {
-                    var jsonVariable = {};
                     jsonVariable.variableName = arrItem;
                     jsonVariable.variableText = data;
                     jsonVariable.$jwid = data.$jwid;
                     article.variableData.push(jsonVariable);
                 }
             } catch (e) {
-                console.log("Unable to find variable " + arrItem);
+                jsonVariable.variableName = arrItem;
+                jsonVariable.variableText = null;
+                jsonVariable.$jwid = data.$jwid;
+                article.variableData.push(jsonVariable);
             }
         }
 
