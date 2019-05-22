@@ -161,7 +161,7 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
             } catch (e) {
                 jsonVariable.variableName = arrItem;
                 jsonVariable.variableText = null;
-                jsonVariable.$jwid = data.$jwid;
+                jsonVariable.$jwid = null;
                 article.variableData.push(jsonVariable);
             }
         }
