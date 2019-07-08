@@ -131,6 +131,13 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
             window.Pace.stop();
             window.Pace.start();
         }
+
+        if(jw.websocket !== undefined && jw.websocket)
+        {
+            if(!jw.websocket.connected)
+                jw.websocket.reconnect();
+        }
+
         var eventStuff = $scope.getEventObject($event);
         var element = $event == null ? 'body' : $event.currentTarget.id;
         var getdate = new Date();

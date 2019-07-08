@@ -13,8 +13,6 @@ jw.websocket.reconnect = function () {
     jw.websocket.connected = true;
 };
 
-jw.websocket.reconnect();
-
 jw.websocket.connection.onmessage = function (e) {
     console.log(e.data);
     try {
@@ -43,6 +41,7 @@ jw.websocket.connection.onclose = function (e) {
         console.log('on close - No Data Object');
 
     jw.websocket.connected = false;
+    jw.websocket.reconnectTimer.start();
 };
 
 jw.websocket.connection.onerror = function (e) {
