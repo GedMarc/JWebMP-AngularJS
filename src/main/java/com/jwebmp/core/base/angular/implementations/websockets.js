@@ -7,47 +7,50 @@ jw.websocket.queuedMessages = [];
 var wsAddy = jw.siteAddress.replace('https://', 'wss://');
 wsAddy = wsAddy.replace('http://', 'ws://');
 jw.websocket.address = wsAddy + 'jwebmpwssocket';
+jw.websocket.authdataproviders = [];
+
 
 jw.websocket.reconnect = function () {
     jw.websocket.connection = new WebSocket(jw.websocket.address);
     jw.websocket.connected = true;
+
+    jw.websocket.connection.onmessage = function (e) {
+        //console.log(e.data);
+        try {
+            jw.actions.processResponse(JSON.parse(e.data), $scope, $parse, $timeout, $compile);
+        } catch (e) {
+            console.log('This doesn\'t look like a valid JSON: ' + e.data);
+        }
+    };
+
+    jw.websocket.connection.onopen = function (e) {
+        console.log('Web Socket connected');
+        jw.websocket.reconnectTimer.stop();
+        jw.websocket.connected = true;
+        if (jw.websocket.timer)
+            jw.websocket.timer.start();
+
+        WS_AUTH_DATA_PROVIDER_LOAD;
+    };
+
+    jw.websocket.connection.onclose = function (e) {
+        if(e !== undefined)
+            console.log('on close ' + e);
+        else
+            console.log('on close - No Data Object');
+
+        jw.websocket.connected = false;
+        jw.websocket.reconnectTimer.start();
+    };
+
+    jw.websocket.connection.onerror = function (e) {
+        console.log('on error ' + e.data);
+        jw.websocket.connected = false;
+    };
+
 };
 
-jw.websocket.connection.onmessage = function (e) {
-    console.log(e.data);
-    try {
-        jw.actions.processResponse(JSON.parse(e.data), $scope, $parse, $timeout, $compile);
-    } catch (e) {
-        console.log('This doesn\'t look like a valid JSON: ' + e.data);
-    }
-};
-
-jw.websocket.authdataproviders = [];
-
-
-jw.websocket.connection.onopen = function (e) {
-    jw.websocket.reconnectTimer.stop();
-    jw.websocket.connected = true;
-    if (jw.websocket.timer)
-        jw.websocket.timer.start();
-
-    WS_AUTH_DATA_PROVIDER_LOAD;
-};
-
-jw.websocket.connection.onclose = function (e) {
-    if(e !== undefined)
-        console.log('on close ' + e.data);
-    else
-        console.log('on close - No Data Object');
-
-    jw.websocket.connected = false;
-    jw.websocket.reconnectTimer.start();
-};
-
-jw.websocket.connection.onerror = function (e) {
-    console.log('on error ' + e.data);
-    jw.websocket.connected = false;
-};
+jw.websocket.reconnect();
 
 jw.websocket.sendPlainTextMessage = function (a) {
     jw.websocket.newMessage('PlainText', {message: a})
