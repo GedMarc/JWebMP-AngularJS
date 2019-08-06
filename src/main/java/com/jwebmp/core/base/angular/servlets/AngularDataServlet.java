@@ -91,7 +91,7 @@ public class AngularDataServlet
 			                      .get("objectId");
 		}
 
-		AjaxCall ajaxCall = get(AjaxCall.class);
+		AjaxCall<?> ajaxCall = get(AjaxCall.class);
 		ajaxCall.setParameters(initData.getParameters());
 		ajaxCall.setComponentId(componentId);
 		ajaxCall.setDatetime(Date.from(ZonedDateTime.now()
