@@ -32,7 +32,7 @@ public class DropOverAdapterTest
 	@Test
 	public void test()
 	{
-		Div test = new DivSimple<>();
+		DivSimple<?> test = new DivSimple<>();
 		test.setID("test");
 		DropOverAdapter aa = new DropOverAdapter(test)
 		{
