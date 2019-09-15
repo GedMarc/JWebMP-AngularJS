@@ -100,6 +100,7 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
                         window.Pace.stop();
                         $('body').removeClass('pace-running');
                         $('body').removeClass('pace-done');
+                        $(".loader").hide();
                     }
                 } catch (e) {
                 } finally {
@@ -107,6 +108,7 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
                     jw.angularLoading = false;
                     $("#preloader").remove();
                     $(".splashscreen").hide();
+                    $(".loader").hide();
                 }
             }
         });
@@ -210,6 +212,7 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
                         window.Pace.stop();
                         $('body').removeClass('pace-running');
                         $('body').removeClass('pace-done');
+                        $(".loader").hide();
                     }
                 } catch (e) {
                 }
@@ -235,6 +238,7 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
                         window.Pace.stop();
                         $('body').removeClass('pace-running');
                         $('body').removeClass('pace-done');
+                        $(".loader").hide();
                     }
                 } catch (e) {
                 }
@@ -245,6 +249,7 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
                         window.Pace.stop();
                         $('body').removeClass('pace-running');
                         $('body').removeClass('pace-done');
+                        $(".loader").hide();
                     }
                 } catch (e) {
                 } finally {
@@ -252,6 +257,7 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
                     jw.angularLoading = false;
                     $("#preloader").remove();
                     $(".splashscreen").hide();
+                    $(".loader").hide();
                 }
             }
         })
