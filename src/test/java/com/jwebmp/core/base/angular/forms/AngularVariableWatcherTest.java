@@ -22,7 +22,7 @@ import com.jwebmp.core.base.ajax.AjaxResponse;
 import com.jwebmp.core.base.angular.AngularChangeEvent;
 import com.jwebmp.core.base.angular.AngularClientVariableWatcher;
 import com.jwebmp.core.base.angular.AngularPageConfigurator;
-import com.jwebmp.guicedinjection.GuiceContext;
+import com.guicedee.guicedinjection.GuiceContext;
 import com.jwebmp.testing.BaseTest;
 import org.junit.jupiter.api.Test;
 

@@ -19,7 +19,7 @@ package com.jwebmp.core.base.angular.configurations;
 import com.jwebmp.core.FileTemplates;
 import com.jwebmp.core.base.angular.services.IAngularConfigurationScopeStatement;
 import com.jwebmp.core.utilities.StaticStrings;
-import com.jwebmp.guicedinjection.GuiceContext;
+import com.guicedee.guicedinjection.GuiceContext;
 
 import javax.validation.constraints.NotNull;
 import java.util.ServiceLoader;

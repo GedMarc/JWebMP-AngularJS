@@ -18,7 +18,7 @@ package com.jwebmp.core.base.angular.implementations;
 
 import com.jwebmp.core.FileTemplates;
 import com.jwebmp.core.base.angular.services.IAngularControllerScopeStatement;
-import com.jwebmp.guicedinjection.GuiceContext;
+import com.guicedee.guicedinjection.GuiceContext;
 import com.jwebmp.websockets.services.IWebSocketAuthDataProvider;
 
 import java.util.ServiceLoader;

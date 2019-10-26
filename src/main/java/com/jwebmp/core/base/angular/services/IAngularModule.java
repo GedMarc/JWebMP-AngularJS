@@ -1,6 +1,6 @@
 package com.jwebmp.core.base.angular.services;
 
-import com.jwebmp.guicedinjection.interfaces.IServiceEnablement;
+import com.guicedee.guicedinjection.interfaces.IServiceEnablement;
 
 /**
  * Service Locator for Angular Directives

@@ -21,7 +21,7 @@ import com.jwebmp.core.Page;
 import com.jwebmp.core.base.angular.AngularPageConfigurator;
 import com.jwebmp.core.base.servlets.JWDefaultServlet;
 import com.jwebmp.core.utilities.StaticStrings;
-import com.jwebmp.guicedinjection.GuiceContext;
+import com.guicedee.guicedinjection.GuiceContext;
 import com.jwebmp.interception.services.AjaxCallIntercepter;
 
 import static com.jwebmp.interception.JWebMPInterceptionBinder.*;

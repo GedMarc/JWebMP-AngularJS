@@ -2,11 +2,11 @@ module com.jwebmp.core.angularjs {
 	requires com.jwebmp.core;
 	requires java.validation;
 	requires java.logging;
-	requires com.jwebmp.logmaster;
+	requires com.guicedee.logmaster;
 	requires com.google.guice;
-	requires com.jwebmp.guicedinjection;
+	requires com.guicedee.guicedinjection;
 	requires com.google.guice.extensions.servlet;
-	requires com.jwebmp.guicedservlets;
+	requires com.guicedee.guicedservlets;
 	requires com.fasterxml.jackson.annotation;
 	requires com.jwebmp.interception;
 	requires com.fasterxml.jackson.databind;
@@ -95,13 +95,13 @@ module com.jwebmp.core.angularjs {
 	provides com.jwebmp.core.base.angular.services.IAngularModule with com.jwebmp.core.base.angular.modules.AngularMessagesModule;
 	provides com.jwebmp.core.base.angular.services.IAngularController with com.jwebmp.core.base.angular.controllers.JWAngularController;
 
-	provides com.jwebmp.guicedinjection.interfaces.IGuiceDefaultBinder with com.jwebmp.core.base.angular.implementations.AngularJSServicesBindings;
+	provides com.guicedee.guicedinjection.interfaces.IGuiceDefaultBinder with com.jwebmp.core.base.angular.implementations.AngularJSServicesBindings;
 
 	provides com.jwebmp.core.databind.IOnDataBindCloak with com.jwebmp.core.base.angular.implementations.AngularJSOnCloak;
 	provides com.jwebmp.core.databind.IOnDataBind with com.jwebmp.core.base.angular.implementations.AngularJSOnBind;
 
 
-	provides com.jwebmp.guicedservlets.services.IGuiceSiteBinder with com.jwebmp.core.base.angular.implementations.AngularJSSiteBinder;
+	provides com.guicedee.guicedservlets.services.IGuiceSiteBinder with com.jwebmp.core.base.angular.implementations.AngularJSSiteBinder;
 	provides com.jwebmp.core.services.IDynamicRenderingServlet with com.jwebmp.core.base.angular.implementations.AngularJSDynamicScriptRenderer;
 
 	provides com.jwebmp.core.base.angular.services.IAngularDirective with com.jwebmp.core.base.angular.directives.events.activate.ActivateDirective,

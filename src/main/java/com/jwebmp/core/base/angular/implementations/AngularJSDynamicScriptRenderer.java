@@ -5,7 +5,7 @@ import com.jwebmp.core.base.angular.AngularPageConfigurator;
 import com.jwebmp.core.base.html.Script;
 import com.jwebmp.core.services.IDynamicRenderingServlet;
 import com.jwebmp.core.utilities.StaticStrings;
-import com.jwebmp.guicedinjection.GuiceContext;
+import com.guicedee.guicedinjection.GuiceContext;
 
 public class AngularJSDynamicScriptRenderer
 		implements IDynamicRenderingServlet<AngularJSDynamicScriptRenderer>
