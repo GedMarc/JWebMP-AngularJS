@@ -19,8 +19,8 @@ package com.jwebmp.core.base.angular.implementations;
 import com.jwebmp.core.base.angular.servlets.AngularDataServlet;
 import com.jwebmp.core.base.angular.servlets.AngularServlet;
 import com.jwebmp.core.utilities.StaticStrings;
-import com.jwebmp.guicedservlets.services.GuiceSiteInjectorModule;
-import com.jwebmp.guicedservlets.services.IGuiceSiteBinder;
+import com.guicedee.guicedservlets.services.GuiceSiteInjectorModule;
+import com.guicedee.guicedservlets.services.IGuiceSiteBinder;
 import com.guicedee.logger.LogFactory;
 
 import java.util.logging.Level;
