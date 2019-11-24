@@ -8,7 +8,7 @@ import com.jwebmp.testing.services.ITestInstanceInitializerService;
 import com.jwebmp.testing.services.ITestInstanceResetService;
 
 public class AngualarTestConfig
-		implements ITestInstanceResetService, ITestInstanceDestroyService, ITestInstanceInitializerService,
+		implements ITestInstanceResetService<AngualarTestConfig>, ITestInstanceDestroyService<AngualarTestConfig>, ITestInstanceInitializerService<AngualarTestConfig>,
 				           IDefaultService<AngualarTestConfig>
 {
 	@Override

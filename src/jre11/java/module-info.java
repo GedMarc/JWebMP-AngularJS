@@ -13,7 +13,7 @@ module com.jwebmp.core.angularjs {
 	requires org.apache.commons.io;
 	requires org.apache.commons.lang3;
 	requires javax.servlet.api;
-	requires com.jwebmp.websockets;
+	requires com.guicedee.guicedservlets.websockets;
 
 	exports com.jwebmp.core.base.angular;
 	exports com.jwebmp.core.base.angular.directives;
@@ -90,7 +90,7 @@ module com.jwebmp.core.angularjs {
 	uses com.jwebmp.core.base.angular.services.IAngularController;
 	uses com.jwebmp.core.base.angular.services.IAngularFactory;
 
-	uses com.jwebmp.websockets.services.IWebSocketAuthDataProvider;
+	uses com.guicedee.guicedservlets.websockets.services.IWebSocketAuthDataProvider;
 
 	provides com.jwebmp.core.base.angular.services.IAngularModule with com.jwebmp.core.base.angular.modules.AngularMessagesModule;
 	provides com.jwebmp.core.base.angular.services.IAngularController with com.jwebmp.core.base.angular.controllers.JWAngularController;

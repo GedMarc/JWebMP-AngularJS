@@ -6,7 +6,7 @@ jw.websocket.queuedMessages = [];
 
 var wsAddy = jw.siteAddress.replace('https://', 'wss://');
 wsAddy = wsAddy.replace('http://', 'ws://');
-jw.websocket.address = wsAddy + 'jwebmpwssocket';
+jw.websocket.address = wsAddy + 'wssocket';
 jw.websocket.authdataproviders = [];
 
 

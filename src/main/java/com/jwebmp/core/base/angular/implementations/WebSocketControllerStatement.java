@@ -19,9 +19,10 @@ package com.jwebmp.core.base.angular.implementations;
 import com.jwebmp.core.FileTemplates;
 import com.jwebmp.core.base.angular.services.IAngularControllerScopeStatement;
 import com.guicedee.guicedinjection.GuiceContext;
-import com.jwebmp.websockets.services.IWebSocketAuthDataProvider;
+import com.guicedee.guicedservlets.websockets.services.IWebSocketAuthDataProvider;
 
 import java.util.ServiceLoader;
+import java.util.Set;
 
 /**
  * Registers the moment angular module as available for the application
@@ -43,8 +44,9 @@ public class WebSocketControllerStatement
 	{
 		StringBuilder template = FileTemplates.getFileTemplate(WebSocketControllerStatement.class, "JW_SCOPE_INSERTIONS", "websockets.js");
 		StringBuilder replaceable = new StringBuilder();
-		for (IWebSocketAuthDataProvider a : GuiceContext.instance()
-		                                                .getLoader(IWebSocketAuthDataProvider.class, ServiceLoader.load(IWebSocketAuthDataProvider.class)))
+		Set<IWebSocketAuthDataProvider> setss = GuiceContext.instance()
+		                                                    .getLoader(IWebSocketAuthDataProvider.class, ServiceLoader.load(IWebSocketAuthDataProvider.class));
+		for (IWebSocketAuthDataProvider a : setss)
 		{
 			if (!a.enabled())
 			{
