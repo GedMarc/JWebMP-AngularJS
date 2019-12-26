@@ -20,7 +20,7 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
     var self = this;
     self.jw = window.jw;
     jw.env.controller = self; //give external access to the body controller
-
+    jw.env.scope = $scope;
     jw.angularLoading = true;
     /**
      * Loads up the initial variables into angular
