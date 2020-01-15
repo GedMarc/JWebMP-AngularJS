@@ -21,6 +21,8 @@ import com.jwebmp.core.base.angular.directives.AngularDirectiveBase;
 
 import javax.validation.constraints.NotNull;
 
+import static com.jwebmp.core.FileTemplates.*;
+
 /**
  * Maps to the angular function of right click
  *
@@ -50,7 +52,7 @@ public class BeforeActivateDirective
 	@NotNull
 	public String renderFunction()
 	{
-		return getFileTemplate("BeforeActivate", "BeforeActivate.min.js")
+		return getFileTemplate(getClass(),"BeforeActivate", "BeforeActivate.min.js")
 				       .toString();
 	}
 

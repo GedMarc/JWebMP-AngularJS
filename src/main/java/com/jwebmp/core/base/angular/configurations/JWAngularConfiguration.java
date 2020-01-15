@@ -33,7 +33,7 @@ import java.util.TreeSet;
  * @since 25 Jun 2016
  */
 public class JWAngularConfiguration
-		extends com.jwebmp.core.base.angular.AngularReferenceBase
+		extends com.jwebmp.core.base.angular.AngularReferenceBase<JWAngularConfiguration>
 {
 
 
@@ -50,6 +50,7 @@ public class JWAngularConfiguration
 	 *
 	 * @return
 	 */
+	@SuppressWarnings({"unchecked", "rawtypes"})
 	@Override
 	@NotNull
 	public String renderFunction()

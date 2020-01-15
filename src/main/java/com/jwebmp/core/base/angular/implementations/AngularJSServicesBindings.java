@@ -11,7 +11,7 @@ import com.guicedee.guicedinjection.interfaces.IGuiceDefaultBinder;
 import java.util.ServiceLoader;
 import java.util.Set;
 
-@SuppressWarnings({"Convert2Diamond", "MissingFieldJavaDoc"})
+@SuppressWarnings({"Convert2Diamond", "MissingFieldJavaDoc", "rawtypes", "unchecked"})
 public class AngularJSServicesBindings
 		implements IGuiceDefaultBinder<AngularJSServicesBindings, GuiceInjectorModule>
 {

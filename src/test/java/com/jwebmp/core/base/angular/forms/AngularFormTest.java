@@ -13,6 +13,7 @@ import com.jwebmp.core.events.click.ClickAdapter;
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import org.junit.jupiter.api.Test;
 
+@SuppressWarnings({"rawtypes", "unchecked"})
 class AngularFormTest
 {
 	@Test
