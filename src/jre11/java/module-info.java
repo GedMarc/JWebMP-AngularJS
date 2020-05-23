@@ -12,7 +12,7 @@ module com.jwebmp.core.angularjs {
 	requires com.fasterxml.jackson.databind;
 	requires org.apache.commons.io;
 	requires org.apache.commons.lang3;
-	requires javax.servlet.api;
+	requires java.servlet;
 	requires com.guicedee.guicedservlets.websockets;
 
 	exports com.jwebmp.core.base.angular;
@@ -145,7 +145,7 @@ module com.jwebmp.core.angularjs {
 	provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.core.base.angular.AngularPageConfigurator;
 
 	opens com.jwebmp.core.base.angular.servlets to com.google.guice, com.fasterxml.jackson.databind;
-	opens com.jwebmp.core.base.angular.implementations to com.google.guice, com.fasterxml.jackson.databind,com.jwebmp.core;
+	opens com.jwebmp.core.base.angular.implementations to com.google.guice, com.fasterxml.jackson.databind, com.jwebmp.core;
 
 	opens com.jwebmp.core.base.angular.directives.events.response to com.google.guice, com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.core.base.angular.directives.events.activate to com.google.guice, com.fasterxml.jackson.databind, com.jwebmp.core;
