@@ -7,7 +7,7 @@ module com.jwebmp.core.angularjs {
 	requires com.guicedee.guicedinjection;
 	requires com.google.guice.extensions.servlet;
 	requires com.guicedee.guicedservlets;
-	requires com.fasterxml.jackson.annotation;
+
 	requires com.jwebmp.interception;
 	requires com.fasterxml.jackson.databind;
 	requires org.apache.commons.io;
@@ -81,7 +81,6 @@ module com.jwebmp.core.angularjs {
 	provides com.jwebmp.core.events.unselected.IOnUnSelectedService with com.jwebmp.core.base.angular.directives.events.unselected.OnUnselected;
 	provides com.jwebmp.core.events.update.IOnUpdateService with com.jwebmp.core.base.angular.directives.events.update.OnUpdate;
 
-
 	uses com.jwebmp.core.base.angular.services.IAngularDirective;
 	uses com.jwebmp.core.base.angular.services.IAngularControllerScopeStatement;
 	uses com.jwebmp.core.base.angular.services.IAngularModule;
@@ -100,47 +99,10 @@ module com.jwebmp.core.angularjs {
 	provides com.jwebmp.core.databind.IOnDataBindCloak with com.jwebmp.core.base.angular.implementations.AngularJSOnCloak;
 	provides com.jwebmp.core.databind.IOnDataBind with com.jwebmp.core.base.angular.implementations.AngularJSOnBind;
 
-
 	provides com.guicedee.guicedservlets.services.IGuiceSiteBinder with com.jwebmp.core.base.angular.implementations.AngularJSSiteBinder;
 	provides com.jwebmp.core.services.IDynamicRenderingServlet with com.jwebmp.core.base.angular.implementations.AngularJSDynamicScriptRenderer;
 
-	provides com.jwebmp.core.base.angular.services.IAngularDirective with com.jwebmp.core.base.angular.directives.events.activate.ActivateDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.beforeactivate.BeforeActivateDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.beforeclose.BeforeCloseDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.beforeload.BeforeLoadDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.beforestop.BeforeStopDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.buttonclick.ButtonClickDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.cancel.CancelDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.close.CloseDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.complete.CompleteDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.create.CreateDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.deactivate.DeactivateDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.drag.DragDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.dragstart.DragStartDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.dragstop.DragStopDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.drop.DropDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.dropout.DropOutDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.dropover.DropOverDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.focus.FocusDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.load.LoadDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.receive.ReceiveDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.remove.RemoveDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.resize.ResizeDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.resizestart.ResizeStartDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.resizestop.ResizeStopDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.response.ResponseDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.rightclick.RightClickDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.search.SearchDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.select.SelectDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.selecting.SelectingDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.slide.SlideDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.sort.SortDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.spin.SpinDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.start.StartDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.stop.StopDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.unselected.UnselectedDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.update.UpdateDirective,
-			                                                                 com.jwebmp.core.base.angular.directives.events.click.ClickDisabledDirective;
+	provides com.jwebmp.core.base.angular.services.IAngularDirective with com.jwebmp.core.base.angular.directives.events.activate.ActivateDirective, com.jwebmp.core.base.angular.directives.events.beforeactivate.BeforeActivateDirective, com.jwebmp.core.base.angular.directives.events.beforeclose.BeforeCloseDirective, com.jwebmp.core.base.angular.directives.events.beforeload.BeforeLoadDirective, com.jwebmp.core.base.angular.directives.events.beforestop.BeforeStopDirective, com.jwebmp.core.base.angular.directives.events.buttonclick.ButtonClickDirective, com.jwebmp.core.base.angular.directives.events.cancel.CancelDirective, com.jwebmp.core.base.angular.directives.events.close.CloseDirective, com.jwebmp.core.base.angular.directives.events.complete.CompleteDirective, com.jwebmp.core.base.angular.directives.events.create.CreateDirective, com.jwebmp.core.base.angular.directives.events.deactivate.DeactivateDirective, com.jwebmp.core.base.angular.directives.events.drag.DragDirective, com.jwebmp.core.base.angular.directives.events.dragstart.DragStartDirective, com.jwebmp.core.base.angular.directives.events.dragstop.DragStopDirective, com.jwebmp.core.base.angular.directives.events.drop.DropDirective, com.jwebmp.core.base.angular.directives.events.dropout.DropOutDirective, com.jwebmp.core.base.angular.directives.events.dropover.DropOverDirective, com.jwebmp.core.base.angular.directives.events.focus.FocusDirective, com.jwebmp.core.base.angular.directives.events.load.LoadDirective, com.jwebmp.core.base.angular.directives.events.receive.ReceiveDirective, com.jwebmp.core.base.angular.directives.events.remove.RemoveDirective, com.jwebmp.core.base.angular.directives.events.resize.ResizeDirective, com.jwebmp.core.base.angular.directives.events.resizestart.ResizeStartDirective, com.jwebmp.core.base.angular.directives.events.resizestop.ResizeStopDirective, com.jwebmp.core.base.angular.directives.events.response.ResponseDirective, com.jwebmp.core.base.angular.directives.events.rightclick.RightClickDirective, com.jwebmp.core.base.angular.directives.events.search.SearchDirective, com.jwebmp.core.base.angular.directives.events.select.SelectDirective, com.jwebmp.core.base.angular.directives.events.selecting.SelectingDirective, com.jwebmp.core.base.angular.directives.events.slide.SlideDirective, com.jwebmp.core.base.angular.directives.events.sort.SortDirective, com.jwebmp.core.base.angular.directives.events.spin.SpinDirective, com.jwebmp.core.base.angular.directives.events.start.StartDirective, com.jwebmp.core.base.angular.directives.events.stop.StopDirective, com.jwebmp.core.base.angular.directives.events.unselected.UnselectedDirective, com.jwebmp.core.base.angular.directives.events.update.UpdateDirective, com.jwebmp.core.base.angular.directives.events.click.ClickDisabledDirective;
 
 	provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.core.base.angular.AngularPageConfigurator;
 
@@ -199,7 +161,6 @@ module com.jwebmp.core.angularjs {
 	opens com.jwebmp.core.base.angular.directives.events.submit to com.google.guice, com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.core.base.angular.directives.events.unselected to com.google.guice, com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.core.base.angular.directives.events.update to com.google.guice, com.fasterxml.jackson.databind, com.jwebmp.core;
-
 
 	opens com.jwebmp.core.base.angular to com.google.guice, com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.core.base.angular.directives to com.google.guice, com.fasterxml.jackson.databind, com.jwebmp.core;
