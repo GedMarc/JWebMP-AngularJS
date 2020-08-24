@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.beforeclose;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.beforeclose.IOnBeforeCloseService;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 public class OnBeforeClose
 		implements IOnBeforeCloseService<OnBeforeClose>
@@ -15,7 +15,7 @@ public class OnBeforeClose
 		{
 			e.getComponent()
 			 .addAttribute(AngularAttributes.ngBeforeClose,
-			               StaticStrings.STRING_ANGULAR_EVENT_START + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			               com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}
 

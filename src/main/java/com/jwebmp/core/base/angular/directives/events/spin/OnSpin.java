@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.spin;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.spin.IOnSpinService;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 public class OnSpin
 		implements IOnSpinService<OnSpin>
@@ -15,7 +15,7 @@ public class OnSpin
 		{
 
 			e.getComponent()
-			 .addAttribute(AngularAttributes.ngSpin, StaticStrings.STRING_ANGULAR_EVENT_START + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			 .addAttribute(AngularAttributes.ngSpin, com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}
 

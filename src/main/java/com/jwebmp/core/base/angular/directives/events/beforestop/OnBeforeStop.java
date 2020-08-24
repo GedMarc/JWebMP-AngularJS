@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.beforestop;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.beforestop.IOnBeforeStopService;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 public class OnBeforeStop
 		implements IOnBeforeStopService<OnBeforeStop>
@@ -15,7 +15,7 @@ public class OnBeforeStop
 		{
 			e.getComponent()
 			 .addAttribute(AngularAttributes.ngBeforeStop,
-			               StaticStrings.STRING_ANGULAR_EVENT_START + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			               com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 
 	}

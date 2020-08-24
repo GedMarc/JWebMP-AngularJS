@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.submit;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.submit.IOnSubmitService;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 public class OnSubmit
 		implements IOnSubmitService<OnSubmit>
@@ -15,7 +15,7 @@ public class OnSubmit
 		{
 			e.getComponent()
 			 .addAttribute(AngularAttributes.ngSubmit,
-			               "jwCntrl.jw.isLoading || " + StaticStrings.STRING_ANGULAR_EVENT_START + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			               "jwCntrl.jw.isLoading || " + com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}
 

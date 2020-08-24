@@ -25,7 +25,7 @@ public enum InputErrorValidations
 	required,
 	email,
 	max,
-	maxlength,
+	maxLength,
 	min,
 	minLength,
 	number,
@@ -39,12 +39,12 @@ public enum InputErrorValidations
 
 	public String toFullString()
 	{
-		return "$error." + name();
+		return "$error." + name().toLowerCase();
 	}
 
 	@Override
 	public String toString()
 	{
-		return name();
+		return name().toLowerCase();
 	}
 }

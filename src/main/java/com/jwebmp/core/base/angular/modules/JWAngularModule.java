@@ -19,7 +19,7 @@ package com.jwebmp.core.base.angular.modules;
 import com.jwebmp.core.Page;
 import com.jwebmp.core.base.angular.AngularFeature;
 import com.jwebmp.core.base.angular.services.IAngularModule;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 import com.guicedee.guicedinjection.GuiceContext;
 
 import javax.validation.constraints.NotNull;

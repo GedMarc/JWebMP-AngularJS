@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.open;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.open.IOnOpenService;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 public class OnOpen
 		implements IOnOpenService<OnOpen>
@@ -15,7 +15,7 @@ public class OnOpen
 		{
 
 			e.getComponent()
-			 .addAttribute(AngularAttributes.ngOpen, StaticStrings.STRING_ANGULAR_EVENT_START + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			 .addAttribute(AngularAttributes.ngOpen, com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}
 

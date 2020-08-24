@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.slide;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.slide.IOnSlideService;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 public class OnSlide
 		implements IOnSlideService<OnSlide>
@@ -15,7 +15,7 @@ public class OnSlide
 		{
 
 			e.getComponent()
-			 .addAttribute(AngularAttributes.ngSlide, StaticStrings.STRING_ANGULAR_EVENT_START + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			 .addAttribute(AngularAttributes.ngSlide, com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}
 

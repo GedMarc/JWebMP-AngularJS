@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.activate;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.activate.IOnActivateService;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 public class OnActivate
 		implements IOnActivateService<OnActivate>
@@ -15,7 +15,7 @@ public class OnActivate
 		{
 			e.getComponent()
 			 .addAttribute(AngularAttributes.ngActivate,
-			               StaticStrings.STRING_ANGULAR_EVENT_START + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			               com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}
 

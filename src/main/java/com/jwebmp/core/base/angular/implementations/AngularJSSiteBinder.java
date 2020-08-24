@@ -18,12 +18,14 @@ package com.jwebmp.core.base.angular.implementations;
 
 import com.jwebmp.core.base.angular.servlets.AngularDataServlet;
 import com.jwebmp.core.base.angular.servlets.AngularServlet;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 import com.guicedee.guicedservlets.services.GuiceSiteInjectorModule;
 import com.guicedee.guicedservlets.services.IGuiceSiteBinder;
 import com.guicedee.logger.LogFactory;
 
 import java.util.logging.Level;
+
+import static com.jwebmp.core.utilities.StaticStrings.ANGULAR_DATA_LOCATION;
 
 /**
  * @author GedMarc
@@ -45,7 +47,7 @@ public class AngularJSSiteBinder
 	 */
 	public static String getAngularScriptLocation()
 	{
-		return StaticStrings.ANGULAR_SCRIPT_LOCATION;
+		return com.jwebmp.core.utilities.StaticStrings.ANGULAR_SCRIPT_LOCATION;
 	}
 
 	/**
@@ -55,7 +57,7 @@ public class AngularJSSiteBinder
 	 */
 	public static String getAngularDataLocation()
 	{
-		return StaticStrings.ANGULAR_DATA_LOCATION;
+		return ANGULAR_DATA_LOCATION;
 	}
 
 	/**
@@ -67,13 +69,13 @@ public class AngularJSSiteBinder
 	@Override
 	public void onBind(GuiceSiteInjectorModule module)
 	{
-		module.serveRegex$("(" + StaticStrings.ANGULAR_DATA_LOCATION + ")" + StaticStrings.QUERY_PARAMETERS_REGEX)
+		module.serveRegex$("(" + ANGULAR_DATA_LOCATION + ")" + StaticStrings.QUERY_PARAMETERS_REGEX)
 		      .with(AngularDataServlet.class);
-		AngularJSSiteBinder.log.log(Level.FINE, "Serving Angular Data at " + StaticStrings.ANGULAR_DATA_LOCATION);
+		AngularJSSiteBinder.log.log(Level.FINE, "Serving Angular Data at " + ANGULAR_DATA_LOCATION);
 
-		module.serveRegex$("(" + StaticStrings.ANGULAR_SCRIPT_LOCATION + ")" + StaticStrings.QUERY_PARAMETERS_REGEX)
+		module.serveRegex$("(" + com.jwebmp.core.utilities.StaticStrings.ANGULAR_SCRIPT_LOCATION + ")" + StaticStrings.QUERY_PARAMETERS_REGEX)
 		      .with(AngularServlet.class);
-		AngularJSSiteBinder.log.log(Level.FINE, "Serving Angular JavaScript at {0}", StaticStrings.ANGULAR_SCRIPT_LOCATION);
+		AngularJSSiteBinder.log.log(Level.FINE, "Serving Angular JavaScript at {0}", com.jwebmp.core.utilities.StaticStrings.ANGULAR_SCRIPT_LOCATION);
 
 	}
 }

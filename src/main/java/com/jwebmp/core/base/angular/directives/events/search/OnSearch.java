@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.search;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.search.IOnSearchService;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 public class OnSearch
 		implements IOnSearchService<OnSearch>
@@ -15,7 +15,7 @@ public class OnSearch
 		{
 
 			e.getComponent()
-			 .addAttribute(AngularAttributes.ngSearch, StaticStrings.STRING_ANGULAR_EVENT_START + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			 .addAttribute(AngularAttributes.ngSearch, com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}
 

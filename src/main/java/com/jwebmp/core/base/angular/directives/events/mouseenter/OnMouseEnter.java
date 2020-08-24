@@ -4,7 +4,7 @@ import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.base.angular.AngularPageConfigurator;
 import com.jwebmp.core.events.mouseenter.IOnMouseEnterService;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 public class OnMouseEnter
 		implements IOnMouseEnterService<OnMouseEnter>
@@ -18,7 +18,7 @@ public class OnMouseEnter
 			AngularPageConfigurator.setRequired(true);
 			e.getComponent()
 			 .addAttribute(AngularAttributes.ngMouseenter,
-			               StaticStrings.STRING_ANGULAR_EVENT_START + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			               com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}
 

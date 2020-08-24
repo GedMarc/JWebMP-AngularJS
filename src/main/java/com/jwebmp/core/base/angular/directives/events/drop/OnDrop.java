@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.drop;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.drop.IOnDropService;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 public class OnDrop
 		implements IOnDropService<OnDrop>
@@ -15,7 +15,7 @@ public class OnDrop
 		{
 
 			e.getComponent()
-			 .addAttribute(AngularAttributes.ngDrop, StaticStrings.STRING_ANGULAR_EVENT_START + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			 .addAttribute(AngularAttributes.ngDrop, com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}
 

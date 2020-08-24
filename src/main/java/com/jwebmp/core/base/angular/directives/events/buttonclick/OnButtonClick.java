@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.buttonclick;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.buttonclick.IOnButtonClickService;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 public class OnButtonClick
 		implements IOnButtonClickService<OnButtonClick>
@@ -15,7 +15,7 @@ public class OnButtonClick
 		{
 			e.getComponent()
 			 .addAttribute(AngularAttributes.ngButtonClick,
-			               StaticStrings.STRING_ANGULAR_EVENT_START + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			               com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}
 

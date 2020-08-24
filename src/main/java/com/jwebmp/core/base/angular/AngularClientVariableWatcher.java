@@ -19,7 +19,7 @@ package com.jwebmp.core.base.angular;
 
 import com.jwebmp.core.databind.ClientVariableWatcher;
 import com.jwebmp.core.events.change.ChangeAdapter;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 import javax.validation.constraints.NotNull;
 

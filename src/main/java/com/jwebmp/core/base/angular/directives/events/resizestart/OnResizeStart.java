@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.resizestart;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.resizestart.IOnResizeStartService;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 public class OnResizeStart
 		implements IOnResizeStartService<OnResizeStart>
@@ -15,7 +15,7 @@ public class OnResizeStart
 		{
 			e.getComponent()
 			 .addAttribute(AngularAttributes.ngResizeStart,
-			               StaticStrings.STRING_ANGULAR_EVENT_START + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			               com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}
 

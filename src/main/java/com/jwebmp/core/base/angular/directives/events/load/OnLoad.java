@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.load;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.load.IOnLoadService;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 public class OnLoad
 		implements IOnLoadService<OnLoad>
@@ -15,7 +15,7 @@ public class OnLoad
 		{
 
 			e.getComponent()
-			 .addAttribute(AngularAttributes.ngLoad, StaticStrings.STRING_ANGULAR_EVENT_START + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			 .addAttribute(AngularAttributes.ngLoad, com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}
 

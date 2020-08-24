@@ -33,7 +33,7 @@ class AngularFormTest
 				         .addMessage(InputErrorValidations.min, "Min wrong", false)
 				         .addMessage(InputErrorValidations.minLength, "Min Length wrong", false)
 				         .addMessage(InputErrorValidations.date, "date invalid", false)
-				         .addMessage(InputErrorValidations.maxlength, "date invalid", false)
+				         .addMessage(InputErrorValidations.maxLength, "date invalid", false)
 		        );
 
 		form.add(new InputEmailType());

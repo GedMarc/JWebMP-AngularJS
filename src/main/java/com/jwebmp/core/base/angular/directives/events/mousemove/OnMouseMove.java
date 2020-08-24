@@ -4,7 +4,7 @@ import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.base.angular.AngularPageConfigurator;
 import com.jwebmp.core.events.mousemove.IOnMouseMoveService;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 public class OnMouseMove
 		implements IOnMouseMoveService<OnMouseMove>
@@ -17,7 +17,7 @@ public class OnMouseMove
 			AngularPageConfigurator.setRequired(true);
 			e.getComponent()
 			 .addAttribute(AngularAttributes.ngMousemove,
-			               StaticStrings.STRING_ANGULAR_EVENT_START + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			               com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}
 

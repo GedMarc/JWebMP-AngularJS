@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.click;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.click.IOnClickService;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 public class OnClicked
 		implements IOnClickService<OnClicked>
@@ -14,7 +14,7 @@ public class OnClicked
 		if (e.getComponent() != null)
 		{
 			String command = //"jwCntrl.jw.isLoading || " +
-					StaticStrings.STRING_ANGULAR_EVENT_START +
+					com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  +
 					e.renderVariables() +
 					StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON;
 

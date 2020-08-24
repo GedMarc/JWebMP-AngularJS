@@ -23,9 +23,11 @@ import com.jwebmp.core.base.angular.modules.AngularMessagesModule;
 import com.jwebmp.core.base.html.Form;
 import com.jwebmp.core.base.html.Input;
 import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 import javax.validation.constraints.NotNull;
+
+import static com.guicedee.guicedinjection.json.StaticStrings.*;
 
 /**
  * Attaches angular form control to a form tag for validation and constraints
@@ -147,7 +149,7 @@ public class AngularForm<J extends AngularForm<J>>
 	@NotNull
 	public String buildValidationClass(@NotNull Input input)
 	{
-		return buildValidationClass(input, StaticStrings.STRING_EMPTY);
+		return buildValidationClass(input, STRING_EMPTY);
 	}
 
 	/**
@@ -161,17 +163,17 @@ public class AngularForm<J extends AngularForm<J>>
 	@NotNull
 	public String buildValidationClass(@NotNull Input input, String prependClass)
 	{
-		String finalOutput = "{";
+		String finalOutput = STRING_BRACES_OPEN;
 
-		String formInputIdentifier = (prependClass.isEmpty() ? StaticStrings.STRING_EMPTY : StaticStrings.STRING_SPACE) + getID() + "." + input.getID() + ".";
+		String formInputIdentifier = (prependClass.isEmpty() ? STRING_EMPTY : STRING_SPACE) + getFormID() + STRING_DOT + input.getID() + STRING_DOT;
 
 		String errorOuput = prependClass + formInputIdentifier + "$invalid && " + formInputIdentifier + "$dirty && !" + formInputIdentifier + "$pristine";
-		errorOuput = "'" + getErrorClass() + "':" + errorOuput + "";
+		errorOuput = "'" + getErrorClass() + "':" + errorOuput;
 
-		String successOutput = prependClass + getID() + "." + input.getID() + ".$valid && " + formInputIdentifier + "$dirty && !" + formInputIdentifier + "$pristine";
-		successOutput = "'" + getSuccessClass() + "':" + successOutput + "";
+		String successOutput = prependClass + getFormID() + STRING_DOT + input.getID() + ".$valid && " + formInputIdentifier + "$dirty && !" + formInputIdentifier + "$pristine";
+		successOutput = "'" + getSuccessClass() + "':" + successOutput;
 
-		finalOutput += errorOuput + "," + successOutput + "}";
+		finalOutput += errorOuput + STRING_COMMNA + successOutput + STRING_BRACES_CLOSE;
 
 		return finalOutput;
 	}

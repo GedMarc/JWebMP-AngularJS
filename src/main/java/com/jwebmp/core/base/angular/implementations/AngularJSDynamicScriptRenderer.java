@@ -4,7 +4,7 @@ import com.jwebmp.core.Page;
 import com.jwebmp.core.base.angular.AngularPageConfigurator;
 import com.jwebmp.core.base.html.Script;
 import com.jwebmp.core.services.IDynamicRenderingServlet;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 import com.guicedee.guicedinjection.GuiceContext;
 
 public class AngularJSDynamicScriptRenderer
@@ -13,7 +13,7 @@ public class AngularJSDynamicScriptRenderer
 	@Override
 	public String getScriptLocation(Page<?> page)
 	{
-		return StaticStrings.ANGULAR_SCRIPT_LOCATION
+		return com.jwebmp.core.utilities.StaticStrings.ANGULAR_SCRIPT_LOCATION
 				       .replaceAll(StaticStrings.STRING_FORWARD_SLASH, StaticStrings.STRING_EMPTY);
 	}
 

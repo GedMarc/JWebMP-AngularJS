@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.unselected;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.unselected.IOnUnSelectedService;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 public class OnUnselected
 		implements IOnUnSelectedService<OnUnselected>
@@ -16,7 +16,7 @@ public class OnUnselected
 
 			e.getComponent()
 			 .addAttribute(AngularAttributes.ngUnselected,
-			               StaticStrings.STRING_ANGULAR_EVENT_START + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			               com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}
 

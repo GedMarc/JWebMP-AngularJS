@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.checked;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.checked.IOnCheckedService;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 public class OnChecked
 		implements IOnCheckedService<OnChecked>
@@ -14,7 +14,7 @@ public class OnChecked
 		if (e.getComponent() != null)
 		{
 			e.getComponent()
-			 .addAttribute(AngularAttributes.ngChecked, StaticStrings.STRING_ANGULAR_EVENT_START + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			 .addAttribute(AngularAttributes.ngChecked, com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}
 

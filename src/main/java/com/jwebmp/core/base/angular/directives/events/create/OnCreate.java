@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.create;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.create.IOnCreateService;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 public class OnCreate
 		implements IOnCreateService<OnCreate>
@@ -14,7 +14,7 @@ public class OnCreate
 		if (e.getComponent() != null)
 		{
 			e.getComponent()
-			 .addAttribute(AngularAttributes.ngCreate, StaticStrings.STRING_ANGULAR_EVENT_START + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			 .addAttribute(AngularAttributes.ngCreate, com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}
 

@@ -20,7 +20,7 @@ import com.google.inject.Singleton;
 import com.jwebmp.core.Page;
 import com.jwebmp.core.base.angular.AngularPageConfigurator;
 import com.jwebmp.core.base.servlets.JWDefaultServlet;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 import com.guicedee.guicedinjection.GuiceContext;
 import com.jwebmp.interception.services.AjaxCallIntercepter;
 
@@ -44,6 +44,6 @@ public class AngularServlet
 		StringBuilder output = GuiceContext.get(AngularPageConfigurator.class)
 		                                   .renderAngularJavascript(page);
 
-		writeOutput(output, StaticStrings.HTML_HEADER_JAVASCRIPT, StaticStrings.UTF8_CHARSET);
+		writeOutput(output, StaticStrings.HTML_HEADER_JAVASCRIPT, StaticStrings.UTF_CHARSET);
 	}
 }

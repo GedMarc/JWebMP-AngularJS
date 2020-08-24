@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.response;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.response.IOnResponseService;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 public class OnResponse
 		implements IOnResponseService<OnResponse>
@@ -16,7 +16,7 @@ public class OnResponse
 
 			e.getComponent()
 			 .addAttribute(AngularAttributes.ngResponse,
-			               StaticStrings.STRING_ANGULAR_EVENT_START + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			               com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}
 

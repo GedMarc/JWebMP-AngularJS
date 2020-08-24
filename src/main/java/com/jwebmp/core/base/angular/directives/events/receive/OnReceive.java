@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.receive;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.receive.IOnReceiveService;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 public class OnReceive
 		implements IOnReceiveService<OnReceive>
@@ -14,7 +14,7 @@ public class OnReceive
 		if (e.getComponent() != null)
 		{
 			e.getComponent()
-			 .addAttribute(AngularAttributes.ngReceive, StaticStrings.STRING_ANGULAR_EVENT_START + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			 .addAttribute(AngularAttributes.ngReceive, com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}
 

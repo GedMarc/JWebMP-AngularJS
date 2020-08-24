@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.beforeactivate;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.beforeactivate.IOnBeforeActivateService;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 public class OnBeforeActivate
 		implements IOnBeforeActivateService<OnBeforeActivate>
@@ -15,7 +15,7 @@ public class OnBeforeActivate
 		{
 			e.getComponent()
 			 .addAttribute(AngularAttributes.ngBeforeActivate,
-			               StaticStrings.STRING_ANGULAR_EVENT_START + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			               com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}
 

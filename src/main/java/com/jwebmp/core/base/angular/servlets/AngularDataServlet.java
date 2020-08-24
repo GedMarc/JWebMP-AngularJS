@@ -27,7 +27,7 @@ import com.jwebmp.core.base.servlets.options.AngularDataServletInitData;
 import com.jwebmp.core.exceptions.InvalidRequestException;
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.core.htmlbuilder.javascript.events.enumerations.EventTypes;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 import com.guicedee.guicedinjection.GuiceContext;
 import com.guicedee.guicedservlets.GuicedServletKeys;
 import com.jwebmp.interception.services.AjaxCallIntercepter;
@@ -79,7 +79,7 @@ public class AngularDataServlet
 		catch (Exception e)
 		{
 			Page p = getErrorPageHtml(e);
-			writeOutput(new StringBuilder(p.toString(0)), StaticStrings.HTML_HEADER_DEFAULT_CONTENT_TYPE, StaticStrings.UTF8_CHARSET);
+			writeOutput(new StringBuilder(p.toString(0)), StaticStrings.HTML_HEADER_DEFAULT_CONTENT_TYPE, StaticStrings.UTF_CHARSET);
 			return;
 		}
 		if (jb.length() > 0)
@@ -128,7 +128,7 @@ public class AngularDataServlet
 			catch (Exception e)
 			{
 				Page p = getErrorPageHtml(e);
-				writeOutput(new StringBuilder(p.toString(0)), StaticStrings.HTML_HEADER_DEFAULT_CONTENT_TYPE, StaticStrings.UTF8_CHARSET);
+				writeOutput(new StringBuilder(p.toString(0)), StaticStrings.HTML_HEADER_DEFAULT_CONTENT_TYPE, StaticStrings.UTF_CHARSET);
 				return;
 			}
 		}
@@ -149,6 +149,6 @@ public class AngularDataServlet
 			AngularDataServlet.LOG.log(Level.SEVERE, "Unable to perform the data request", e);
 		}
 
-		writeOutput(new StringBuilder(ajaxResponse.toString()), "application/json;charset=UTF-8", StaticStrings.UTF8_CHARSET);
+		writeOutput(new StringBuilder(ajaxResponse.toString()), "application/json;charset=UTF-8", StaticStrings.UTF_CHARSET);
 	}
 }

@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.focus;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.focus.IOnFocusService;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 public class OnFocus
 		implements IOnFocusService<OnFocus>
@@ -15,7 +15,7 @@ public class OnFocus
 		{
 
 			e.getComponent()
-			 .addAttribute(AngularAttributes.ngFocus, StaticStrings.STRING_ANGULAR_EVENT_START + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			 .addAttribute(AngularAttributes.ngFocus, com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}
 

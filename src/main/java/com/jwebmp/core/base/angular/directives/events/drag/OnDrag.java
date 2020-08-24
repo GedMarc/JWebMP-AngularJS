@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.drag;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.drag.IOnDragService;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 public class OnDrag
 		implements IOnDragService<OnDrag>
@@ -15,7 +15,7 @@ public class OnDrag
 		{
 
 			e.getComponent()
-			 .addAttribute(AngularAttributes.ngDrag, StaticStrings.STRING_ANGULAR_EVENT_START + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			 .addAttribute(AngularAttributes.ngDrag, com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}
 

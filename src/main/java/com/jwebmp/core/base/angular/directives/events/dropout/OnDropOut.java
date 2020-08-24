@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.dropout;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.dropout.IOnDropOutService;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 public class OnDropOut
 		implements IOnDropOutService<OnDropOut>
@@ -15,7 +15,7 @@ public class OnDropOut
 		{
 
 			e.getComponent()
-			 .addAttribute(AngularAttributes.ngDropOut, StaticStrings.STRING_ANGULAR_EVENT_START + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			 .addAttribute(AngularAttributes.ngDropOut, com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}
 

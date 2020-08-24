@@ -20,7 +20,7 @@ import com.jwebmp.core.FileTemplates;
 import com.jwebmp.core.base.angular.AngularReferenceBase;
 import com.jwebmp.core.base.angular.services.IAngularController;
 import com.jwebmp.core.base.angular.services.IAngularControllerScopeStatement;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 import com.guicedee.guicedinjection.GuiceContext;
 
 import javax.validation.constraints.NotNull;

@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.close;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.close.IOnCloseService;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 public class OnClose
 		implements IOnCloseService<OnClose>
@@ -14,7 +14,7 @@ public class OnClose
 		if (e.getComponent() != null)
 		{
 			e.getComponent()
-			 .addAttribute(AngularAttributes.ngClose, StaticStrings.STRING_ANGULAR_EVENT_START
+			 .addAttribute(AngularAttributes.ngClose, com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START
 			                                          + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}

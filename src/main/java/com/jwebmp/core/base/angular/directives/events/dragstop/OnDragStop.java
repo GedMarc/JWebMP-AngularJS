@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.dragstop;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.dragstop.IOnDragStopService;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 public class OnDragStop
 		implements IOnDragStopService<OnDragStop>
@@ -16,7 +16,7 @@ public class OnDragStop
 
 			e.getComponent()
 			 .addAttribute(AngularAttributes.ngDragStop,
-			               StaticStrings.STRING_ANGULAR_EVENT_START + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			               com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}
 

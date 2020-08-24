@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.update;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.update.IOnUpdateService;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 public class OnUpdate
 		implements IOnUpdateService<OnUpdate>
@@ -15,7 +15,7 @@ public class OnUpdate
 		{
 
 			e.getComponent()
-			 .addAttribute(AngularAttributes.ngUpdate, StaticStrings.STRING_ANGULAR_EVENT_START + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			 .addAttribute(AngularAttributes.ngUpdate, com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}
 

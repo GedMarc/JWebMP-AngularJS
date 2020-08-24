@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.change;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.change.IOnChangeService;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 public class OnChange
 		implements IOnChangeService<OnChange>
@@ -14,7 +14,7 @@ public class OnChange
 		if (e.getComponent() != null)
 		{
 			e.getComponent()
-			 .addAttribute(AngularAttributes.ngChange, StaticStrings.STRING_ANGULAR_EVENT_START + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			 .addAttribute(AngularAttributes.ngChange, com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}
 

@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.stop;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.stop.IOnStopService;
-import com.jwebmp.core.utilities.StaticStrings;
+import com.guicedee.guicedinjection.json.StaticStrings;
 
 public class OnStop
 		implements IOnStopService<OnStop>
@@ -15,7 +15,7 @@ public class OnStop
 		{
 
 			e.getComponent()
-			 .addAttribute(AngularAttributes.ngStop, StaticStrings.STRING_ANGULAR_EVENT_START + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			 .addAttribute(AngularAttributes.ngStop, com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}
 
