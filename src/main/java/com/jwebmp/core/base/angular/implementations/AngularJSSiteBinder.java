@@ -38,7 +38,7 @@ public class AngularJSSiteBinder
 	/**
 	 * Field log
 	 */
-	private static final java.util.logging.Logger log = LogFactory.getLog("JWebMPCoreBinder");
+	private static final java.util.logging.Logger log = LogFactory.getLog("AngularJSSiteBinder");
 
 	/**
 	 * Gets the angular script location
