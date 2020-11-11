@@ -22,7 +22,7 @@ import com.jwebmp.core.base.angular.services.IAngularModule;
 import com.guicedee.guicedinjection.json.StaticStrings;
 import com.guicedee.guicedinjection.GuiceContext;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.LinkedHashSet;
 import java.util.ServiceLoader;
 import java.util.Set;

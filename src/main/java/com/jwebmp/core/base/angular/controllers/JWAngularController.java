@@ -23,7 +23,7 @@ import com.jwebmp.core.base.angular.services.IAngularControllerScopeStatement;
 import com.guicedee.guicedinjection.json.StaticStrings;
 import com.guicedee.guicedinjection.GuiceContext;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.Set;
 
 import static com.jwebmp.core.base.angular.implementations.AngularJSServicesBindings.*;

@@ -20,7 +20,7 @@ import com.jwebmp.core.FileTemplates;
 import com.jwebmp.core.base.angular.AngularPageConfigurator;
 import com.jwebmp.core.base.angular.directives.AngularDirectiveBase;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Maps to the angular function of right click

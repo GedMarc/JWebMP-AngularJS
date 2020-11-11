@@ -35,7 +35,7 @@ import com.guicedee.logger.LogFactory;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.time.ZonedDateTime;
 import java.util.Date;
 import java.util.logging.Level;

@@ -21,7 +21,7 @@ import com.jwebmp.core.databind.ClientVariableWatcher;
 import com.jwebmp.core.events.change.ChangeAdapter;
 import com.guicedee.guicedinjection.json.StaticStrings;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Denotes an angular variable to watch with an event class mapped

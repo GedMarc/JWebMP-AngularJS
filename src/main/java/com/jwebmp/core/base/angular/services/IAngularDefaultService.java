@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.services;
 import com.guicedee.guicedinjection.interfaces.IDefaultService;
 import com.guicedee.guicedinjection.interfaces.IServiceEnablement;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 public interface IAngularDefaultService<J extends IAngularDefaultService<J>>
 		extends IDefaultService<J>, IServiceEnablement<J>

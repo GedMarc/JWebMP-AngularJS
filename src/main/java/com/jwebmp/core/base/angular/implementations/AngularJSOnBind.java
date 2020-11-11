@@ -7,7 +7,7 @@ import com.jwebmp.core.base.html.Input;
 import com.jwebmp.core.base.html.Paragraph;
 import com.jwebmp.core.databind.IOnDataBind;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 public class AngularJSOnBind
 		implements IOnDataBind<AngularJSOnBind>

@@ -18,7 +18,7 @@ package com.jwebmp.core.base.angular.factories;
 
 import com.jwebmp.core.base.angular.AngularReferenceBase;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Is an angular module

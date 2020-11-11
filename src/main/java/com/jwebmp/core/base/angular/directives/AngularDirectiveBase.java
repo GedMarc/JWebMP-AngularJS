@@ -19,7 +19,7 @@ package com.jwebmp.core.base.angular.directives;
 import com.jwebmp.core.base.angular.AngularReferenceBase;
 import com.jwebmp.core.base.angular.services.IAngularDirective;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * An angular registered directive

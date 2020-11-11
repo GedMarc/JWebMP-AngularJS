@@ -25,7 +25,7 @@ import com.jwebmp.core.base.html.Input;
 import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
 import com.guicedee.guicedinjection.json.StaticStrings;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 import static com.guicedee.guicedinjection.json.StaticStrings.*;
 

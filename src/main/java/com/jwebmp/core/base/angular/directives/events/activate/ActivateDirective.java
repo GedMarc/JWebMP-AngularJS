@@ -19,7 +19,7 @@ package com.jwebmp.core.base.angular.directives.events.activate;
 import com.jwebmp.core.base.angular.AngularPageConfigurator;
 import com.jwebmp.core.base.angular.directives.AngularDirectiveBase;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 import static com.jwebmp.core.FileTemplates.*;
 

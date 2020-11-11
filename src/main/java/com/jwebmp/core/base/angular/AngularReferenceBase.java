@@ -18,7 +18,7 @@ package com.jwebmp.core.base.angular;
 
 import com.jwebmp.core.htmlbuilder.javascript.JavascriptLiteralFunction;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Is an angular module
