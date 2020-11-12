@@ -1,6 +1,6 @@
 module com.jwebmp.core.angularjs {
 	requires com.jwebmp.core;
-	requires java.validation;
+	requires jakarta.validation;
 	requires java.logging;
 	requires com.guicedee.logmaster;
 	requires com.google.guice;
