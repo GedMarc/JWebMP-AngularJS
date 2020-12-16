@@ -14,8 +14,7 @@ public class OnSlide
 		if (e.getComponent() != null)
 		{
 
-			e.getComponent()
-			 .addAttribute(AngularAttributes.ngSlide, com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			e.getComponent().asAttributeBase().addAttribute(String.valueOf(AngularAttributes.ngSlide), com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}
 

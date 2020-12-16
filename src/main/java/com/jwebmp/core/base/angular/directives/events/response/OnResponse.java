@@ -14,9 +14,8 @@ public class OnResponse
 		if (e.getComponent() != null)
 		{
 
-			e.getComponent()
-			 .addAttribute(AngularAttributes.ngResponse,
-			               com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			e.getComponent().asAttributeBase().addAttribute(String.valueOf(AngularAttributes.ngResponse),
+			                                                com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}
 

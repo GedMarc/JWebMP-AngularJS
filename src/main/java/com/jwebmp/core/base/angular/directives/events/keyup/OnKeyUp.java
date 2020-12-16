@@ -15,8 +15,7 @@ public class OnKeyUp
 		if (e.getComponent() != null)
 		{
 			AngularPageConfigurator.setRequired(true);
-			e.getComponent()
-			 .addAttribute(AngularAttributes.ngKeyup, com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			e.getComponent().asAttributeBase().addAttribute(String.valueOf(AngularAttributes.ngKeyup), com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}
 

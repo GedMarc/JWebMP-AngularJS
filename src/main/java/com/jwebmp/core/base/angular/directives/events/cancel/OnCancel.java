@@ -13,8 +13,7 @@ public class OnCancel
 	{
 		if (e.getComponent() != null)
 		{
-			e.getComponent()
-			 .addAttribute(AngularAttributes.ngCancel, com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  +
+			e.getComponent().asAttributeBase().addAttribute(String.valueOf(AngularAttributes.ngCancel), com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  +
 			                                           e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}

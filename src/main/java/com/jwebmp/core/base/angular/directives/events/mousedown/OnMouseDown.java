@@ -16,9 +16,8 @@ public class OnMouseDown
 		{
 
 			AngularPageConfigurator.setRequired(true);
-			e.getComponent()
-			 .addAttribute(AngularAttributes.ngMousedown,
-			               com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			e.getComponent().asAttributeBase().addAttribute(String.valueOf(AngularAttributes.ngMousedown),
+			                                                com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}
 

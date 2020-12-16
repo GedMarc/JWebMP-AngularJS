@@ -69,7 +69,7 @@ class AngularFormTest
 	}
 
 	class FormReader
-			extends ClickAdapter
+			extends ClickAdapter<FormReader>
 	{
 		public FormReader()
 		{
@@ -83,7 +83,7 @@ class AngularFormTest
 		}
 
 		@Override
-		public void onClick(AjaxCall call, AjaxResponse response)
+		public void onClick(AjaxCall<?> call, AjaxResponse<?> response)
 		{
 			DataMapping returnedForm = call.getVariable("formVariable")
 			                               .as(DataMapping.class);

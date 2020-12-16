@@ -42,12 +42,12 @@ public abstract class AngularChangeEvent<J extends AngularChangeEvent<J>>
 	}
 
 	@Override
-	public void fireEvent(AjaxCall call, AjaxResponse response)
+	public void fireEvent(AjaxCall<?> call, AjaxResponse<?> response)
 	{
 		onChange(call, response);
 		super.fireEvent(call, response);
 	}
 
 	@Override
-	public abstract void onChange(AjaxCall call, AjaxResponse response);
+	public abstract void onChange(AjaxCall<?> call, AjaxResponse<?> response);
 }

@@ -16,9 +16,8 @@ public class OnKeyPressed
 		{
 
 			AngularPageConfigurator.setRequired(true);
-			e.getComponent()
-			 .addAttribute(AngularAttributes.ngKeypress,
-			               com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
+			e.getComponent().asAttributeBase().addAttribute(String.valueOf(AngularAttributes.ngKeypress),
+			                                                com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}
 

@@ -1,5 +1,8 @@
+import com.jwebmp.core.base.angular.implementations.AngularJSModuleInclusion;
+
 module com.jwebmp.core.angularjs {
-	requires com.jwebmp.core;
+	requires transitive com.jwebmp.core;
+	
 	requires jakarta.validation;
 	requires java.logging;
 	requires com.guicedee.logmaster;
@@ -27,7 +30,8 @@ module com.jwebmp.core.angularjs {
 	exports com.jwebmp.core.base.angular.services;
 
 	provides com.jwebmp.core.base.angular.services.IAngularControllerScopeStatement with com.jwebmp.core.base.angular.implementations.WebSocketControllerStatement;
-
+	provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleInclusions with AngularJSModuleInclusion;
+	
 	provides com.jwebmp.core.events.activate.IOnActivateService with com.jwebmp.core.base.angular.directives.events.activate.OnActivate;
 	provides com.jwebmp.core.events.beforeactivate.IOnBeforeActivateService with com.jwebmp.core.base.angular.directives.events.beforeactivate.OnBeforeActivate;
 	provides com.jwebmp.core.events.beforeclose.IOnBeforeCloseService with com.jwebmp.core.base.angular.directives.events.beforeclose.OnBeforeClose;

@@ -18,38 +18,38 @@ public class OnClicked
 					e.renderVariables() +
 					StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON;
 
-			if (e.getComponent()
-			     .getAttribute(AngularAttributes.ngClick) == null)
+			if (e.getComponent().asAttributeBase()
+			     .getAttribute(String.valueOf(AngularAttributes.ngClick)) == null)
 			{
-				e.getComponent()
-				 .addAttribute(AngularAttributes.ngClick, command);
+				e.getComponent().asAttributeBase()
+				 .addAttribute(String.valueOf(AngularAttributes.ngClick), command);
 			}
 			else
 			{
-				e.getComponent()
-				 .addAttribute(AngularAttributes.ngClick, e.getComponent()
-				                                           .getAttribute(AngularAttributes.ngClick) + command);
+				e.getComponent().asAttributeBase()
+				 .addAttribute(String.valueOf(AngularAttributes.ngClick), e.getComponent().asAttributeBase()
+				                                                           .getAttribute(String.valueOf(AngularAttributes.ngClick)) + command);
 			}
 
-			if (e.getComponent()
-			     .getAttribute(AngularAttributes.ngDisabled) == null)
+			if (e.getComponent().asAttributeBase()
+			     .getAttribute(String.valueOf(AngularAttributes.ngDisabled)) == null)
 			{
-				e.getComponent()
-				 .addAttribute(AngularAttributes.ngDisabled, "jwCntrl.jw.isLoading");
+				e.getComponent().asAttributeBase()
+				 .addAttribute(String.valueOf(AngularAttributes.ngDisabled), "jwCntrl.jw.isLoading");
 			}
-			else if (!"jwCntrl.jw.isLoading".equals(e.getComponent()
-			                                         .getAttribute(AngularAttributes.ngDisabled)))
+			else if (!"jwCntrl.jw.isLoading".equals(e.getComponent().asAttributeBase()
+			                                         .getAttribute(String.valueOf(AngularAttributes.ngDisabled))))
 			{
 				String disabledOn = "jwCntrl.jw.isLoading ";
-				if (!"".equals(e.getComponent()
-				                .getAttribute(AngularAttributes.ngDisabled)) && e.getComponent()
-				                                                                 .getAttribute(AngularAttributes.ngDisabled) != null)
+				if (!"".equals(e.getComponent().asAttributeBase()
+				                .getAttribute(String.valueOf(AngularAttributes.ngDisabled))) && e.getComponent().asAttributeBase()
+				                                                                                 .getAttribute(String.valueOf(AngularAttributes.ngDisabled)) != null)
 				{
-					disabledOn += " || " + e.getComponent()
-					                        .getAttribute(AngularAttributes.ngDisabled);
+					disabledOn += " || " + e.getComponent().asAttributeBase()
+					                        .getAttribute(String.valueOf(AngularAttributes.ngDisabled));
 				}
-				e.getComponent()
-				 .addAttribute(AngularAttributes.ngDisabled, disabledOn.trim());
+				e.getComponent().asAttributeBase()
+				 .addAttribute(String.valueOf(AngularAttributes.ngDisabled), disabledOn.trim());
 			}
 		}
 	}

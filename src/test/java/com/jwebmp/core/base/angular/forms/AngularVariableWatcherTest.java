@@ -45,7 +45,7 @@ public class AngularVariableWatcherTest
 	{
 
 		@Override
-		public void onChange(AjaxCall call, AjaxResponse response)
+		public void onChange(AjaxCall<?> call, AjaxResponse<?> response)
 		{
 
 		}

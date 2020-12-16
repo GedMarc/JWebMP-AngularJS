@@ -30,8 +30,8 @@ public class AngularFormSubmitEvent
 	}
 
 	@Override
-	public void onSubmit(AjaxCall call, AjaxResponse response)
+	public void onSubmit(AjaxCall<?> call, AjaxResponse<?> response)
 	{
-		System.out.println("On Submit");
+	
 	}
 }

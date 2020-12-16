@@ -21,6 +21,7 @@ import com.google.inject.Singleton;
 import com.jwebmp.core.FileTemplates;
 import com.jwebmp.core.Page;
 import com.jwebmp.core.plugins.PluginInformation;
+import com.jwebmp.core.plugins.PluginStatus;
 import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
 import com.jwebmp.core.services.IPageConfigurator;
 import com.guicedee.logger.LogFactory;
@@ -36,19 +37,25 @@ import java.util.logging.Logger;
  */
 @SuppressWarnings({"WeakerAccess", "UnusedReturnValue", "unused"})
 @PluginInformation(pluginName = "AngularJS",
-		pluginDescription = "Angular 1x implementation",
+		pluginDescription = "AngularJS is a toolset for building the framework most suited to your application development. It is fully extensible and works well with other libraries. Every feature can be modified or replaced to suit your unique development workflow and feature needs.",
 		pluginUniqueName = "angular",
-		pluginVersion = "1.6",
+		pluginVersion = "1.8.2",
 		pluginDependancyUniqueIDs = "jquery",
-		pluginCategories = "jquery, angular, data-binding, ng," + "google",
-		pluginGitUrl = "https://github.com/GedMarc/JWebMP",
+		pluginCategories = "jquery, angular, data-binding, ng, google",
+		pluginGitUrl = "https://github.com/GedMarc/JWebMP-AngularJS",
 		pluginSourceUrl = "https://angularjs.org",
-		pluginWikiUrl = "https://github.com/GedMarc/JWebMP/wiki",
+		pluginWikiUrl = "https://github.com/GedMarc/JWebMP-AngularJS/wiki",
 		pluginOriginalHomepage = "https://angularjs.org",
 		pluginDownloadUrl = "https://angularjs.org/",
 		pluginIconImageUrl = "https://angularjs.org/img/AngularJS-large.png",
-		pluginLastUpdatedDate = "2017/03/30")
-@Singleton
+		pluginIconUrl = "https://angularjs.org/img/AngularJS-large.png",
+		pluginLastUpdatedDate = "2020/12/14",
+		pluginStatus = PluginStatus.Released,
+		pluginGroupId = "com.jwebmp.plugins.angular",
+		pluginArtifactId = "jwebmp-plugins-angularjs",
+		pluginModuleName = "com.jwebmp.core.angularjs",
+		pluginSubtitle = "AngularJS lets you extend HTML vocabulary for your application. The resulting environment is extraordinarily expressive, readable, and quick to develop."
+)
 public class AngularPageConfigurator
 		implements IPageConfigurator<AngularPageConfigurator>
 {
