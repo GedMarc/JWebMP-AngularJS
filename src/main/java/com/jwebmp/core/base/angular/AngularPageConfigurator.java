@@ -17,16 +17,15 @@
 package com.jwebmp.core.base.angular;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.google.inject.Singleton;
+import com.guicedee.logger.LogFactory;
 import com.jwebmp.core.FileTemplates;
 import com.jwebmp.core.Page;
 import com.jwebmp.core.plugins.PluginInformation;
 import com.jwebmp.core.plugins.PluginStatus;
 import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
 import com.jwebmp.core.services.IPageConfigurator;
-import com.guicedee.logger.LogFactory;
-
 import jakarta.validation.constraints.NotNull;
+
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.logging.Logger;
@@ -133,7 +132,6 @@ public class AngularPageConfigurator
 	 * @param required
 	 * 		If it is required to render
 	 */
-	@SuppressWarnings("unchecked")
 	public static void setRequired(boolean required)
 	{
 		AngularPageConfigurator.required = required;
@@ -145,8 +143,7 @@ public class AngularPageConfigurator
 
 	@NotNull
 	@Override
-	@SuppressWarnings("unchecked")
-	public Page configure(Page page)
+	 public Page<?> configure(Page<?> page)
 	{
 		if (AngularPageConfigurator.required)
 		{
@@ -155,9 +152,11 @@ public class AngularPageConfigurator
 			page.getBody()
 			    .addJavaScriptReference(AngularReferencePool.Angular1NGMessages.getJavaScriptReference());
 			page.getBody()
-			    .addAttribute(AngularAttributes.ngApp, AngularFeature.getAppName());
+			    .addCssReference(AngularReferencePool.Angular1.getCssReferece());
 			page.getBody()
-			    .addAttribute(AngularAttributes.ngController, AngularFeature.getControllerName() + " as jwCntrl");
+			    .addAttribute(String.valueOf(AngularAttributes.ngApp), AngularFeature.getAppName());
+			page.getBody()
+			    .addAttribute(String.valueOf(AngularAttributes.ngController), AngularFeature.getControllerName() + " as jwCntrl");
 		}
 		return page;
 	}
@@ -210,7 +209,7 @@ public class AngularPageConfigurator
 	 * @return The string builder object
 	 */
 	@NotNull
-	public StringBuilder renderAngularJavascript(Page page)
+	public StringBuilder renderAngularJavascript(Page<?> page)
 	{
 		StringBuilder sb = new StringBuilder();
 		AngularFeature af = new AngularFeature(page);

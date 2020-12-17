@@ -37,7 +37,7 @@ public class AngularDataVariables
 	@Override
 	public void perform()
 	{
-		Page page = GuiceContext.inject()
+		Page<?> page = GuiceContext.inject()
 		                        .getInstance(Page.class);
 
 		GuiceContext.get(DataCallInterceptorKey)

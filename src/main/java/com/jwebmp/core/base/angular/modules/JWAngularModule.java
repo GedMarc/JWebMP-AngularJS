@@ -40,7 +40,7 @@ public class JWAngularModule
 	/**
 	 * The attached page
 	 */
-	private Page page;
+	private Page<?> page;
 
 	public JWAngularModule(Page component)
 	{

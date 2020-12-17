@@ -102,7 +102,7 @@ public class AngularFeature
 	 * 		The name of the controller
 	 */
 	@SuppressWarnings("WeakerAccess")
-	public AngularFeature(Page page, String applicationName, String controllerName)
+	public AngularFeature(Page<?> page, String applicationName, String controllerName)
 	{
 		super("AngularFeature");
 		if (page == null)

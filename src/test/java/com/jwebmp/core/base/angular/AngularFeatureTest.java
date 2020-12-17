@@ -35,7 +35,7 @@ public class AngularFeatureTest
 	@Test
 	public void testSomeMethod()
 	{
-		Page p = new Page();
+		Page<?> p = new Page();
 		p.getBody()
 		 .add("Hello");
 		AngularPageConfigurator.setRequired(true);
