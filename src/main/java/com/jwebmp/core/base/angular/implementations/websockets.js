@@ -60,7 +60,9 @@ jw.websocket.newMessage = function (type, data) {
     var news = {};
     news.action = type;
     news.data = data;
-    news.data.sessionid = jw.sessionid[0].replace('JSESSIONID=', '');
+    if(jw.sessionid && jw.sessionid[0])
+        news.data.sessionid = jw.sessionid[0].replace('JSESSIONID=', '');
+
     if(jw.localstorage && jw.localstorage.jwamsmk)
     {
         news.data.jwamsmk = jw.localstorage.jwamsmk;
@@ -72,7 +74,9 @@ jw.websocket.newMessageNow = function (type, data) {
     var news = {};
     news.action = type;
     news.data = data;
-    news.data.sessionid = jw.sessionid[0].replace('JSESSIONID=', '');
+    if(jw.sessionid && jw.sessionid[0])
+      news.data.sessionid = jw.sessionid[0].replace('JSESSIONID=', '');
+
     if(jw.localstorage && jw.localstorage.jwamsmk)
     {
         news.data.jwamsmk = jw.localstorage.jwamsmk;

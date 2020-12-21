@@ -16,7 +16,6 @@
  */
 package com.jwebmp.core.base.angular.implementations;
 
-import com.jwebmp.core.base.angular.servlets.AngularDataServlet;
 import com.jwebmp.core.base.angular.servlets.AngularServlet;
 import com.guicedee.guicedinjection.json.StaticStrings;
 import com.guicedee.guicedservlets.services.GuiceSiteInjectorModule;
@@ -69,10 +68,6 @@ public class AngularJSSiteBinder
 	@Override
 	public void onBind(GuiceSiteInjectorModule module)
 	{
-		module.serveRegex$("(" + ANGULAR_DATA_LOCATION + ")" + StaticStrings.QUERY_PARAMETERS_REGEX)
-		      .with(AngularDataServlet.class);
-		AngularJSSiteBinder.log.log(Level.FINE, "Serving Angular Data at " + ANGULAR_DATA_LOCATION);
-
 		module.serveRegex$("(" + com.jwebmp.core.utilities.StaticStrings.ANGULAR_SCRIPT_LOCATION + ")" + StaticStrings.QUERY_PARAMETERS_REGEX)
 		      .with(AngularServlet.class);
 		AngularJSSiteBinder.log.log(Level.FINE, "Serving Angular JavaScript at {0}", com.jwebmp.core.utilities.StaticStrings.ANGULAR_SCRIPT_LOCATION);

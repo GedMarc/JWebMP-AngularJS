@@ -1,4 +1,6 @@
+import com.guicedee.guicedservlets.websockets.services.IWebSocketMessageReceiver;
 import com.jwebmp.core.base.angular.implementations.AngularJSModuleInclusion;
+import com.jwebmp.core.base.angular.servlets.WebSocketAjaxCallReceiver;
 
 module com.jwebmp.core.angularjs {
 	requires transitive com.jwebmp.core;
@@ -31,6 +33,8 @@ module com.jwebmp.core.angularjs {
 
 	provides com.jwebmp.core.base.angular.services.IAngularControllerScopeStatement with com.jwebmp.core.base.angular.implementations.WebSocketControllerStatement;
 	provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleInclusions with AngularJSModuleInclusion;
+	
+	provides IWebSocketMessageReceiver with WebSocketAjaxCallReceiver;
 	
 	provides com.jwebmp.core.events.activate.IOnActivateService with com.jwebmp.core.base.angular.directives.events.activate.OnActivate;
 	provides com.jwebmp.core.events.beforeactivate.IOnBeforeActivateService with com.jwebmp.core.base.angular.directives.events.beforeactivate.OnBeforeActivate;
