@@ -18,6 +18,8 @@ package com.jwebmp.core.base.angular;
 
 import com.google.inject.Singleton;
 import com.jwebmp.core.Page;
+import com.jwebmp.core.base.ajax.AjaxCall;
+import com.jwebmp.core.base.ajax.AjaxResponse;
 import com.jwebmp.core.base.servlets.JWDefaultServlet;
 import com.guicedee.guicedinjection.json.StaticStrings;
 import com.guicedee.guicedinjection.GuiceContext;
@@ -32,17 +34,19 @@ import static com.jwebmp.interception.JWebMPInterceptionBinder.*;
 public class AngularDataVariables
 		extends JWDefaultServlet
 {
-
-
+	
+	
 	@Override
 	public void perform()
 	{
 		Page<?> page = GuiceContext.inject()
-		                        .getInstance(Page.class);
-
-		GuiceContext.get(DataCallInterceptorKey)
-		            .forEach(DataCallIntercepter::intercept);
-
+		                           .getInstance(Page.class);
+		
+		for (DataCallIntercepter<?> dataCallIntercepter : GuiceContext.get(DataCallInterceptorKey))
+		{
+			dataCallIntercepter.intercept(GuiceContext.get(AjaxCall.class), GuiceContext.get(AjaxResponse.class));
+		}
+		
 		StringBuilder output = GuiceContext.get(AngularPageConfigurator.class)
 		                                   .renderAngularJavascript(page);
 		writeOutput(output, StaticStrings.HTML_HEADER_JAVASCRIPT, StaticStrings.UTF_CHARSET);

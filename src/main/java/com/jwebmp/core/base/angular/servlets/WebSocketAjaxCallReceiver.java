@@ -25,10 +25,12 @@ import static com.guicedee.guicedinjection.json.StaticStrings.CHAR_DOT;
 import static com.guicedee.guicedinjection.json.StaticStrings.CHAR_UNDERSCORE;
 import static com.jwebmp.interception.JWebMPInterceptionBinder.AjaxCallInterceptorKey;
 
-public class WebSocketAjaxCallReceiver implements IWebSocketMessageReceiver
+public class WebSocketAjaxCallReceiver
+		implements IWebSocketMessageReceiver
 {
 	private static final Logger log = LogFactory.getInstance()
 	                                            .getLogger("AJAXWebSocket");
+	
 	@Override
 	public Set<String> messageNames()
 	{
@@ -45,8 +47,10 @@ public class WebSocketAjaxCallReceiver implements IWebSocketMessageReceiver
 		try
 		{
 			AjaxCall<?> ajaxCall = new AjaxCall<>().From(message.getData()
-			                                                            .get("article")
-			                                                            .toString(), AjaxCall.class);
+			                                                    .get("article")
+			                                                    .toString(), AjaxCall.class);
+			ajaxCall.setWebSocketCall(true);
+			ajaxCall.setWebsocketSession(message.getSession());
 			if ("body".equals(ajaxCall.getComponentId()))
 			{
 				Page<?> p = get(Page.class);
@@ -55,58 +59,65 @@ public class WebSocketAjaxCallReceiver implements IWebSocketMessageReceiver
 			else
 			{
 				Event<?, ?> triggerEvent = processEvent(ajaxCall);
-				get(AjaxCallInterceptorKey)
-						.forEach(AjaxCallIntercepter::intercept);
+				for (AjaxCallIntercepter<?> ajaxCallIntercepter : get(AjaxCallInterceptorKey))
+				{
+					ajaxCallIntercepter.intercept(ajaxCall, ajaxResponse);
+				}
 				
 				triggerEvent.fireEvent(ajaxCall, ajaxResponse);
 			}
 			output = ajaxResponse.toString();
-		}catch (InvalidRequestException ie)
+		}
+		catch (InvalidRequestException ie)
 		{
 			ajaxResponse.setSuccess(false);
 			AjaxResponseReaction<?> arr = new AjaxResponseReaction<>("Invalid Request Value", "A value in the request was found to be incorrect.<br>" + ie.getMessage(),
-			                                                         ReactionType.DialogDisplay);
+					ReactionType.DialogDisplay);
 			arr.setResponseType(AjaxResponseType.Danger);
 			ajaxResponse.addReaction(arr);
 			output = ajaxResponse.toString();
-			WebSocketAjaxCallReceiver.log.log(Level.SEVERE, "[SessionID]-[" + message.getData().get("sessionid")
-			                                                                    + "];" + "[Exception]-[Invalid Request]", ie);
+			WebSocketAjaxCallReceiver.log.log(Level.SEVERE, "[SessionID]-[" + message.getData()
+			                                                                         .get("sessionid")
+					+ "];" + "[Exception]-[Invalid Request]", ie);
 		}
 		catch (Exception T)
 		{
 			ajaxResponse.setSuccess(false);
 			AjaxResponseReaction<?> arr = new AjaxResponseReaction<>("Unknown Error",
-			                                                         "An AJAX call resulted in an unknown server error<br>" + T.getMessage() + "<br>" + TextUtilities.stackTraceToString(
-					                                                         T), ReactionType.DialogDisplay);
+					"An AJAX call resulted in an unknown server error<br>" + T.getMessage() + "<br>" + TextUtilities.stackTraceToString(
+							T), ReactionType.DialogDisplay);
 			arr.setResponseType(AjaxResponseType.Danger);
 			ajaxResponse.addReaction(arr);
 			output = ajaxResponse.toString();
 			WebSocketAjaxCallReceiver.log.log(Level.SEVERE, "Unknown in ajax reply\n", T);
 		}
-		GuicedWebSocket.broadcastMessage(message.getBroadcastGroup(),output);
+		GuicedWebSocket.broadcastMessage(message.getBroadcastGroup(), output);
 	}
 	
-	protected Event<?,?> processEvent(AjaxCall<?> call) throws InvalidRequestException
+	protected Event<?, ?> processEvent(AjaxCall<?> call) throws InvalidRequestException
 	{
-		Event<?,?> triggerEvent = null;
+		Event<?, ?> triggerEvent = null;
 		try
 		{
 			Class<?> eventClass = Class.forName(call.getClassName()
 			                                        .replace(CHAR_UNDERSCORE, CHAR_DOT));
-			triggerEvent = (Event<?,?>) get(eventClass);
+			triggerEvent = (Event<?, ?>) get(eventClass);
 			triggerEvent.setID(call.getEventId());
 		}
 		catch (ClassNotFoundException cnfe)
 		{
 			@SuppressWarnings({"rawtypes", "unchecked"})
-			Set<Class<? extends Event<?,?>>> events = new HashSet(GuiceContext.instance().getScanResult().getSubclasses(Event.class.getCanonicalName()).loadClasses());
+			Set<Class<? extends Event<?, ?>>> events = new HashSet(GuiceContext.instance()
+			                                                                   .getScanResult()
+			                                                                   .getSubclasses(Event.class.getCanonicalName())
+			                                                                   .loadClasses());
 			events.removeIf(event -> Modifier.isAbstract(event.getModifiers()));
-			for (Class<? extends Event<?,?>> event : events)
+			for (Class<? extends Event<?, ?>> event : events)
 			{
-				Event<?,?> instance = get(event);
+				Event<?, ?> instance = get(event);
 				if (instance.getID()
 				            .equals(get(AjaxCall.class)
-						                    .getEventId()))
+						            .getEventId()))
 				{
 					triggerEvent = instance;
 					break;

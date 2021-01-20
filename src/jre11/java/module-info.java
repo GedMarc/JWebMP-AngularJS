@@ -12,8 +12,7 @@ module com.jwebmp.core.angularjs {
 	requires com.guicedee.guicedinjection;
 	requires com.google.guice.extensions.servlet;
 	requires com.guicedee.guicedservlets;
-
-	requires com.jwebmp.interception;
+	
 	requires com.fasterxml.jackson.databind;
 	requires org.apache.commons.io;
 	requires org.apache.commons.lang3;

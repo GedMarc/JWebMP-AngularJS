@@ -258,7 +258,6 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
         article.eventId = eventId;
         if (window.location.hash)
             article.hashbang = window.location.hash.substr(1);
-        article.variableData = [];
 
         self.makeCall(article);
     };

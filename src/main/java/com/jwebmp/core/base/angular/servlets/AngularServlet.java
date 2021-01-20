@@ -17,11 +17,13 @@
 package com.jwebmp.core.base.angular.servlets;
 
 import com.google.inject.Singleton;
+import com.guicedee.guicedinjection.GuiceContext;
+import com.guicedee.guicedinjection.json.StaticStrings;
 import com.jwebmp.core.Page;
+import com.jwebmp.core.base.ajax.AjaxCall;
+import com.jwebmp.core.base.ajax.AjaxResponse;
 import com.jwebmp.core.base.angular.AngularPageConfigurator;
 import com.jwebmp.core.base.servlets.JWDefaultServlet;
-import com.guicedee.guicedinjection.json.StaticStrings;
-import com.guicedee.guicedinjection.GuiceContext;
 import com.jwebmp.interception.services.AjaxCallIntercepter;
 
 import static com.jwebmp.interception.JWebMPInterceptionBinder.*;
@@ -37,13 +39,15 @@ public class AngularServlet
 	public void perform()
 	{
 		Page<?> page = GuiceContext.inject()
-		                        .getInstance(Page.class);
-		GuiceContext.get(AjaxCallInterceptorKey)
-		            .forEach(AjaxCallIntercepter::intercept);
-
+		                           .getInstance(Page.class);
+		for (AjaxCallIntercepter<?> ajaxCallIntercepter : GuiceContext.get(AjaxCallInterceptorKey))
+		{
+			ajaxCallIntercepter.intercept(GuiceContext.get(AjaxCall.class), GuiceContext.get(AjaxResponse.class));
+		}
+		
 		StringBuilder output = GuiceContext.get(AngularPageConfigurator.class)
 		                                   .renderAngularJavascript(page);
-
+		
 		writeOutput(output, StaticStrings.HTML_HEADER_JAVASCRIPT, StaticStrings.UTF_CHARSET);
 	}
 }
