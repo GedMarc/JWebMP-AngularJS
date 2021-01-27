@@ -53,6 +53,7 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
             newEvent.data = $event.data;
             newEvent.target = $event.target.id;
             newEvent.which = $event.which;
+            newEvent.parameters = getParametersObject();
         } else {
             newEvent.type = 'async';
             if(compID !== undefined && compID !== null)
@@ -75,7 +76,7 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
             BEFORE_AJAX_CALL;
             $.ajax({
                 type: "POST",
-                url: "jwajax",
+                url: "jwajax" + window.location.search,
                 data: JSON.stringify(article),
                 dataType: "json",
                 contentType: 'application/json',
@@ -174,6 +175,8 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
         article.className = className;
         if (window.location.hash)
             article.hashbang = window.location.hash.substr(1);
+        else
+            article.hashbang = "";
         article.variableData = [];
 
         for (var i = 0; i < dataVariables.length; i++) {
