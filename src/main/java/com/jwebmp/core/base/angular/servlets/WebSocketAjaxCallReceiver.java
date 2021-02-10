@@ -1,6 +1,9 @@
 package com.jwebmp.core.base.angular.servlets;
 
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
 import com.guicedee.guicedinjection.GuiceContext;
+import com.guicedee.guicedservlets.services.scopes.CallScoper;
 import com.guicedee.guicedservlets.websockets.GuicedWebSocket;
 import com.guicedee.guicedservlets.websockets.options.WebSocketMessageReceiver;
 import com.guicedee.guicedservlets.websockets.services.IWebSocketMessageReceiver;
@@ -30,7 +33,11 @@ public class WebSocketAjaxCallReceiver
 {
 	private static final Logger log = LogFactory.getInstance()
 	                                            .getLogger("AJAXWebSocket");
-	
+
+	@Inject
+	@Named("callScope")
+	CallScoper scope;
+
 	@Override
 	public Set<String> messageNames()
 	{
@@ -43,12 +50,16 @@ public class WebSocketAjaxCallReceiver
 	public void receiveMessage(WebSocketMessageReceiver message) throws SecurityException
 	{
 		String output;
-		AjaxResponse<?> ajaxResponse = new AjaxResponse<>();
+		scope.enter();
+		AjaxResponse<?> ajaxResponse = GuiceContext.get(AjaxResponse.class);
 		try
 		{
-			AjaxCall<?> ajaxCall = new AjaxCall<>().From(message.getData()
+			AjaxCall<?> ajaxCall = GuiceContext.get(AjaxCall.class);
+			AjaxCall<?> call = new AjaxCall<>().From(message.getData()
 			                                                    .get("article")
 			                                                    .toString(), AjaxCall.class);
+			ajaxCall.fromCall(call);
+
 			ajaxCall.setWebSocketCall(true);
 			ajaxCall.setWebsocketSession(message.getSession());
 			if ("body".equals(ajaxCall.getComponentId()))
@@ -90,6 +101,9 @@ public class WebSocketAjaxCallReceiver
 			ajaxResponse.addReaction(arr);
 			output = ajaxResponse.toString();
 			WebSocketAjaxCallReceiver.log.log(Level.SEVERE, "Unknown in ajax reply\n", T);
+		}
+		finally {
+			scope.exit();
 		}
 		GuicedWebSocket.broadcastMessage(message.getBroadcastGroup(), output);
 	}

@@ -70,7 +70,24 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
         let bdy =  $('body');
 
         if(jw.websocket !== undefined && jw.websocket && jw.websocket.connected) {
-            jw.websocket.newMessageNow('ajax', {"article": JSON.stringify(article)});
+            if (window.Pace) {
+                window.Pace.start();
+                jw.isLoading = true;
+            }
+            try {
+                jw.websocket.newMessageNow('ajax', {"article": JSON.stringify(article)});
+            }catch(e)
+            {
+                if (window.Pace) {
+                    window.Pace.stop();
+                    jw.isLoading = false;
+                }
+            }
+            if (window.Pace) {
+                window.Pace.stop();
+                jw.isLoading = false;
+            }
+
         }
         else {
             BEFORE_AJAX_CALL;
