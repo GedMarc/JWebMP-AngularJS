@@ -62,21 +62,13 @@ public class WebSocketAjaxCallReceiver
 
 			ajaxCall.setWebSocketCall(true);
 			ajaxCall.setWebsocketSession(message.getSession());
-			if ("body".equals(ajaxCall.getComponentId()))
+			Event<?, ?> triggerEvent = processEvent(ajaxCall);
+			for (AjaxCallIntercepter<?> ajaxCallIntercepter : get(AjaxCallInterceptorKey))
 			{
-				Page<?> p = get(Page.class);
-				ajaxResponse = p.onConnect(ajaxCall, ajaxResponse);
+				ajaxCallIntercepter.intercept(ajaxCall, ajaxResponse);
 			}
-			else
-			{
-				Event<?, ?> triggerEvent = processEvent(ajaxCall);
-				for (AjaxCallIntercepter<?> ajaxCallIntercepter : get(AjaxCallInterceptorKey))
-				{
-					ajaxCallIntercepter.intercept(ajaxCall, ajaxResponse);
-				}
-				
-				triggerEvent.fireEvent(ajaxCall, ajaxResponse);
-			}
+			triggerEvent.fireEvent(ajaxCall, ajaxResponse);
+
 			output = ajaxResponse.toString();
 		}
 		catch (InvalidRequestException ie)

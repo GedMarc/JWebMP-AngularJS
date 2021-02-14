@@ -20,6 +20,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.guicedee.logger.LogFactory;
 import com.jwebmp.core.FileTemplates;
 import com.jwebmp.core.Page;
+import com.jwebmp.core.base.angular.services.FirePageOnConnectEvent;
+import com.jwebmp.core.htmlbuilder.javascript.events.commandevent.PerformCommandEvent;
 import com.jwebmp.core.plugins.PluginInformation;
 import com.jwebmp.core.plugins.PluginStatus;
 import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
@@ -157,6 +159,8 @@ public class AngularPageConfigurator
 			    .addAttribute(String.valueOf(AngularAttributes.ngApp), AngularFeature.getAppName());
 			page.getBody()
 			    .addAttribute(String.valueOf(AngularAttributes.ngController), AngularFeature.getControllerName() + " as jwCntrl");
+
+			page.getBody().addEvent(new FirePageOnConnectEvent(page.getBody()));
 		}
 		return page;
 	}

@@ -222,14 +222,6 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
      * @returns {undefined}
      */
     $scope._init = function () {
-
-        var initData = self.makeEmptyArticle('body',undefined,[]);
-        initData.parameters = getParametersObject();
-        initData.parameters['objectId'] = 'body';
-        initData.localStorage = jw.localstorage;
-        initData.sessionStorage = jw.sessionstorage;
-
-        jw.isLoading = true;
         try {
             if (window.Modernizr) {
                 $scope.Modernizr = window.Modernizr;
@@ -238,6 +230,10 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
         } catch (e) {
             console.warn("modernizr not enabled");
         }
+        var initData = self.makeEmptyArticle('body',undefined,['jwCntrl.jw.localstorage','jwCntrl.jw.sessionstorage','Modernizr']);
+        initData.parameters = getParametersObject();
+        initData.parameters['objectId'] = 'body';
+        jw.isLoading = true;
 
         BEFORE_INIT_CALL;
         self.makeCall(initData);
