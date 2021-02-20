@@ -17,13 +17,17 @@
 package com.jwebmp.core.base.angular.controllers;
 
 import com.jwebmp.core.FileTemplates;
+import com.jwebmp.core.Page;
 import com.jwebmp.core.base.angular.AngularReferenceBase;
 import com.jwebmp.core.base.angular.services.IAngularController;
 import com.jwebmp.core.base.angular.services.IAngularControllerScopeStatement;
 import com.guicedee.guicedinjection.json.StaticStrings;
 import com.guicedee.guicedinjection.GuiceContext;
 
+import com.jwebmp.core.base.html.Script;
+import com.jwebmp.core.services.IPage;
 import jakarta.validation.constraints.NotNull;
+
 import java.util.Set;
 
 import static com.jwebmp.core.base.angular.implementations.AngularJSServicesBindings.*;
@@ -35,61 +39,59 @@ import static com.jwebmp.core.base.angular.implementations.AngularJSServicesBind
  * @since 25 Jun 2016
  */
 public class JWAngularController
-		extends AngularReferenceBase
-		implements IAngularController<JWAngularController>
-{
+        extends AngularReferenceBase<JWAngularController>
+        implements IAngularController<JWAngularController> {
+    /**
+     * Constructs a new right click directive based on the angular object passed in
+     */
+    public JWAngularController() {
+        super("jwController");
+    }
 
+    /**
+     * Renders the right click directive from the JavaScript file
+     *
+     * @return
+     */
+    @Override
+    @NotNull
+    public String renderFunction() {
+        StringBuilder controllerOutput = FileTemplates.getFileTemplate(JWAngularController.class, "jwcontroller");
+        if (controllerOutput == null) {
+            throw new UnsupportedOperationException("Didn't find FileTemplate for Angular Controller Classes.");
+        }
+        String output = controllerOutput.toString();
+        StringBuilder statementOutput = new StringBuilder();
 
-	/**
-	 * Constructs a new right click directive based on the angular object passed in
-	 */
-	public JWAngularController()
-	{
-		super("jwController");
-	}
+        Set<IAngularControllerScopeStatement> loader = GuiceContext.get(AngularControllerScopeStatementsKey);
+        for (IAngularControllerScopeStatement<?> statement : loader) {
+            if (!statementOutput.toString()
+                    .contains(statement.getStatement())) {
+                statementOutput.append(statement.getStatement())
+                        .append(StaticStrings.STRING_NEWLINE_TEXT);
+            }
+        }
 
-	/**
-	 * Renders the right click directive from the JavaScript file
-	 *
-	 * @return
-	 */
-	@Override
-	@NotNull
-	public String renderFunction()
-	{
-		StringBuilder controllerOutput = FileTemplates.getFileTemplate(JWAngularController.class, "jwcontroller");
-		if (controllerOutput == null)
-		{
-			throw new UnsupportedOperationException("Didn't find FileTemplate for Angular Controller Classes.");
-		}
-		String output = controllerOutput.toString();
-		StringBuilder statementOutput = new StringBuilder();
+        output = output.replace("JW_SCOPE_INSERTIONS;", statementOutput.toString());
+        return output;
+    }
 
-		Set<IAngularControllerScopeStatement> loader = GuiceContext.get(AngularControllerScopeStatementsKey);
-		for (IAngularControllerScopeStatement statement : loader)
-		{
-			if (!statementOutput.toString()
-			                    .contains(statement.getStatement()))
-			{
-				statementOutput.append(statement.getStatement())
-				               .append(StaticStrings.STRING_NEWLINE_TEXT);
-			}
-		}
+    /**
+     * Method getJavascriptScript ...
+     *
+     * @return Script
+     */
+    private StringBuilder getJavascriptScript(Page<?> page) {
+        return page.renderJavascript();
+    }
 
-		output = output.replace("JW_SCOPE_INSERTIONS;", statementOutput.toString());
-		output = output.replace("JW_SCOPE_INSERTIONS", statementOutput.toString());
-		return output;
-	}
-
-
-	/**
-	 * If this page configurator is enabled
-	 *
-	 * @return if the configuration must run
-	 */
-	@Override
-	public boolean enabled()
-	{
-		return true;
-	}
+    /**
+     * If this page configurator is enabled
+     *
+     * @return if the configuration must run
+     */
+    @Override
+    public boolean enabled() {
+        return true;
+    }
 }

@@ -17,9 +17,15 @@ jw.websocket.reconnect = function () {
     jw.websocket.connection.onmessage = function (e) {
         //console.log(e.data);
         try {
-            jw.actions.processResponse(JSON.parse(e.data), $scope, $parse, $timeout, $compile);
+            if(e !== undefined && e.data !== 'Ok') {
+                jw.actions.processResponse(JSON.parse(e.data), $scope, $parse, $timeout, $compile);
+            }
         } catch (e) {
             console.log('This doesn\'t look like a valid JSON: ' + e.data);
+        }
+        if(e.data === 'Ok')
+        {
+            jw.isLoading = false;
         }
     };
 
@@ -31,6 +37,8 @@ jw.websocket.reconnect = function () {
             jw.websocket.timer.start();
 
         WS_AUTH_DATA_PROVIDER_LOAD;
+
+        JW_JAVASCRIPT;
     };
 
     jw.websocket.connection.onclose = function (e) {

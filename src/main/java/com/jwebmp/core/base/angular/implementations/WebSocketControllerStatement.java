@@ -17,9 +17,11 @@
 package com.jwebmp.core.base.angular.implementations;
 
 import com.jwebmp.core.FileTemplates;
+import com.jwebmp.core.Page;
 import com.jwebmp.core.base.angular.services.IAngularControllerScopeStatement;
 import com.guicedee.guicedinjection.GuiceContext;
 import com.guicedee.guicedservlets.websockets.services.IWebSocketAuthDataProvider;
+import com.jwebmp.core.services.IPage;
 
 import java.util.ServiceLoader;
 import java.util.Set;
@@ -46,7 +48,7 @@ public class WebSocketControllerStatement
 		StringBuilder replaceable = new StringBuilder();
 		Set<IWebSocketAuthDataProvider> setss = GuiceContext.instance()
 		                                                    .getLoader(IWebSocketAuthDataProvider.class, ServiceLoader.load(IWebSocketAuthDataProvider.class));
-		for (IWebSocketAuthDataProvider a : setss)
+		for (IWebSocketAuthDataProvider<?> a : setss)
 		{
 			if (!a.enabled())
 			{
@@ -56,7 +58,13 @@ public class WebSocketControllerStatement
 		}
 		template = new StringBuilder(template.toString()
 		                                     .replace("WS_AUTH_DATA_PROVIDER_LOAD;", replaceable.toString()));
-		return template;
+
+		IPage<?> page = GuiceContext.get(Page.class);
+		page.toString(true);
+		String output = template.toString();
+		output = output.replace("JW_JAVASCRIPT;", ((Page) page).renderJavascript().toString());
+
+		return new StringBuilder(output);
 	}
 
 	@Override

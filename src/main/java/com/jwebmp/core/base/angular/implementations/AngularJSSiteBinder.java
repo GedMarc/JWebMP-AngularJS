@@ -21,6 +21,7 @@ import com.guicedee.guicedinjection.json.StaticStrings;
 import com.guicedee.guicedservlets.services.GuiceSiteInjectorModule;
 import com.guicedee.guicedservlets.services.IGuiceSiteBinder;
 import com.guicedee.logger.LogFactory;
+import com.jwebmp.core.implementations.JWebMPJavaScriptDynamicScriptRenderer;
 
 import java.util.logging.Level;
 
@@ -71,6 +72,8 @@ public class AngularJSSiteBinder
 		module.serveRegex$("(" + com.jwebmp.core.utilities.StaticStrings.ANGULAR_SCRIPT_LOCATION + ")" + StaticStrings.QUERY_PARAMETERS_REGEX)
 		      .with(AngularServlet.class);
 		AngularJSSiteBinder.log.log(Level.FINE, "Serving Angular JavaScript at {0}", com.jwebmp.core.utilities.StaticStrings.ANGULAR_SCRIPT_LOCATION);
+
+		JWebMPJavaScriptDynamicScriptRenderer.renderJavascript = false;
 
 	}
 }
