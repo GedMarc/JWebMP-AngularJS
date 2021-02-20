@@ -1,3 +1,4 @@
+jw.angularExists = true;
 (function (angular) {
     /**
      * All Modules
