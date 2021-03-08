@@ -16,7 +16,7 @@ module com.jwebmp.core.angularjs {
 	requires com.fasterxml.jackson.databind;
 	requires org.apache.commons.io;
 	requires org.apache.commons.lang3;
-	requires java.servlet;
+	requires jakarta.servlet;
 	requires com.guicedee.guicedservlets.websockets;
 
 	exports com.jwebmp.core.base.angular;
