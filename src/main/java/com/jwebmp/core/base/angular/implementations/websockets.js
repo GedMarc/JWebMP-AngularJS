@@ -19,6 +19,11 @@ jw.websocket.reconnect = function () {
         try {
             if(e !== undefined && e.data !== 'Ok') {
                 jw.actions.processResponse(JSON.parse(e.data), $scope, $parse, $timeout, $compile);
+                if (Pace)
+                {
+                    Pace.stop();
+                }
+                jw.isLoading = false;
             }
         } catch (e) {
             console.log('This doesn\'t look like a valid JSON: ' + e.data);
@@ -26,6 +31,8 @@ jw.websocket.reconnect = function () {
         if(e.data === 'Ok')
         {
             jw.isLoading = false;
+            if(Pace)
+                Pace.stop();
         }
     };
 
@@ -89,6 +96,11 @@ jw.websocket.newMessageNow = function (type, data) {
     {
         news.data.jwamsmk = jw.localstorage.jwamsmk;
     }
+    if (Pace)
+    {
+        Pace.restart();
+    }
+    jw.isLoading = true;
     jw.websocket.connection.send(JSON.stringify(news));
 };
 
@@ -99,6 +111,11 @@ jw.websocket.timer = new DeltaTimer(function (time) {
             try {
                 var i = jw.websocket.queuedMessages.length;
                 while (i--) {
+                    if (Pace)
+                    {
+                        Pace.restart();
+                    }
+                    jw.isLoading = true;
                     jw.websocket.connection.send(JSON.stringify(jw.websocket.queuedMessages[i]));
                     jw.websocket.queuedMessages.splice(i, 1);
                 }

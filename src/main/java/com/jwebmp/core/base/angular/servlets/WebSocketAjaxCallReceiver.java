@@ -70,6 +70,8 @@ public class WebSocketAjaxCallReceiver
 			triggerEvent.fireEvent(ajaxCall, ajaxResponse);
 
 			output = ajaxResponse.toString();
+
+			GuicedWebSocket.broadcastMessage(message.getBroadcastGroup(), "Ok");
 		}
 		catch (InvalidRequestException ie)
 		{
