@@ -96,6 +96,17 @@ public class WebSocketAjaxCallReceiver
 			output = ajaxResponse.toString();
 			WebSocketAjaxCallReceiver.log.log(Level.SEVERE, "Unknown in ajax reply\n", T);
 		}
+		catch (Throwable T)
+		{
+			ajaxResponse.setSuccess(false);
+			AjaxResponseReaction<?> arr = new AjaxResponseReaction<>("Unknown Error",
+					"An AJAX call resulted in an internal server error<br>" + T.getMessage() + "<br>" + TextUtilities.stackTraceToString(
+							T), ReactionType.DialogDisplay);
+			arr.setResponseType(AjaxResponseType.Danger);
+			ajaxResponse.addReaction(arr);
+			output = ajaxResponse.toString();
+			WebSocketAjaxCallReceiver.log.log(Level.SEVERE, "Unknown in ajax reply\n", T);
+		}
 		finally {
 			scope.exit();
 		}

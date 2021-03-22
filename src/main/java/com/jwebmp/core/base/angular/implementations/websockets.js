@@ -22,6 +22,7 @@ jw.websocket.reconnect = function () {
                 if (Pace)
                 {
                     Pace.stop();
+                    $('body').removeClass('pace-running');
                 }
                 jw.isLoading = false;
             }
@@ -31,8 +32,10 @@ jw.websocket.reconnect = function () {
         if(e.data === 'Ok')
         {
             jw.isLoading = false;
-            if(Pace)
+            if(Pace) {
                 Pace.stop();
+                $('body').removeClass('pace-running');
+            }
         }
     };
 
