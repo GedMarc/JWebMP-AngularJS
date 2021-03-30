@@ -11,6 +11,12 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
     jw.env.scope = $scope;
     jw.angularLoading = true;
 
+
+    $scope.headers = {};
+    $scope.headers.useragent = jw.useragent;
+    $scope.headers.referer = jw.referer;
+    $scope.headers.myIP = jw.myIP;
+
     /**
      * The event object that gets sent through
      * @param {type} $event jquery event
