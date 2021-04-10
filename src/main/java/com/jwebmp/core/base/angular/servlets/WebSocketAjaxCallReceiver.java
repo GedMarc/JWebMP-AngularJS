@@ -3,17 +3,15 @@ package com.jwebmp.core.base.angular.servlets;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import com.guicedee.guicedinjection.GuiceContext;
+import com.guicedee.guicedinjection.representations.IJsonRepresentation;
 import com.guicedee.guicedservlets.services.scopes.CallScoper;
 import com.guicedee.guicedservlets.websockets.GuicedWebSocket;
 import com.guicedee.guicedservlets.websockets.options.WebSocketMessageReceiver;
 import com.guicedee.guicedservlets.websockets.services.IWebSocketMessageReceiver;
 import com.guicedee.logger.LogFactory;
 import com.jwebmp.core.Event;
-import com.jwebmp.core.Page;
 import com.jwebmp.core.base.ajax.*;
-import com.jwebmp.core.base.servlets.AjaxReceiverServlet;
 import com.jwebmp.core.exceptions.InvalidRequestException;
-import com.jwebmp.core.exceptions.MissingComponentException;
 import com.jwebmp.core.utilities.TextUtilities;
 import com.jwebmp.interception.services.AjaxCallIntercepter;
 
@@ -55,7 +53,7 @@ public class WebSocketAjaxCallReceiver
 		try
 		{
 			AjaxCall<?> ajaxCall = GuiceContext.get(AjaxCall.class);
-			AjaxCall<?> call = new AjaxCall<>().From(message.getData()
+			AjaxCall<?> call = IJsonRepresentation.From(message.getData()
 			                                                    .get("article")
 			                                                    .toString(), AjaxCall.class);
 			ajaxCall.fromCall(call);
