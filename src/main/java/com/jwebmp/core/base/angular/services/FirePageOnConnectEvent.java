@@ -13,7 +13,8 @@ import com.jwebmp.core.services.IPage;
  * Fires the on connect method in page, configured like any other event
  *
  */
-public class FirePageOnConnectEvent  extends PerformCommandEvent<FirePageOnConnectEvent> implements BodyEvents<GlobalFeatures,FirePageOnConnectEvent> {
+public class FirePageOnConnectEvent  extends PerformCommandEvent<FirePageOnConnectEvent>
+        implements BodyEvents<GlobalFeatures,FirePageOnConnectEvent> {
 
     public FirePageOnConnectEvent() {
         this(null);
