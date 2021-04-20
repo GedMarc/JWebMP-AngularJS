@@ -48,7 +48,12 @@ public class WebSocketAjaxCallReceiver
 	public void receiveMessage(WebSocketMessageReceiver message) throws SecurityException
 	{
 		String output;
-		scope.enter();
+		try {
+			scope.enter();
+		}catch (Throwable T)
+		{
+			log.log(Level.WARNING,"Check scope entries and exits, enter called twice",T);
+		}
 		AjaxResponse<?> ajaxResponse = GuiceContext.get(AjaxResponse.class);
 		try
 		{
