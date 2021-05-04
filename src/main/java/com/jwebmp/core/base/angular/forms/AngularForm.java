@@ -22,6 +22,7 @@ import com.jwebmp.core.base.angular.AngularPageConfigurator;
 import com.jwebmp.core.base.angular.modules.AngularMessagesModule;
 import com.jwebmp.core.base.html.Form;
 import com.jwebmp.core.base.html.Input;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
 import com.guicedee.guicedinjection.json.StaticStrings;
 
@@ -147,7 +148,7 @@ public class AngularForm<J extends AngularForm<J>>
 	 * @return The generated validation class
 	 */
 	@NotNull
-	public String buildValidationClass(@NotNull Input input)
+	public String buildValidationClass(@NotNull IComponentHierarchyBase<?,?> input)
 	{
 		return buildValidationClass(input, STRING_EMPTY);
 	}
@@ -161,16 +162,16 @@ public class AngularForm<J extends AngularForm<J>>
 	 * @return Any prepending classes to use
 	 */
 	@NotNull
-	public String buildValidationClass(@NotNull Input input, String prependClass)
+	public String buildValidationClass(@NotNull IComponentHierarchyBase<?,?> input, String prependClass)
 	{
 		String finalOutput = STRING_BRACES_OPEN;
 
-		String formInputIdentifier = (prependClass.isEmpty() ? STRING_EMPTY : STRING_SPACE) + getFormID() + STRING_DOT + input.getID() + STRING_DOT;
+		String formInputIdentifier = (prependClass.isEmpty() ? STRING_EMPTY : STRING_SPACE) + getFormID() + STRING_DOT + input.asBase().getID() + STRING_DOT;
 
 		String errorOuput = prependClass + formInputIdentifier + "$invalid && " + formInputIdentifier + "$dirty && !" + formInputIdentifier + "$pristine";
 		errorOuput = "'" + getErrorClass() + "':" + errorOuput;
 
-		String successOutput = prependClass + getFormID() + STRING_DOT + input.getID() + ".$valid && " + formInputIdentifier + "$dirty && !" + formInputIdentifier + "$pristine";
+		String successOutput = prependClass + getFormID() + STRING_DOT + input.asBase().getID() + ".$valid && " + formInputIdentifier + "$dirty && !" + formInputIdentifier + "$pristine";
 		successOutput = "'" + getSuccessClass() + "':" + successOutput;
 
 		finalOutput += errorOuput + STRING_COMMNA + successOutput + STRING_BRACES_CLOSE;
