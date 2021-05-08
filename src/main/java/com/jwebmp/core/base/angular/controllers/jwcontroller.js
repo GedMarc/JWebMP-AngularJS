@@ -98,8 +98,15 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
             article.hashbang = "";
         article.variableData = [];
 
-        for (var i = 0; i < dataVariables.length; i++) {
-            var arrItem = dataVariables[i];
+        let uniqueChars = [];
+        dataVariables.forEach((c) => {
+            if (!uniqueChars.includes(c)) {
+                uniqueChars.push(c);
+            }
+        });
+
+        for (var i = 0; i < uniqueChars.length; i++) {
+            var arrItem = uniqueChars[i];
             var jsonVariable = {};
             try {
                 var data = $scope.$eval(arrItem);

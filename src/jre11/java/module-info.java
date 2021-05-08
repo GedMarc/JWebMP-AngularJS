@@ -1,5 +1,5 @@
 import com.guicedee.guicedservlets.websockets.services.IWebSocketMessageReceiver;
-import com.jwebmp.core.base.angular.AngularWebSocketHeaderValues;
+import com.jwebmp.core.base.angular.AngularWebSocketHeaderValuesEventConfigurator;
 import com.jwebmp.core.base.angular.implementations.AngularJSModuleInclusion;
 import com.jwebmp.core.base.angular.servlets.WebSocketAjaxCallReceiver;
 import com.jwebmp.core.events.IEventConfigurator;
@@ -37,7 +37,7 @@ module com.jwebmp.core.angularjs {
 	
 	provides IWebSocketMessageReceiver with WebSocketAjaxCallReceiver;
 
-	provides IEventConfigurator with AngularWebSocketHeaderValues;
+	provides IEventConfigurator with AngularWebSocketHeaderValuesEventConfigurator;
 	
 	provides com.jwebmp.core.events.activate.IOnActivateService with com.jwebmp.core.base.angular.directives.events.activate.OnActivate;
 	provides com.jwebmp.core.events.beforeactivate.IOnBeforeActivateService with com.jwebmp.core.base.angular.directives.events.beforeactivate.OnBeforeActivate;
