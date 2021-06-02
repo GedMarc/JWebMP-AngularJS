@@ -48,6 +48,14 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
             newEvent.target = $event.target.id;
             newEvent.which = $event.which;
             newEvent.parameters = getParametersObject();
+            newEvent.attributes = {};
+            if(newEvent.componentID !== undefined)
+            {
+                var element = $("#" + newEvent.componentID);
+                $.each(element.get(0).attributes, function(i, attrib){
+                    newEvent.attributes[attrib.name] = attrib.value;
+                });
+            }
         } else {
             newEvent.type = 'async';
             if(compID !== undefined && compID !== null)
