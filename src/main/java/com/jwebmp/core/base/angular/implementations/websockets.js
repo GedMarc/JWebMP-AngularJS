@@ -49,8 +49,8 @@ jw.websocket.reconnect = function () {
         console.log('Web Socket connected');
         jw.websocket.reconnectTimer.stop();
         jw.websocket.connected = true;
-        if (jw.websocket.timer)
-            jw.websocket.timer.start();
+    //    if (jw.websocket.timer)
+    //        jw.websocket.timer.start();
 
         WS_AUTH_DATA_PROVIDER_LOAD;
 
@@ -91,7 +91,14 @@ jw.websocket.newMessage = function (type, data) {
     {
         news.data.jwamsmk = jw.localstorage.jwamsmk;
     }
-    jw.websocket.queuedMessages.push(news);
+    if (Pace)
+    {
+        Pace.restart();
+    }
+    jw.isLoading = true;
+    jw.websocket.connection.send(JSON.stringify(news));
+    //jw.websocket.queuedMessages.splice(i, 1);
+    //jw.websocket.queuedMessages.push(news);
 };
 
 jw.websocket.newMessageNow = function (type, data) {
@@ -113,6 +120,7 @@ jw.websocket.newMessageNow = function (type, data) {
     jw.websocket.connection.send(JSON.stringify(news));
 };
 
+/*
 jw.websocket.timer = new DeltaTimer(function (time) {
     //alert('messages : ' + jw.websocket.queuedMessages);
     if (jw.websocket.queuedMessages.length > 0) {
@@ -138,10 +146,14 @@ jw.websocket.timer = new DeltaTimer(function (time) {
     }
 }, 500, jw.websocket.timer);
 jw.websocket.timerobj = jw.websocket.timer.start();
+*/
+
+
+
 
 jw.websocket.reconnectTimer = new DeltaTimer(function (time) {
     if (!jw.websocket.connected) {
-        jw.websocket.timer.stop();
+     //   jw.websocket.timer.stop();
         jw.websocket.reconnect();
         jw.websocket.pollCount++;
         jw.websocket.reconnectTimer.delay = Math.max(jw.websocket.pollCount * jw.websocket.pollTime, 0);
