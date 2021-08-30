@@ -22,7 +22,7 @@ import com.jwebmp.core.base.ajax.AjaxResponse;
 import com.jwebmp.core.events.submit.SubmitAdapter;
 
 public class AngularFormSubmitEvent
-		extends SubmitAdapter
+		extends SubmitAdapter<AngularFormSubmitEvent>
 {
 	public AngularFormSubmitEvent(AngularForm component)
 	{

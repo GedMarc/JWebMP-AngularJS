@@ -2,7 +2,7 @@ jw.websocket = {};
 jw.websocket.connected = false;
 jw.websocket.pollTime = 5000;
 jw.websocket.pollCount = 1;
-jw.websocket.queuedMessages = [];
+//jw.websocket.queuedMessages = [];
 
 var wsAddy = jw.siteAddress.replace('https://', 'wss://');
 wsAddy = wsAddy.replace('http://', 'ws://');
