@@ -60,6 +60,9 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
             }
         } else {
             newEvent.type = 'async';
+            newEvent.parameters = getParametersObject();
+            newEvent.localStorage = jw.localstorage;
+            newEvent.sessionStorage = jw.sessionstorage;
             if(compID !== undefined && compID !== null)
                 newEvent.componentID = compID;
             else {
