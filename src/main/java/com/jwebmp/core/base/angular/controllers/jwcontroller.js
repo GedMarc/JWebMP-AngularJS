@@ -48,6 +48,8 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
             newEvent.target = $event.target.id;
             newEvent.which = $event.which;
             newEvent.parameters = getParametersObject();
+            newEvent.localStorage = jw.localstorage;
+            newEvent.sessionStorage = jw.sessionstorage;
             newEvent.attributes = {};
             if(newEvent.componentID !== undefined)
             {
