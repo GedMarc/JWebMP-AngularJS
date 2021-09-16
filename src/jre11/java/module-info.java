@@ -120,9 +120,65 @@ module com.jwebmp.core.angularjs {
 
 	provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.core.base.angular.AngularPageConfigurator;
 
+	exports com.jwebmp.core.base.angular.servlets;
 	opens com.jwebmp.core.base.angular.servlets to com.google.guice, com.fasterxml.jackson.databind;
+	exports com.jwebmp.core.base.angular.implementations;
 	opens com.jwebmp.core.base.angular.implementations to com.google.guice, com.fasterxml.jackson.databind, com.jwebmp.core;
-
+	
+	
+	exports com.jwebmp.core.base.angular.directives.events.response;
+	exports com.jwebmp.core.base.angular.directives.events.activate;
+	exports com.jwebmp.core.base.angular.directives.events.beforeactivate;
+	exports com.jwebmp.core.base.angular.directives.events.beforeclose;
+	exports com.jwebmp.core.base.angular.directives.events.beforeload;
+	exports com.jwebmp.core.base.angular.directives.events.beforestop;
+	exports com.jwebmp.core.base.angular.directives.events.blur;
+	exports com.jwebmp.core.base.angular.directives.events.buttonclick;
+	exports com.jwebmp.core.base.angular.directives.events.cancel;
+	exports com.jwebmp.core.base.angular.directives.events.change;
+	exports com.jwebmp.core.base.angular.directives.events.checked;
+	exports com.jwebmp.core.base.angular.directives.events.click;
+	exports com.jwebmp.core.base.angular.directives.events.close;
+	exports com.jwebmp.core.base.angular.directives.events.complete;
+	exports com.jwebmp.core.base.angular.directives.events.create;
+	exports com.jwebmp.core.base.angular.directives.events.deactivate;
+	exports com.jwebmp.core.base.angular.directives.events.drag;
+	exports com.jwebmp.core.base.angular.directives.events.dragstart;
+	exports com.jwebmp.core.base.angular.directives.events.dragstop;
+	exports com.jwebmp.core.base.angular.directives.events.drop;
+	exports com.jwebmp.core.base.angular.directives.events.dropout;
+	exports com.jwebmp.core.base.angular.directives.events.dropover;
+	exports com.jwebmp.core.base.angular.directives.events.focus;
+	exports com.jwebmp.core.base.angular.directives.events.keydown;
+	exports com.jwebmp.core.base.angular.directives.events.keypressed;
+	exports com.jwebmp.core.base.angular.directives.events.keyup;
+	exports com.jwebmp.core.base.angular.directives.events.load;
+	exports com.jwebmp.core.base.angular.directives.events.mousedown;
+	exports com.jwebmp.core.base.angular.directives.events.mouseenter;
+	exports com.jwebmp.core.base.angular.directives.events.mousemove;
+	exports com.jwebmp.core.base.angular.directives.events.mouseout;
+	exports com.jwebmp.core.base.angular.directives.events.mouseover;
+	exports com.jwebmp.core.base.angular.directives.events.mouseup;
+	exports com.jwebmp.core.base.angular.directives.events.open;
+	exports com.jwebmp.core.base.angular.directives.events.receive;
+	exports com.jwebmp.core.base.angular.directives.events.remove;
+	exports com.jwebmp.core.base.angular.directives.events.resize;
+	exports com.jwebmp.core.base.angular.directives.events.resizestart;
+	exports com.jwebmp.core.base.angular.directives.events.resizestop;
+	exports com.jwebmp.core.base.angular.directives.events.rightclick;
+	exports com.jwebmp.core.base.angular.directives.events.search;
+	exports com.jwebmp.core.base.angular.directives.events.select;
+	exports com.jwebmp.core.base.angular.directives.events.selected;
+	exports com.jwebmp.core.base.angular.directives.events.selecting;
+	exports com.jwebmp.core.base.angular.directives.events.slide;
+	exports com.jwebmp.core.base.angular.directives.events.sort;
+	exports com.jwebmp.core.base.angular.directives.events.spin;
+	exports com.jwebmp.core.base.angular.directives.events.start;
+	exports com.jwebmp.core.base.angular.directives.events.stop;
+	exports com.jwebmp.core.base.angular.directives.events.submit;
+	exports com.jwebmp.core.base.angular.directives.events.unselected;
+	exports com.jwebmp.core.base.angular.directives.events.update;
+	
 	opens com.jwebmp.core.base.angular.directives.events.response to com.google.guice, com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.core.base.angular.directives.events.activate to com.google.guice, com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.core.base.angular.directives.events.beforeactivate to com.google.guice, com.fasterxml.jackson.databind, com.jwebmp.core;
