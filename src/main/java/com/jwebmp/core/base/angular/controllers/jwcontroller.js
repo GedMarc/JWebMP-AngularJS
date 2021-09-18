@@ -103,8 +103,8 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
         article.eventTypeFrom = 'undefined';
         article.datetime = new Date();
         article.value = self.getEventObject(undefined,compID);
-        article.value.localStorage = jw.localstorage;
-        article.value.sessionStorage = jw.sessionstorage;
+        article.localStorage = jw.localstorage;
+        article.sessionStorage = jw.sessionstorage;
         article.eventId = compID;
         article.className = className;
         if (window.location.hash)
