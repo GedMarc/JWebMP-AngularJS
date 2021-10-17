@@ -37,6 +37,28 @@
             <groupId>com.guicedee</groupId>
             <artifactId>guiced-injection</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.guicedee.services</groupId>
+            <artifactId>undertow-websockets-jsr</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.guicedee.services</groupId>
+            <artifactId>guice-servlet</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.guicedee.servlets</groupId>
+            <artifactId>guiced-websockets</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.guicedee.services</groupId>
+            <artifactId>undertow-core</artifactId>
+        </dependency>
+
+
     </dependencies>
     <scm>
         <url>https://github.com/GedMarc/JWebMP-AngularJS.git</url>

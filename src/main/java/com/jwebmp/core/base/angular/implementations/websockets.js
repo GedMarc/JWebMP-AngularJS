@@ -4,9 +4,9 @@ jw.websocket.pollTime = 5000;
 jw.websocket.pollCount = 1;
 //jw.websocket.queuedMessages = [];
 
-var wsAddy = jw.siteAddress.replace('https://', 'wss://');
+var wsAddy = jw.rootAddress.replace('https://', 'wss://');
 wsAddy = wsAddy.replace('http://', 'ws://');
-jw.websocket.address = wsAddy + 'wssocket';
+jw.websocket.address = wsAddy + '/wssocket';
 jw.websocket.authdataproviders = [];
 
 
@@ -17,10 +17,9 @@ jw.websocket.reconnect = function () {
     jw.websocket.connection.onmessage = function (e) {
         //console.log(e.data);
         try {
-            if(e !== undefined && e.data !== 'Ok') {
+            if (e !== undefined && e.data !== 'Ok') {
                 jw.actions.processResponse(JSON.parse(e.data), $scope, $parse, $timeout, $compile);
-                if (Pace)
-                {
+                if (Pace) {
                     Pace.stop();
                     $('body').removeClass('pace-running');
                 }
@@ -29,16 +28,15 @@ jw.websocket.reconnect = function () {
         } catch (e) {
             console.log('This doesn\'t look like a valid JSON: ' + e.data);
         }
-        if(e.data === 'Ok')
-        {
+        if (e.data === 'Ok') {
             jw.isLoading = false;
-            if(Pace) {
+            if (Pace) {
                 Pace.stop();
                 $('body').removeClass('pace-running');
             }
         }
         var cookies = document.cookie.split(";");
-        for(var i=0; i < cookies.length; i++) {
+        for (var i = 0; i < cookies.length; i++) {
             var equals = cookies[i].indexOf("=");
             var name = equals > -1 ? cookies[i].substr(0, equals) : cookies[i];
             document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
@@ -49,8 +47,8 @@ jw.websocket.reconnect = function () {
         console.log('Web Socket connected');
         jw.websocket.reconnectTimer.stop();
         jw.websocket.connected = true;
-    //    if (jw.websocket.timer)
-    //        jw.websocket.timer.start();
+        //    if (jw.websocket.timer)
+        //        jw.websocket.timer.start();
 
         WS_AUTH_DATA_PROVIDER_LOAD;
 
@@ -58,7 +56,7 @@ jw.websocket.reconnect = function () {
     };
 
     jw.websocket.connection.onclose = function (e) {
-        if(e !== undefined)
+        if (e !== undefined)
             console.log('on close ' + e);
         else
             console.log('on close - No Data Object');
@@ -84,15 +82,13 @@ jw.websocket.newMessage = function (type, data) {
     var news = {};
     news.action = type;
     news.data = data;
-    if(jw.sessionid && jw.sessionid[0])
+    if (jw.sessionid && jw.sessionid[0])
         news.data.sessionid = jw.sessionid[0].replace('JSESSIONID=', '');
 
-    if(jw.localstorage && jw.localstorage.jwamsmk)
-    {
+    if (jw.localstorage && jw.localstorage.jwamsmk) {
         news.data.jwamsmk = jw.localstorage.jwamsmk;
     }
-    if (Pace)
-    {
+    if (Pace) {
         Pace.restart();
     }
     jw.isLoading = true;
@@ -105,15 +101,13 @@ jw.websocket.newMessageNow = function (type, data) {
     var news = {};
     news.action = type;
     news.data = data;
-    if(jw.sessionid && jw.sessionid[0])
-      news.data.sessionid = jw.sessionid[0].replace('JSESSIONID=', '');
+    if (jw.sessionid && jw.sessionid[0])
+        news.data.sessionid = jw.sessionid[0].replace('JSESSIONID=', '');
 
-    if(jw.localstorage && jw.localstorage.jwamsmk)
-    {
+    if (jw.localstorage && jw.localstorage.jwamsmk) {
         news.data.jwamsmk = jw.localstorage.jwamsmk;
     }
-    if (Pace)
-    {
+    if (Pace) {
         Pace.restart();
     }
     jw.isLoading = true;
@@ -149,16 +143,13 @@ jw.websocket.timerobj = jw.websocket.timer.start();
 */
 
 
-
-
 jw.websocket.reconnectTimer = new DeltaTimer(function (time) {
     if (!jw.websocket.connected) {
-     //   jw.websocket.timer.stop();
+        //   jw.websocket.timer.stop();
         jw.websocket.reconnect();
         jw.websocket.pollCount++;
         jw.websocket.reconnectTimer.delay = Math.max(jw.websocket.pollCount * jw.websocket.pollTime, 0);
-    }
-    else {
+    } else {
         jw.websocket.pollCount = 1;
     }
 }, 10000, jw.websocket.reconnectTimer);

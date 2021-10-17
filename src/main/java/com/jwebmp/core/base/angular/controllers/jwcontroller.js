@@ -17,6 +17,8 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
     $scope.headers.referer = jw.referer;
     $scope.headers.myIP = jw.myIP;
 
+    $scope.jw = window.jw;
+
     /**
      * The event object that gets sent through
      * @param {type} $event jquery event
@@ -26,13 +28,39 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
     self.getEventObject = function ($event,compID) {
         var newEvent = {};
         if ($event !== undefined && $event !== null) {
+            for (const key in $event) {
+                if(key === 'relatedTarget' ||
+                    key === 'target' ||
+                    key === 'delegateTarget' ||
+                    key === 'toElement' ||
+                    key === 'fromElement' ||
+                    key === 'isDefaultPrevented' ||
+                    key === 'isPropagationStopped' ||
+                    key === 'isImmediatePropagationStopped' ||
+                    key === 'preventDefault' ||
+                    key === 'stopPropagation' ||
+                    key === 'stopImmediatePropagation' ||
+                    key === 'currentTarget' ||
+                    key === 'handleObj' ||
+                    key === 'view' ||
+                    key === 'originalEvent' ||
+                    key === 'constructor'
+                ) {
+                    continue;
+                }
+            //    console.log(key  + ' - ' +  $event[key] + '');
+                newEvent[key] = $event[key];
+            }
+
+            newEvent.componentID = $event.currentTarget.id;
+            /*
             newEvent.altKey = $event.altKey;
             newEvent.ctrlKey = $event.ctrlKey;
             newEvent.bubbles = $event.bubbles;
             newEvent.cancelable = $event.cancelable;
             newEvent.clientX = $event.clientX;
             newEvent.clientY = $event.clientY;
-            newEvent.componentID = $event.currentTarget.id;
+
             newEvent.detail = $event.detail;
             newEvent.eventPhase = $event.eventPhase;
             newEvent.metaKey = $event.metaKey;
@@ -44,9 +72,9 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
             newEvent.screenY = $event.screenY;
             newEvent.shiftKey = $event.shiftKey;
             newEvent.type = $event.type;
-            newEvent.data = $event.data;
+            newEvent.data = $event.data;*/
             newEvent.target = $event.target.id;
-            newEvent.which = $event.which;
+          //  newEvent.which = $event.which;
             newEvent.parameters = getParametersObject();
             newEvent.localStorage = jw.localstorage;
             newEvent.sessionStorage = jw.sessionstorage;
@@ -167,6 +195,7 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
         var eventStuff = self.getEventObject($event);
         var element = $event == null ? 'body' : $event.currentTarget.id;
         var article = self.makeEmptyArticle(element,className,dataVariables);
+
         article.eventType = eventStuff.type;
         article.eventTypeFrom = eventStuff.type;
         article.value = eventStuff;

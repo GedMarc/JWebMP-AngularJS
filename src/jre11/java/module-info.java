@@ -1,6 +1,6 @@
 import com.guicedee.guicedservlets.websockets.services.IWebSocketMessageReceiver;
 import com.jwebmp.core.base.angular.AngularWebSocketHeaderValuesEventConfigurator;
-import com.jwebmp.core.base.angular.implementations.AngularJSModuleInclusion;
+import com.jwebmp.core.base.angular.implementations.*;
 import com.jwebmp.core.base.angular.servlets.WebSocketAjaxCallReceiver;
 import com.jwebmp.core.events.IEventConfigurator;
 
@@ -20,7 +20,11 @@ module com.jwebmp.core.angularjs {
 	requires org.apache.commons.lang3;
 	requires jakarta.servlet;
 	requires com.guicedee.guicedservlets.websockets;
-
+	
+	requires transitive undertow.core;
+	requires transitive undertow.servlet;
+	requires undertow.websockets.jsr;
+	
 	exports com.jwebmp.core.base.angular;
 	exports com.jwebmp.core.base.angular.directives;
 	exports com.jwebmp.core.base.angular.controllers;
@@ -36,7 +40,9 @@ module com.jwebmp.core.angularjs {
 	provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleInclusions with AngularJSModuleInclusion;
 	
 	provides IWebSocketMessageReceiver with WebSocketAjaxCallReceiver;
-
+	
+	provides com.guicedee.guicedservlets.websockets.services.IWebSocketPreConfiguration with JWebMPGuicedUndertowWebSocketConfiguration;
+	
 	provides IEventConfigurator with AngularWebSocketHeaderValuesEventConfigurator;
 	
 	provides com.jwebmp.core.events.activate.IOnActivateService with com.jwebmp.core.base.angular.directives.events.activate.OnActivate;

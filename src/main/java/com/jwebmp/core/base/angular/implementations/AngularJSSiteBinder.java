@@ -16,16 +16,19 @@
  */
 package com.jwebmp.core.base.angular.implementations;
 
-import com.jwebmp.core.base.angular.servlets.AngularServlet;
-import com.guicedee.guicedinjection.json.StaticStrings;
-import com.guicedee.guicedservlets.services.GuiceSiteInjectorModule;
-import com.guicedee.guicedservlets.services.IGuiceSiteBinder;
-import com.guicedee.logger.LogFactory;
-import com.jwebmp.core.implementations.JWebMPJavaScriptDynamicScriptRenderer;
+import com.guicedee.guicedinjection.json.*;
+import com.guicedee.guicedservlets.services.*;
+import com.guicedee.logger.*;
+import com.jwebmp.core.annotations.*;
+import com.jwebmp.core.base.angular.servlets.*;
+import com.jwebmp.core.base.servlets.*;
+import com.jwebmp.core.implementations.*;
+import com.jwebmp.core.services.*;
 
-import java.util.logging.Level;
+import java.util.*;
+import java.util.logging.*;
 
-import static com.jwebmp.core.utilities.StaticStrings.ANGULAR_DATA_LOCATION;
+import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
  * @author GedMarc
@@ -39,7 +42,7 @@ public class AngularJSSiteBinder
 	 * Field log
 	 */
 	private static final java.util.logging.Logger log = LogFactory.getLog("AngularJSSiteBinder");
-
+	
 	/**
 	 * Gets the angular script location
 	 *
@@ -49,7 +52,7 @@ public class AngularJSSiteBinder
 	{
 		return com.jwebmp.core.utilities.StaticStrings.ANGULAR_SCRIPT_LOCATION;
 	}
-
+	
 	/**
 	 * Returns the angular data location
 	 *
@@ -59,21 +62,40 @@ public class AngularJSSiteBinder
 	{
 		return ANGULAR_DATA_LOCATION;
 	}
-
+	
 	/**
 	 * Method onBind ...
 	 *
-	 * @param module
-	 * 		of type GuiceSiteInjectorModule
+	 * @param module of type GuiceSiteInjectorModule
 	 */
 	@Override
 	public void onBind(GuiceSiteInjectorModule module)
 	{
+		for (Map.Entry<PageConfiguration, IPage<?>> entry : JWebMPSiteBinder.getPageConfigurations()
+		                                                                    .entrySet())
+		{
+			PageConfiguration pc = entry.getKey();
+			IPage<?> page = entry.getValue();
+			StringBuilder url = new StringBuilder(pc.url());
+			url = new StringBuilder(pc.url()
+			                          .substring(0, pc.url()
+			                                          .length() - 1) + ANGULAR_SCRIPT_LOCATION);
+			
+			url.insert(0, "(")
+			   .append(QUERY_PARAMETERS_REGEX)
+			   .append(")");
+			
+			module.serveRegex$(url.toString())
+			      .with(AngularServlet.class);
+			log.log(Level.FINE, "Serving Angular at {0}", url);
+		}
+		
+		
 		module.serveRegex$("(" + com.jwebmp.core.utilities.StaticStrings.ANGULAR_SCRIPT_LOCATION + ")" + StaticStrings.QUERY_PARAMETERS_REGEX)
 		      .with(AngularServlet.class);
 		AngularJSSiteBinder.log.log(Level.FINE, "Serving Angular JavaScript at {0}", com.jwebmp.core.utilities.StaticStrings.ANGULAR_SCRIPT_LOCATION);
-
+		
 		JWebMPJavaScriptDynamicScriptRenderer.renderJavascript = false;
-
+		
 	}
 }
