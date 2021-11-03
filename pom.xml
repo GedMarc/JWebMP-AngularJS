@@ -11,7 +11,7 @@
     <groupId>com.jwebmp.plugins.angular</groupId>
     <artifactId>jwebmp-plugins-angularjs</artifactId>
     <packaging>jar</packaging>
-
+    <version>0.0.0_0-SNAPSHOT</version>
     <name>JWebMP Angular JS</name>
     <description>Provides Angular JS Data Binding for JWebMP
     </description>
