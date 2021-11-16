@@ -27,6 +27,10 @@ jw.websocket.reconnect = function () {
             }
         } catch (e) {
             console.log('This doesn\'t look like a valid JSON: ' + e.data);
+            if(e.stack)
+            {
+                console.log(e.stack);
+            }
         }
         if (e.data === 'Ok') {
             jw.isLoading = false;
