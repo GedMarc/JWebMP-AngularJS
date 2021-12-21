@@ -101,16 +101,28 @@ JW_APP_NAME.controller('JW_APP_CONTROLLER', function ($scope
         return newEvent;
     };
 
+    var lastCall = undefined;
     self.makeCall = function(article){
+
+
         if(jw.websocket !== undefined && jw.websocket && jw.websocket.connected) {
             if (window.Pace) {
                 window.Pace.start();
                 jw.isLoading = true;
             }
             try {
-                jw.websocket.newMessage('ajax', {"article": JSON.stringify(article)});
+                var message = JSON.stringify(article);
+                if(lastCall !== message)
+                {
+                    jw.websocket.newMessage('ajax', {"article": message});
+                    lastCall = message;
+                }
+                else {
+                    //dedup
+                }
             }catch(e)
             {
+                console.log(e);
                 if (window.Pace) {
                     window.Pace.stop();
                     jw.isLoading = false;
