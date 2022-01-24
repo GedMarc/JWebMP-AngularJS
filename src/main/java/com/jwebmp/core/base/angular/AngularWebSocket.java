@@ -9,11 +9,14 @@ public class AngularWebSocket
 	public static void bindToGroup(IComponentHierarchyBase<?, ?> component, String websocketName, IJsonRepresentation<?> data)
 	{
 		component.asAttributeBase()
-		         .addAttribute("websocket", "");
+		         .addAttribute("websocketjw", "");
 		component.asAttributeBase()
-		         .addAttribute("websocketGroup", websocketName);
-		component.asAttributeBase()
-		         .addAttribute("websocketData", data.toJson(true));
+		         .addAttribute("websocketgroup", websocketName);
+		if (data != null)
+		{
+			component.asAttributeBase()
+			         .addAttribute("websocketdata", data.toJson(true));
+		}
 		
 		@SuppressWarnings("rawtypes")
 		ComponentHierarchyBase chb = (ComponentHierarchyBase) component;

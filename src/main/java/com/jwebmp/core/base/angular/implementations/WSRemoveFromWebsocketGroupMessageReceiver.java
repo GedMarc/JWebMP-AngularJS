@@ -19,7 +19,7 @@ public class WSRemoveFromWebsocketGroupMessageReceiver
 		try
 		{
 			String group = message.getData()
-			                      .get("websocketgroup");
+			                      .get("websocketGroup");
 			GuicedWebSocket.removeFromGroup(group, message.getSession());
 		}
 		catch (Exception e)
