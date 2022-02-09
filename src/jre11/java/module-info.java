@@ -25,7 +25,7 @@ module com.jwebmp.core.angularjs {
 	requires transitive undertow.servlet;
 	requires undertow.websockets.jsr;
 	requires jakarta.websocket.api;
-	
+
 	exports com.jwebmp.core.base.angular;
 	exports com.jwebmp.core.base.angular.directives;
 	exports com.jwebmp.core.base.angular.controllers;
@@ -108,7 +108,7 @@ module com.jwebmp.core.angularjs {
 	uses com.jwebmp.core.base.angular.services.IAngularFactory;
 
 	uses com.guicedee.guicedservlets.websockets.services.IWebSocketAuthDataProvider;
-
+	
 	provides com.jwebmp.core.base.angular.services.IAngularModule with com.jwebmp.core.base.angular.modules.AngularMessagesModule;
 	provides com.jwebmp.core.base.angular.services.IAngularController with com.jwebmp.core.base.angular.controllers.JWAngularController;
 

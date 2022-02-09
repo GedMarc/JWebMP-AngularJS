@@ -142,7 +142,8 @@
                     <include>**/*.xml</include>
                     <include>**/*.txt</include>
                 </includes>
-            </resource><resource>
+            </resource>
+            <resource>
                 <directory>jar-resources</directory>
                 <targetPath>${project.build.outputDirectory}/META-INF/resources/</targetPath>
                 <excludes>
@@ -154,6 +155,20 @@
                     <exclude>**/.bower.json</exclude>
                     <exclude>**/.gitignore</exclude>
                     <exclude>**/.jshint</exclude>
+                    <exclude>**/.jshint</exclude>
+                    <exclude>**/Gruntfile.js</exclude>
+                    <exclude>**/*.sh</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>node_modules</directory>
+                <targetPath>${project.build.outputDirectory}/META-INF/resources/node_modules</targetPath>
+                <excludes>
+                    <exclude>**/*.gzip</exclude>
+                    <exclude>**/*.md</exclude>
+                    <exclude>**/bower.json</exclude>
+                    <exclude>**/.bower.json</exclude>
+                    <exclude>**/.gitignore</exclude>
                     <exclude>**/.jshint</exclude>
                     <exclude>**/Gruntfile.js</exclude>
                     <exclude>**/*.sh</exclude>
