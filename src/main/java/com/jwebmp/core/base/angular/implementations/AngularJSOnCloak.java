@@ -13,6 +13,6 @@ public class AngularJSOnCloak
 	public void onCloak(ComponentDataBindingBase component)
 	{
 		component.addAttribute(AngularAttributes.ngCloak, StaticStrings.STRING_EMPTY);
-		AngularPageConfigurator.setRequired(true);
+		
 	}
 }

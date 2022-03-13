@@ -15,7 +15,7 @@ public class OnMouseUp
 		if (e.getComponent() != null)
 		{
 
-			AngularPageConfigurator.setRequired(true);
+			
 			e.getComponent().asAttributeBase().addAttribute(String.valueOf(AngularAttributes.ngMouseup), com.jwebmp.core.utilities.StaticStrings.STRING_ANGULAR_EVENT_START  + e.renderVariables() + StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 	}

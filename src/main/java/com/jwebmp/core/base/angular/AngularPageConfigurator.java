@@ -138,7 +138,7 @@ public class AngularPageConfigurator
 		AngularPageConfigurator.required = required;
 		if (required)
 		{
-			JQueryPageConfigurator.setRequired(true);
+			
 		}
 	}
 

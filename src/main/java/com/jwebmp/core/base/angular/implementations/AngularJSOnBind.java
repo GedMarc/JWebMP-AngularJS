@@ -15,7 +15,7 @@ public class AngularJSOnBind
 	@Override
 	public void onBind(@NotNull ComponentDataBindingBase component, String bindingValue)
 	{
-		AngularPageConfigurator.setRequired(true);
+		
 
 		if (Paragraph.class.isAssignableFrom(component.getClass()))
 		{
@@ -33,7 +33,7 @@ public class AngularJSOnBind
 
 	private void configureForParagraph(Paragraph paragraph, String bindingValue)
 	{
-		AngularPageConfigurator.setRequired(true);
+		
 		if (bindingValue.contains("{{"))
 		{
 			paragraph.setText(paragraph.getText(0) + bindingValue);
@@ -46,7 +46,7 @@ public class AngularJSOnBind
 
 	private void configureForInput(Input input, String bindingValue)
 	{
-		AngularPageConfigurator.setRequired(true);
+		
 		if (bindingValue != null)
 		{
 			input.addAttribute(AngularAttributes.ngModel, bindingValue);

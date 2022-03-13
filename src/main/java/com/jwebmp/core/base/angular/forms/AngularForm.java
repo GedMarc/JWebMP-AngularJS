@@ -62,8 +62,8 @@ public class AngularForm<J extends AngularForm<J>>
 	 */
 	public AngularForm()
 	{
-		JQueryPageConfigurator.setRequired(true);
-		AngularPageConfigurator.setRequired(true);
+		
+		
 		AngularMessagesModule.setMesssgesModuleEnabled(true);
 	}
 
