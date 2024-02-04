@@ -21,7 +21,7 @@ import com.jwebmp.core.Page;
 import com.jwebmp.core.base.angular.AngularReferenceBase;
 import com.jwebmp.core.base.angular.services.IAngularController;
 import com.jwebmp.core.base.angular.services.IAngularControllerScopeStatement;
-import com.guicedee.guicedinjection.json.StaticStrings;
+import com.guicedee.services.jsonrepresentation.json.StaticStrings;
 import com.guicedee.guicedinjection.GuiceContext;
 
 import com.jwebmp.core.base.html.Script;

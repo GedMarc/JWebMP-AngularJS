@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.update;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.update.IOnUpdateService;
-import com.guicedee.guicedinjection.json.StaticStrings;
+import com.guicedee.services.jsonrepresentation.json.StaticStrings;
 
 public class OnUpdate
 		implements IOnUpdateService<OnUpdate>

@@ -3,12 +3,12 @@ package com.jwebmp.core.base.angular.servlets;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import com.guicedee.guicedinjection.GuiceContext;
-import com.guicedee.guicedinjection.representations.IJsonRepresentation;
+import com.guicedee.services.jsonrepresentation.IJsonRepresentation;
 import com.guicedee.guicedservlets.services.scopes.CallScoper;
 import com.guicedee.guicedservlets.websockets.GuicedWebSocket;
 import com.guicedee.guicedservlets.websockets.options.WebSocketMessageReceiver;
 import com.guicedee.guicedservlets.websockets.services.IWebSocketMessageReceiver;
-import com.guicedee.logger.LogFactory;
+
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.ajax.*;
 import com.jwebmp.core.exceptions.InvalidRequestException;
@@ -22,8 +22,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static com.guicedee.guicedinjection.GuiceContext.get;
-import static com.guicedee.guicedinjection.json.StaticStrings.CHAR_DOT;
-import static com.guicedee.guicedinjection.json.StaticStrings.CHAR_UNDERSCORE;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.CHAR_DOT;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.CHAR_UNDERSCORE;
 import static com.jwebmp.interception.JWebMPInterceptionBinder.AjaxCallInterceptorKey;
 
 public class WebSocketAjaxCallReceiver

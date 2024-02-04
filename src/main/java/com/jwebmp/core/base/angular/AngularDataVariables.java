@@ -21,7 +21,7 @@ import com.jwebmp.core.Page;
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
 import com.jwebmp.core.base.servlets.JWDefaultServlet;
-import com.guicedee.guicedinjection.json.StaticStrings;
+import com.guicedee.services.jsonrepresentation.json.StaticStrings;
 import com.guicedee.guicedinjection.GuiceContext;
 import com.jwebmp.interception.services.DataCallIntercepter;
 

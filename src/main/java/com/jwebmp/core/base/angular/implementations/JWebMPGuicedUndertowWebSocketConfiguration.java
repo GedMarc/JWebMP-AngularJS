@@ -2,7 +2,7 @@ package com.jwebmp.core.base.angular.implementations;
 
 import com.guicedee.guicedservlets.websockets.*;
 import com.guicedee.guicedservlets.websockets.services.*;
-import com.guicedee.logger.*;
+
 import com.jwebmp.core.annotations.*;
 import com.jwebmp.core.implementations.*;
 import com.jwebmp.core.services.*;

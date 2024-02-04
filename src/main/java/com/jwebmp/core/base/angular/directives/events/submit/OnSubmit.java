@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.submit;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.submit.IOnSubmitService;
-import com.guicedee.guicedinjection.json.StaticStrings;
+import com.guicedee.services.jsonrepresentation.json.StaticStrings;
 
 public class OnSubmit
 		implements IOnSubmitService<OnSubmit>

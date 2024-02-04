@@ -18,7 +18,7 @@ package com.jwebmp.core.base.angular.servlets;
 
 import com.google.inject.Singleton;
 import com.guicedee.guicedinjection.GuiceContext;
-import com.guicedee.guicedinjection.json.StaticStrings;
+import com.guicedee.services.jsonrepresentation.json.StaticStrings;
 import com.jwebmp.core.Page;
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;

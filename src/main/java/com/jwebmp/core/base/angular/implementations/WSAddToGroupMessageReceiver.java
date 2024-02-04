@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.implementations;
 import com.guicedee.guicedservlets.websockets.*;
 import com.guicedee.guicedservlets.websockets.options.*;
 import com.guicedee.guicedservlets.websockets.services.*;
-import com.guicedee.logger.*;
+
 
 import java.util.*;
 import java.util.logging.*;

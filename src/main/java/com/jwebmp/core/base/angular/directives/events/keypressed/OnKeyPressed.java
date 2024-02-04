@@ -4,7 +4,7 @@ import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.base.angular.AngularPageConfigurator;
 import com.jwebmp.core.events.keypressed.IOnKeyPressedService;
-import com.guicedee.guicedinjection.json.StaticStrings;
+import com.guicedee.services.jsonrepresentation.json.StaticStrings;
 
 public class OnKeyPressed
 		implements IOnKeyPressedService<OnKeyPressed>

@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.dragstart;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.dragstart.IOnDragStartService;
-import com.guicedee.guicedinjection.json.StaticStrings;
+import com.guicedee.services.jsonrepresentation.json.StaticStrings;
 
 public class OnDragStart
 		implements IOnDragStartService<OnDragStart>

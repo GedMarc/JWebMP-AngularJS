@@ -18,7 +18,7 @@ package com.jwebmp.core.base.angular.configurations;
 
 import com.jwebmp.core.FileTemplates;
 import com.jwebmp.core.base.angular.services.IAngularConfigurationScopeStatement;
-import com.guicedee.guicedinjection.json.StaticStrings;
+import com.guicedee.services.jsonrepresentation.json.StaticStrings;
 import com.guicedee.guicedinjection.GuiceContext;
 
 import jakarta.validation.constraints.NotNull;

@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.selecting;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.selecting.IOnSelectingService;
-import com.guicedee.guicedinjection.json.StaticStrings;
+import com.guicedee.services.jsonrepresentation.json.StaticStrings;
 
 public class OnSelecting
 		implements IOnSelectingService<OnSelecting>

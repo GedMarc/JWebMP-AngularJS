@@ -1,4 +1,5 @@
-import com.guicedee.guicedservlets.websockets.services.*;
+import com.guicedee.guicedinjection.interfaces.IGuiceModule;
+import com.guicedee.guicedservlets.websockets.services.IWebSocketMessageReceiver;
 import com.jwebmp.core.base.angular.AngularWebSocketHeaderValuesEventConfigurator;
 import com.jwebmp.core.base.angular.implementations.*;
 import com.jwebmp.core.base.angular.servlets.WebSocketAjaxCallReceiver;
@@ -7,9 +8,11 @@ import com.jwebmp.core.events.IEventConfigurator;
 module com.jwebmp.core.angularjs {
 	requires transitive com.jwebmp.core;
 	
+	requires static lombok;
+	
 	requires jakarta.validation;
 	requires java.logging;
-	requires com.guicedee.logmaster;
+	
 	requires com.google.guice;
 	requires com.guicedee.guicedinjection;
 	requires com.google.guice.extensions.servlet;
@@ -24,8 +27,10 @@ module com.jwebmp.core.angularjs {
 	requires transitive undertow.core;
 	requires transitive undertow.servlet;
 	requires undertow.websockets.jsr;
-	requires jakarta.websocket.api;
-
+	requires jakarta.websocket;
+	requires jakarta.websocket.client;
+	requires com.guicedee.jsonrepresentation;
+	
 	exports com.jwebmp.core.base.angular;
 	exports com.jwebmp.core.base.angular.directives;
 	exports com.jwebmp.core.base.angular.controllers;
@@ -111,13 +116,16 @@ module com.jwebmp.core.angularjs {
 	
 	provides com.jwebmp.core.base.angular.services.IAngularModule with com.jwebmp.core.base.angular.modules.AngularMessagesModule;
 	provides com.jwebmp.core.base.angular.services.IAngularController with com.jwebmp.core.base.angular.controllers.JWAngularController;
-
-	provides com.guicedee.guicedinjection.interfaces.IGuiceDefaultBinder with com.jwebmp.core.base.angular.implementations.AngularJSServicesBindings;
+	
+	
+	provides IGuiceModule with AngularJSServicesBindings,AngularJSSiteBinder;
+	
+	//provides com.guicedee.guicedinjection.interfaces.IGuiceDefaultBinder with com.jwebmp.core.base.angular.implementations.AngularJSServicesBindings;
 
 	provides com.jwebmp.core.databind.IOnDataBindCloak with com.jwebmp.core.base.angular.implementations.AngularJSOnCloak;
 	provides com.jwebmp.core.databind.IOnDataBind with com.jwebmp.core.base.angular.implementations.AngularJSOnBind;
 
-	provides com.guicedee.guicedservlets.services.IGuiceSiteBinder with com.jwebmp.core.base.angular.implementations.AngularJSSiteBinder;
+	
 	provides com.jwebmp.core.services.IDynamicRenderingServlet with com.jwebmp.core.base.angular.implementations.AngularJSDynamicScriptRenderer;
 
 	provides com.jwebmp.core.base.angular.services.IAngularDirective with

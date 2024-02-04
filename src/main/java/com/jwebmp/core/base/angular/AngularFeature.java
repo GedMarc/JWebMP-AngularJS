@@ -28,9 +28,9 @@ import com.jwebmp.core.base.angular.services.IAngularController;
 import com.jwebmp.core.base.angular.services.IAngularDefaultService;
 import com.jwebmp.core.base.html.interfaces.HTMLFeatures;
 import com.jwebmp.core.exceptions.NullComponentException;
-import com.guicedee.guicedinjection.json.StaticStrings;
+import com.guicedee.services.jsonrepresentation.json.StaticStrings;
 import com.guicedee.guicedinjection.GuiceContext;
-import com.guicedee.logger.LogFactory;
+
 
 import jakarta.validation.constraints.NotNull;
 import java.util.*;

@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.mouseover;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.mouseover.IOnMouseOverService;
-import com.guicedee.guicedinjection.json.StaticStrings;
+import com.guicedee.services.jsonrepresentation.json.StaticStrings;
 
 public class OnMouseOver
 		implements IOnMouseOverService<OnMouseOver>

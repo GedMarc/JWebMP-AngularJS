@@ -1,19 +1,20 @@
 package com.jwebmp.core.base.angular.implementations;
 
+import com.google.inject.AbstractModule;
 import com.google.inject.Key;
 import com.google.inject.Singleton;
 import com.google.inject.TypeLiteral;
-import com.jwebmp.core.base.angular.services.*;
 import com.guicedee.guicedinjection.GuiceContext;
-import com.guicedee.guicedinjection.abstractions.GuiceInjectorModule;
-import com.guicedee.guicedinjection.interfaces.IGuiceDefaultBinder;
+import com.guicedee.guicedinjection.interfaces.IGuiceModule;
+import com.jwebmp.core.base.angular.services.*;
 
 import java.util.ServiceLoader;
 import java.util.Set;
 
 @SuppressWarnings({"Convert2Diamond", "MissingFieldJavaDoc", "rawtypes", "unchecked"})
 public class AngularJSServicesBindings
-		implements IGuiceDefaultBinder<AngularJSServicesBindings, GuiceInjectorModule>
+	extends AbstractModule
+		implements IGuiceModule<AngularJSServicesBindings>
 {
 
 	public static final Key<Set<IAngularDirective>> AngularDirectivesKey = Key.get(new TypeLiteral<Set<IAngularDirective>>() {});
@@ -26,33 +27,33 @@ public class AngularJSServicesBindings
 	public static final Key<Set<IAngularFactory>> AngularFactoryKey = Key.get(new TypeLiteral<Set<IAngularFactory>>() {});
 
 	@Override
-	public void onBind(GuiceInjectorModule module)
+	public void configure()
 	{
-		module.bind(AngularJSServicesBindings.AngularDirectivesKey)
+		bind(AngularJSServicesBindings.AngularDirectivesKey)
 		      .toProvider(() -> GuiceContext.instance()
 		                                    .getLoader(IAngularDirective.class, ServiceLoader.load(IAngularDirective.class)))
 		      .in(Singleton.class);
-		module.bind(AngularJSServicesBindings.AngularControllerScopeStatementsKey)
+		bind(AngularJSServicesBindings.AngularControllerScopeStatementsKey)
 		      .toProvider(() -> GuiceContext.instance()
 		                                    .getLoader(IAngularControllerScopeStatement.class, ServiceLoader.load(IAngularControllerScopeStatement.class)))
 		      .in(Singleton.class);
-		module.bind(AngularJSServicesBindings.AngularModulesKey)
+		bind(AngularJSServicesBindings.AngularModulesKey)
 		      .toProvider(() -> GuiceContext.instance()
 		                                    .getLoader(IAngularModule.class, ServiceLoader.load(IAngularModule.class)))
 		      .in(Singleton.class);
-		module.bind(AngularJSServicesBindings.AngularConfigurationScopeStatementKey)
+		bind(AngularJSServicesBindings.AngularConfigurationScopeStatementKey)
 		      .toProvider(() -> GuiceContext.instance()
 		                                    .getLoader(IAngularConfigurationScopeStatement.class, ServiceLoader.load(IAngularConfigurationScopeStatement.class)))
 		      .in(Singleton.class);
-		module.bind(AngularJSServicesBindings.AngularConfigurationKey)
+		bind(AngularJSServicesBindings.AngularConfigurationKey)
 		      .toProvider(() -> GuiceContext.instance()
 		                                    .getLoader(IAngularConfiguration.class, ServiceLoader.load(IAngularConfiguration.class)))
 		      .in(Singleton.class);
-		module.bind(AngularJSServicesBindings.AngularControllerKey)
+		bind(AngularJSServicesBindings.AngularControllerKey)
 		      .toProvider(() -> GuiceContext.instance()
 		                                    .getLoader(IAngularController.class, ServiceLoader.load(IAngularController.class)))
 		      .in(Singleton.class);
-		module.bind(AngularJSServicesBindings.AngularFactoryKey)
+		bind(AngularJSServicesBindings.AngularFactoryKey)
 		      .toProvider(() -> GuiceContext.instance()
 		                                    .getLoader(IAngularFactory.class, ServiceLoader.load(IAngularFactory.class)))
 		      .in(Singleton.class);

@@ -18,17 +18,13 @@
 package com.jwebmp.core.base.angular.forms;
 
 import com.jwebmp.core.base.angular.AngularAttributes;
-import com.jwebmp.core.base.angular.AngularPageConfigurator;
 import com.jwebmp.core.base.angular.modules.AngularMessagesModule;
 import com.jwebmp.core.base.html.Form;
 import com.jwebmp.core.base.html.Input;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
-import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
-import com.guicedee.guicedinjection.json.StaticStrings;
-
 import jakarta.validation.constraints.NotNull;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.*;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.*;
 
 /**
  * Attaches angular form control to a form tag for validation and constraints
@@ -166,7 +162,7 @@ public class AngularForm<J extends AngularForm<J>>
 	{
 		String finalOutput = STRING_BRACES_OPEN;
 
-		String formInputIdentifier = (prependClass.isEmpty() ? STRING_EMPTY : STRING_SPACE) + getFormID() + STRING_DOT + input.asBase().getID() + STRING_DOT;
+		String formInputIdentifier = (prependClass.isEmpty() ? STRING_EMPTY : STRING_SPACE) + getID() + STRING_DOT + input.asBase().getID() + STRING_DOT;
 
 		String errorOuput = prependClass + formInputIdentifier + "$invalid && " + formInputIdentifier + "$dirty && !" + formInputIdentifier + "$pristine";
 		errorOuput = "'" + getErrorClass() + "':" + errorOuput;

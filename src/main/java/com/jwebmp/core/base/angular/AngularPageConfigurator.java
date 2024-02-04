@@ -17,7 +17,7 @@
 package com.jwebmp.core.base.angular;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.guicedee.logger.LogFactory;
+
 import com.jwebmp.core.FileTemplates;
 import com.jwebmp.core.Page;
 import com.jwebmp.core.base.angular.services.FirePageOnConnectEvent;

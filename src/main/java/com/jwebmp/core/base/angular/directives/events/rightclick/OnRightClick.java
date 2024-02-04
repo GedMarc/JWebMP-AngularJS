@@ -3,7 +3,7 @@ package com.jwebmp.core.base.angular.directives.events.rightclick;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.events.rightclick.IOnRightClickService;
-import com.guicedee.guicedinjection.json.StaticStrings;
+import com.guicedee.services.jsonrepresentation.json.StaticStrings;
 
 public class OnRightClick
 		implements IOnRightClickService<OnRightClick>
